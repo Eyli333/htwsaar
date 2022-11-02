@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class rectangle {
     public static void main(String[] args){
-        double first = 0;
-        double sec = 0;
+        double first;
+        double sec;
         Scanner input = new Scanner(System.in);
-        System.out.print("Geben Sie die Länge der Seite a ein :");
+        System.out.print("Geben Sie die Länge der Seite a ein : ");
         first = input.nextDouble();
-        System.out.print("Geben Sie die Länge der Seite b ein :");
+        System.out.print("Geben Sie die Länge der Seite b ein : ");
         sec = input.nextDouble();
 
         double aire = first * sec;
