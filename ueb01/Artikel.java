@@ -9,13 +9,11 @@ public class Artikel {
 
 	public Artikel(int artikelNr, String art, int bestand) { // erster Konstruktor für Artikel
 		this.artikelNr = artikelNr;
-		this.artikelNr = artikelNr;
 		this.art = art;
 		this.bestand = bestand;
 	}
 
 	public Artikel(int artikelNr, String art) { // zweiter Konstruktor für Artikel
-		this.artikelNr = artikelNr;
 		this.artikelNr = artikelNr;
 		this.art = art;
 	}
