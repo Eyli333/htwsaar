@@ -15,19 +15,11 @@ public class Artikel {
 	}
 
 	public void bucheZugang(int menge){
-		this.bestand = this.bestand + menge;
+		this.bestand += menge;
 	}
 
 	public void bucheAbgang(int menge){
-		this.bestand = this.bestand - menge;
-	}
-
-	public void setBestand(int neuerBestand) {
-		this.bestand = neuerBestand;
-	}
-
-	public String toString() {
-		return "Artikel: " + artikelNr+ ", Art: " + art + ", Bestand: " + bestand;
+		this.bestand -= menge;
 	}
 
 	public String getArt(){
@@ -40,5 +32,13 @@ public class Artikel {
 
 	public int getBestand(){
 		return bestand;
+	}
+	
+	public void setBestand(int neuerBestand) {
+		this.bestand = neuerBestand;
+	}
+	
+	public String toString() {
+		return "Artikel: " + artikelNr+ ", Art: " + art + ", Bestand: " + bestand;
 	}
 }
