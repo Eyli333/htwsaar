@@ -81,9 +81,7 @@ public class Artikel {
 	
 	/*
 	 * Gibt die Werte der Attributen in einem String aus
-	 * @param artikelNr Die Nummer des Artikels
-	 * @param art Die Art des Artikels
-	 * @param bestand Der Bestand der Artikel
+	 * @return Gibt die werten : Artikelnummer, Artikelart und Artikelbestand
 	 */
 	public String toString() { 
 		return "Artikel: " + artikelNr+ ", Art: " + art + ", Bestand: " + bestand;
