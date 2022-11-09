@@ -1,89 +1,107 @@
 /**
- * Ein Programm fuer eine Artikel Klasse 
+ * <h1>Create Objects</h1>
+ * Allows the user to create objects with a number, 
+ * a type and a quantity. Then the user can interact 
+ * with his items using methods
+ * 
  * @author Victor Plage and David Glaser
- * @version 06.11.22
+ * @version 1.0.4
+ * @since 2022-11-04
  */
 public class Artikel {
 	private int artikelNr;
 	private int bestand;
 	private String art;
-
-
+	
 	/*
-	 * erster Konstruktor der Klasse Artikel
-	 * @param artikelNr Die Nummer des Artikels
-	 * @param art Die Art des Artikels
-	 * @param bestand Der Bestand der Artikel
+	 * This constructor is the main entry point for the Artikel class
+	 * @param artikelNr This is the first attribute of the class Artikel 
+	 * @param art This is the second attribute of the class Artikel
+	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public Artikel(int artikelNr, String art, int bestand) { 
 		this.artikelNr = artikelNr;
 		this.art = art;
 		this.bestand = bestand;
 	}
-
+	
+	
 	/*
-	 * zweiter Konstruktor der Klasse Artikel
-	 * @param artikelNr Die Nummer des Artikels
-	 * @param art Die Art des Artikels
+	 * This constructor is the second entry of the class Artikel
+	 * @param artikelNr This is the first attribute of the class Artikel 
+	 * @param art This is the second attribute of the class Artikel 
 	 */
 	public Artikel(int artikelNr, String art) { 
-		this.artikelNr = artikelNr;
-		this.art = art;
+		this(artikelNr, art, 0);
 	}
 
 	/*
-	 * Erhoeht den Wert des Bestandes
-	 * @param bestand Der Bestand der Artikel 
+	 * This methode is used to increase the value of the attribute bestand
+	 * @param bestand This is the third attribute of the class Artikel
 	 */
-	public void bucheZugang(int menge) { // Methode für den Zugang des Bestandes
+	public void bucheZugang(int menge) {
 		this.bestand += menge;
 	}
 
 	/*
-	 * Veringert den Wert des Bestandes
-	 * @param bestand Der Bestand der Artikel
+	 * This methode is used to decrease the value of the attribute bestand
+	 * @param bestand This is the third attribute of the class Artikel
 	 */
-	public void bucheAbgang(int menge) { // Methode für den Abgang des Bestandes
+	public void bucheAbgang(int menge) { 
 		this.bestand -= menge;
 	}
 
 	/*
-	 * Gibt den Wert des Attributes art aus
-	 * @param art Die art des Artikels
+	 * This methode is used to return the value of the attribute art
+	 * @param art This is the second attribute of the class Artikel
+	 * @return string This returns the value of art
 	 */
 	public String getArt() { 
 		return art;
 	}
 
 	/*
-	 * Gibt den Wert des Attributes artikelNr aus
-	 * @param artikelNr Die Nummer des Artikels
-	 */
-	public int getAttribute() { 
+	* This methode is used to return the value of the attribute artikelNr
+	* @param artikelNr This is the first attribute of the class Artikel
+	* @return string This returns the content of art
+	*/
+	public int getArtikel() { 
 		return artikelNr;
 	}
 
 	/*
-	 * Gibt den Wert des Attributes bestand aus
-	 * @param bestand Der Bestand der Artikel
+	 * This methode is used to return the value of the attribute bestand
+	 * @param bestand This is the third attribute of the class Artikel
+	 * @return int This returns the value of bestand
 	 */
 	public int getBestand() { 
 		return bestand;
 	}
 	
 	/*
-	 * Setzt den Wert des Attributes bestand
-	 * @param bestand Der Bestand der Artikel
+	 * This method is used to set the value of art
+	 * @param bestand This is the third attribute of the class Artikel
+	 */
+	public void setArt(int neuerArt) {
+		this.art = neuerArt;
+	}
+
+	/*
+	 * This method is used to set the value of bestand
+	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void setBestand(int neuerBestand) { 
 		this.bestand = neuerBestand;
 	}
 	
 	/*
-	 * Gibt die Werte der Attributen in einem String aus
-	 * @return Gibt die werten : Artikelnummer, Artikelart und Artikelbestand
+	 * This method is used to return the values of the attributes of the class Artikel
+	 * @param artikelNr This is the first attribute of the class Artikel 
+	 * @param art This is the second attribute of the class Artikel
+	 * @param bestand This is the third attribute of the class Artikel
+	 * @return string This returns the attributes artikelNr, art and bestand in a String
 	 */
 	public String toString() { 
-		return "Artikel: " + artikelNr+ ", Art: " + art + ", Bestand: " + bestand;
+		return "Artikel: " + artikelNr + ", Art: " + art + ", Bestand: " + bestand;
 	}
 }
