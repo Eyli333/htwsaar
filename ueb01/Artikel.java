@@ -82,7 +82,7 @@ public class Artikel {
 	 * This method is used to set the value of art
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
-	public void setArt(int neuerArt) {
+	public void setArt(String neuerArt) {
 		this.art = neuerArt;
 	}
 
