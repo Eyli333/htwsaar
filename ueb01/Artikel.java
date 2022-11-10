@@ -20,6 +20,13 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public Artikel(int artikelNr, String art, int bestand) { 
+		if (artikelNr < 0) {
+			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien");
+		} else if (art.strip().isEmpty()) {
+			throw new IllegalArgumentException("Art kann nicht leer seien");
+		} else if (bestand < 0 ) {
+			throw new IllegalArgumentException("Der Bestand kann nicht negativ seien");
+		} 
 		this.artikelNr = artikelNr;
 		this.art = art;
 		this.bestand = bestand;
@@ -48,6 +55,9 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void bucheAbgang(int menge) { 
+		if (this.bestand - menge < 0) {
+			throw new IllegalArgumentException("Der Bestand wurde nicht aktualisert, sonst ist der Bestand negativ");	
+		} 
 		this.bestand -= menge;
 	}
 
@@ -83,6 +93,9 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void setArt(String neuerArt) {
+		if (neuerArt.strip().isEmpty()) {
+			throw new IllegalArgumentException("Art kann nicht leer seien");	
+		}
 		this.art = neuerArt;
 	}
 
@@ -91,6 +104,9 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void setBestand(int neuerBestand) { 
+		if (neuerBestand < 0) {
+			throw new IllegalArgumentException("Der neue Bestand kann nicht negativ seien");
+		}
 		this.bestand = neuerBestand;
 	}
 	
