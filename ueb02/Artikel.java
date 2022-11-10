@@ -20,13 +20,11 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public Artikel(int artikelNr, String art, int bestand) { 
-		if (artikelNr < 0  || String.valueOf(artikelNr).length() !=4) { // si nb negatif plus grand que 4 ?
-			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien oder nicht vierstellig seien");
-		} else if (art.strip().isEmpty()) { 
-			throw new IllegalArgumentException("Art kann nicht leer seien");
-		} else if (bestand < 0 ) {
-			throw new IllegalArgumentException("Der Bestand kann nicht negativ seien");
-		} 
+
+		checkArtikelNr(artikelNr);
+		checkArt(art);
+		checkBestand(bestand);
+		
 		this.artikelNr = artikelNr;
 		this.art = art;
 		this.bestand = bestand;
@@ -61,7 +59,7 @@ public class Artikel {
 		if (this.bestand - menge < 0) {
 			throw new IllegalArgumentException("Der Bestand wurde nicht aktualisert, sonst ist der Bestand negativ");	
 		} 
-		this.bestand -= menge;
+		this.bestand -= Math.abs(menge);
 	}
 
 	/*
@@ -95,10 +93,8 @@ public class Artikel {
 	 * This method is use to set the value of ArtikelNr
 	 * @param ArtikelNr This is the first attribute of the class Artikel
 	 */
-	public void setArtikelNr(int neueArtikelNr) {// si nb negatif plus grand que 4 ?
-		if (neueArtikelNr < 0  || String.valueOf(neueArtikelNr).length() !=4) { 
-			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien oder nicht vierstellig seien");
-		}	
+	public void setArtikelNr(int neueArtikelNr) {
+		checkArtikelNr(neueArtikelNr);
 		this.artikelNr = neueArtikelNr;
 	}
 
@@ -107,9 +103,7 @@ public class Artikel {
 	 * @param bestand This is the second attribute of the class Artikel
 	 */
 	public void setBestand(int neuerBestand) { 
-		if (neuerBestand < 0) {
-			throw new IllegalArgumentException("Der neue Bestand kann nicht negativ seien");
-		}
+		checkBestand(neuerBestand);
 		this.bestand = neuerBestand;
 	}
 	
@@ -118,9 +112,7 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void setArt(String neuerArt) {
-		if (neuerArt.strip().isEmpty()) {
-			throw new IllegalArgumentException("Art kann nicht leer seien");	
-		}
+		checkArt(neuerArt);
 		this.art = neuerArt;
 	}
 
@@ -134,4 +126,36 @@ public class Artikel {
 	public String toString() { 
 		return "Artikel: " + artikelNr + ", Art: " + art + ", Bestand: " + bestand;
 	}
+
+	/*
+	 * This method is used to check if new Art variable can be used
+	 * @param inputArt This is the new Art that will be checked
+	 */
+	public void checkArt(String inputArt) {
+		if (inputArt.strip().isEmpty()) {
+			throw new IllegalArgumentException("Art kann nicht leer seien");	
+		}
+	}
+
+	/*
+	 * This method is used to check if new bestand variable can be used
+	 * @param inputBestand This is the new bestand that will be checked
+	 */
+	public void checkBestand(int inputBestand) {
+		if (inputBestand < 0) {
+			throw new IllegalArgumentException("Der neue Bestand kann nicht negativ seien");
+		}
+	}
+
+	/*
+	 * This method is used to check if new ArtikelNr variable can be used
+	 * @param inputArtikelNr This is the new ArtikelNr that will be checked
+	 */
+	public void checkArtikelNr(int inputArtikelNr) { 
+		if (inputArtikelNr < 0  || String.valueOf(inputArtikelNr).length() !=4) { 
+			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien oder nicht vierstellig seien");
+		}
+
+	}
+
 }
