@@ -20,9 +20,9 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public Artikel(int artikelNr, String art, int bestand) { 
-		if (artikelNr < 0) {
-			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien");
-		} else if (art.strip().isEmpty()) {
+		if (artikelNr < 0  || String.valueOf(artikelNr).length() !=4) { // si nb negatif plus grand que 4 ?
+			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien oder nicht vierstellig seien");
+		} else if (art.strip().isEmpty()) { 
 			throw new IllegalArgumentException("Art kann nicht leer seien");
 		} else if (bestand < 0 ) {
 			throw new IllegalArgumentException("Der Bestand kann nicht negativ seien");
@@ -47,6 +47,9 @@ public class Artikel {
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void bucheZugang(int menge) {
+		if (menge <= 0) {
+			throw new IllegalArgumentException("Die Menge kann nicht null oder negatif sein");
+		}
 		this.bestand += menge;
 	}
 
@@ -62,15 +65,6 @@ public class Artikel {
 	}
 
 	/*
-	 * This methode is used to return the value of the attribute art
-	 * @param art This is the second attribute of the class Artikel
-	 * @return string This returns the value of art
-	 */
-	public String getArt() { 
-		return art;
-	}
-
-	/*
 	* This methode is used to return the value of the attribute artikelNr
 	* @param artikelNr This is the first attribute of the class Artikel
 	* @return string This returns the content of art
@@ -80,12 +74,43 @@ public class Artikel {
 	}
 
 	/*
+	 * This methode is used to return the value of the attribute art
+	 * @param art This is the second attribute of the class Artikel
+	 * @return string This returns the value of art
+	 */
+	public String getArt() { 
+		return art;
+	}
+	
+	/*
 	 * This methode is used to return the value of the attribute bestand
 	 * @param bestand This is the third attribute of the class Artikel
 	 * @return int This returns the value of bestand
 	 */
 	public int getBestand() { 
 		return bestand;
+	}
+
+	/*
+	 * This method is use to set the value of ArtikelNr
+	 * @param ArtikelNr This is the first attribute of the class Artikel
+	 */
+	public void setArtikelNr(int neueArtikelNr) {// si nb negatif plus grand que 4 ?
+		if (neueArtikelNr < 0  || String.valueOf(neueArtikelNr).length() !=4) { 
+			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien oder nicht vierstellig seien");
+		}	
+		this.artikelNr = neueArtikelNr;
+	}
+
+	/*
+	 * This method is used to set the value of bestand
+	 * @param bestand This is the second attribute of the class Artikel
+	 */
+	public void setBestand(int neuerBestand) { 
+		if (neuerBestand < 0) {
+			throw new IllegalArgumentException("Der neue Bestand kann nicht negativ seien");
+		}
+		this.bestand = neuerBestand;
 	}
 	
 	/*
@@ -99,17 +124,6 @@ public class Artikel {
 		this.art = neuerArt;
 	}
 
-	/*
-	 * This method is used to set the value of bestand
-	 * @param bestand This is the third attribute of the class Artikel
-	 */
-	public void setBestand(int neuerBestand) { 
-		if (neuerBestand < 0) {
-			throw new IllegalArgumentException("Der neue Bestand kann nicht negativ seien");
-		}
-		this.bestand = neuerBestand;
-	}
-	
 	/*
 	 * This method is used to return the values of the attributes of the class Artikel
 	 * @param artikelNr This is the first attribute of the class Artikel 
