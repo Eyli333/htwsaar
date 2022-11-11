@@ -5,7 +5,7 @@
  * with his items using methods
  * 
  * @author Victor Plage and David Glaser
- * @version 1.0.4
+ * @version 1.1.0
  * @since 2022-11-04
  */
 public class Artikel {
@@ -159,3 +159,5 @@ public class Artikel {
 	}
 
 }
+
+// new class for dialogue
