@@ -13,7 +13,7 @@ public class Artikel {
 	private int bestand;
 	private String art;
 	
-	/*
+	/**
 	 * This constructor is the main entry point for the Artikel class
 	 * @param artikelNr This is the first attribute of the class Artikel 
 	 * @param art This is the second attribute of the class Artikel
@@ -31,7 +31,7 @@ public class Artikel {
 	}
 	
 	
-	/*
+	/**
 	 * This constructor is the second entry of the class Artikel
 	 * @param artikelNr This is the first attribute of the class Artikel 
 	 * @param art This is the second attribute of the class Artikel 
@@ -40,8 +40,8 @@ public class Artikel {
 		this(artikelNr, art, 0);
 	}
 
-	/*
-	 * This methode is used to increase the value of the attribute bestand
+	/**
+	 * This method is used to increase the value of the attribute bestand
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void bucheZugang(int menge) {
@@ -51,8 +51,8 @@ public class Artikel {
 		this.bestand += menge;
 	}
 
-	/*
-	 * This methode is used to decrease the value of the attribute bestand
+	/**
+	 * This method is used to decrease the value of the attribute bestand
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
 	public void bucheAbgang(int menge) { 
@@ -62,8 +62,8 @@ public class Artikel {
 		this.bestand -= Math.abs(menge);
 	}
 
-	/*
-	* This methode is used to return the value of the attribute artikelNr
+	/**
+	* This method is used to return the value of the attribute artikelNr
 	* @param artikelNr This is the first attribute of the class Artikel
 	* @return string This returns the content of art
 	*/
@@ -71,8 +71,8 @@ public class Artikel {
 		return artikelNr;
 	}
 
-	/*
-	 * This methode is used to return the value of the attribute art
+	/**
+	 * This method is used to return the value of the attribute art
 	 * @param art This is the second attribute of the class Artikel
 	 * @return string This returns the value of art
 	 */
@@ -80,8 +80,8 @@ public class Artikel {
 		return art;
 	}
 	
-	/*
-	 * This methode is used to return the value of the attribute bestand
+	/**
+	 * This method is used to return the value of the attribute bestand
 	 * @param bestand This is the third attribute of the class Artikel
 	 * @return int This returns the value of bestand
 	 */
@@ -89,7 +89,7 @@ public class Artikel {
 		return bestand;
 	}
 
-	/*
+	/**
 	 * This method is use to set the value of ArtikelNr
 	 * @param ArtikelNr This is the first attribute of the class Artikel
 	 */
@@ -98,7 +98,7 @@ public class Artikel {
 		this.artikelNr = neueArtikelNr;
 	}
 
-	/*
+	/**
 	 * This method is used to set the value of bestand
 	 * @param bestand This is the second attribute of the class Artikel
 	 */
@@ -107,7 +107,7 @@ public class Artikel {
 		this.bestand = neuerBestand;
 	}
 	
-	/*
+	/**
 	 * This method is used to set the value of art
 	 * @param bestand This is the third attribute of the class Artikel
 	 */
@@ -116,7 +116,7 @@ public class Artikel {
 		this.art = neuerArt;
 	}
 
-	/*
+	/**
 	 * This method is used to return the values of the attributes of the class Artikel
 	 * @param artikelNr This is the first attribute of the class Artikel 
 	 * @param art This is the second attribute of the class Artikel
@@ -127,7 +127,7 @@ public class Artikel {
 		return "Artikel: " + artikelNr + ", Art: " + art + ", Bestand: " + bestand;
 	}
 
-	/*
+	/**
 	 * This method is used to check if new Art variable can be used
 	 * @param inputArt This is the new Art that will be checked
 	 */
@@ -137,7 +137,7 @@ public class Artikel {
 		}
 	}
 
-	/*
+	/**
 	 * This method is used to check if new bestand variable can be used
 	 * @param inputBestand This is the new bestand that will be checked
 	 */
@@ -147,7 +147,7 @@ public class Artikel {
 		}
 	}
 
-	/*
+	/**
 	 * This method is used to check if new ArtikelNr variable can be used
 	 * @param inputArtikelNr This is the new ArtikelNr that will be checked
 	 */
@@ -159,5 +159,3 @@ public class Artikel {
 	}
 
 }
-
-// new class for dialogue

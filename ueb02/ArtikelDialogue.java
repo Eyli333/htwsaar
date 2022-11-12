@@ -10,7 +10,6 @@
  */
 
 /*  todo :
-	mettre les java doc commentaires
 	mettre to string quand changer quelque chose
 	mettre saut de ligne pour meilleur visibilité
  */
@@ -32,14 +31,23 @@ public class ArtikelDialogue {
 	private static final int ARKTIKEL_INFORMATION= 8;
 	private static final int EXIT = 9;
 
+	/**
+	 * This constructor is the main entry point for the ArtikelDialogue class
+	 */
 	public ArtikelDialogue(){
 		input = new Scanner(System.in);
 	}
 
+	/**
+	 * The main Funktion start a new ArtikelDialogue Objekt
+	 */
 	public static void main( String[] args) {
 		new ArtikelDialogue().start();
 	}
 
+	/** 
+	 * Main loop of the Programm
+	 */
 	public void start() {
 
 		artikel = null;
@@ -65,8 +73,11 @@ public class ArtikelDialogue {
 		input.close();
 	}
 
+	/**
+	 * This method is used to print the different choices
+	 */
 	public void menuAusgabe() {
-		System.out.println(
+		System.out.print("\n"+
 				ARTIKEL_MIT_BESTAND + " : Ein Artikel mit bestand anlegen\n" +
 				ARTIKEL_OHNE_BESTAND + " : Ein Artikel ohtne bestand anlegen\n" +
 				BUCHE_ZUGANG + " : Ein Zugang buchen\n" +
@@ -80,12 +91,20 @@ public class ArtikelDialogue {
 				);
 	} 
 
+	/**
+	 * This method is used to read the user input and return it
+	 * @return userInput as an Integer 
+	 */
 	public int eingabeLesen() {
 		int userInput = input.nextInt();
 		input.nextLine();
 		return userInput;
 	}
 
+	/**
+	 * This method is use to execute the user choice 
+	 * @param userInput The input from the user
+	 */
 	public void todo(int userInput) {
 		if (userInput == ARTIKEL_MIT_BESTAND) {
 			artikelMitBestandAnlegen();
@@ -110,101 +129,143 @@ public class ArtikelDialogue {
 		}
 	}
 
+
+	/**
+	 * This method is used to create a new Artikel 
+	 * It will ask the user to provide :
+	 * - artikelNr that must be an Integer with 4 digits
+	 * - art that must be a String
+	 * - bestand that must be an positive Integer
+	 */
 	public void artikelMitBestandAnlegen() {
 		if (artikel != null) {
 			System.out.println("Der Artikel existiert schon und kann nicht ueberchrieben werden");
 		} else {
-			System.out.println("Ein Artikel wird angelet");
+			System.out.println("\nEin Artikel wird angelet");
 
-			System.out.println("Artikelnummer ( ein positive Vierstelligezahl) : ");
+			System.out.print("Artikelnummer ( ein positive Vierstelligezahl) : ");
 			int artikelNr = input.nextInt();
 
-			System.out.println("Die Art des Artikels : ");
+			System.out.print("Die Art des Artikels : ");
 			String art = input.next();
 
-			System.out.println("Der Bestand des Artikels : ");
+			System.out.print("Der Bestand des Artikels : ");
 			int bestand = input.nextInt();
 
 			artikel = new Artikel( artikelNr, art, bestand);
 		}
 	}
 
+	/**
+	 * This method is used to create a new Artikel but without a bestand 
+	 * It will ask the user to provide :
+	 * - artikelNr that must be an Integer with 4 digits
+	 * - art that must be a String
+	 */
 	public void artikelOhneBestandAnlegen() {
 		if (artikel != null) {
 			System.out.println("Der Artikel existiert schon und kann nicht ueberchrieben werden");
 		} else {
-			System.out.println("Ein Artikel ohne bestand wird angelet");
+			System.out.println("\nEin Artikel ohne bestand wird angelet");
 
-			System.out.println("Artikelnummer ( ein positive Vierstelligezahl) : ");
+			System.out.print("Artikelnummer ( ein positive Vierstelligezahl) : ");
 			int artikelNr = input.nextInt();
 
-			System.out.println("Die Art des Artikels : ");
+			System.out.print("Die Art des Artikels : ");
 			String art = input.next();
 
 			artikel = new Artikel( artikelNr, art);
 		}
 	}
 
+	/**
+	 * This method is used to increase the value of the attribute bestand
+	 * It will ask the user to provide :
+	 * - menge that must be a positive Integer 
+	 */
 	public void bucheZugang() {
 		if (artikel == null) {
 			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
 		} else {
-			System.out.println("Wie viel soll zugelegt werden ?");
-			System.out.println(">>> ");
+			System.out.println("\nWie viel soll zugelegt werden ?");
+			System.out.print(">>> ");
 			int menge = input.nextInt();
 
 			artikel.bucheZugang(menge);
 		}
 	}
 
+	/**
+	 * This method is used to decrease the value of the attribute bestand
+	 * It will ask the user to provide :
+	 * - menge that must be a positive Integer 
+	 */
 	public void bucheAbgang() {
 		if (artikel == null) {
 			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
 		} else {
-			System.out.println("Wie viel soll abgenomen werden ?");
-			System.out.println(">>> ");
+			System.out.println("\nWie viel soll abgenomen werden ?");
+			System.out.print(">>> ");
 			int menge = input.nextInt();
 
 			artikel.bucheAbgang(menge);
 		}
 	}
 
+	/**
+	 * This method is use to set the value of ArtikelNr
+	 * It will ask the user to provide :
+	 * - artikelNr that must be an Integer with 4 digits
+	 */
 	public void artikelNummerSetzen() {
 		if (artikel == null) {
 			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
 		} else {
-			System.out.println("Was soll die neue Artikelnummer sein ( ein positive Vierstelligezahl) ?");
-			System.out.println(">>> ");
+			System.out.println("\nWas soll die neue Artikelnummer sein ( ein positive Vierstelligezahl) ?");
+			System.out.print(">>> ");
 			int neuerArtikelNr= input.nextInt();
 
 			artikel.setArtikelNr(neuerArtikelNr);
 		}
 	}
 
+	/**
+	 * This method is use to set the value of Bestand
+	 * It will ask the user to provide :
+	 * - bestand that must be an positive Integer
+	 */
 	public void bestandSetzen() {
 		if (artikel == null) {
 			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
 		} else {
-			System.out.println("Was soll der neuer Bestand sein ?");
-			System.out.println(">>> ");
+			System.out.println("\nWas soll der neuer Bestand sein ?");
+			System.out.print(">>> ");
 			int neuerBestand= input.nextInt();
 
 			artikel.setBestand(neuerBestand);;
 		}
 	}
 
+	/**
+	 * This method is use to set the value of Art 
+	 * It will ask the user to provide :
+	 * - art that must be a String
+	 */
 	public void artSetzen() {
 		if (artikel == null) {
 			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
 		} else {
-			System.out.println("Was soll die neue Art des Artikels sein ?");
-			System.out.println(">>> ");
+			System.out.println("\nWas soll die neue Art des Artikels sein ?");
+			System.out.print(">>> ");
 			String neuerArt= input.next();
 
 			artikel.setArt(neuerArt);
 		}
 	}
 	
+	/**
+	 * This method is used to return the values of the attributes of the class Artikel
+	 */
 	public void artikelInformation() {
 		if (artikel == null) {
 			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
