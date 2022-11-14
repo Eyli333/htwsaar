@@ -9,17 +9,12 @@
  * @since 2022-11-04
  */
 
-/*  todo :
-	mettre to string quand changer quelque chose
-	mettre saut de ligne pour meilleur visibilité
- */
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ArtikelDialogue {
+public class ArtikelDialog {
 	private Artikel artikel;
-	private Scanner input;
+	private Scanner scanner;
 
 	private static final int ARTIKEL_MIT_BESTAND = 1;
 	private static final int ARTIKEL_OHNE_BESTAND = 2;
@@ -32,17 +27,17 @@ public class ArtikelDialogue {
 	private static final int EXIT = 9;
 
 	/**
-	 * This constructor is the main entry point for the ArtikelDialogue class
+	 * This constructor is the main entry point for the ArtikelDialog class
 	 */
-	public ArtikelDialogue(){
-		input = new Scanner(System.in);
+	public ArtikelDialog(){
+		scanner = new Scanner(System.in);
 	}
 
 	/**
-	 * The main Funktion start a new ArtikelDialogue Objekt
+	 * The main Funktion start a new ArtikelDialog Objekt
 	 */
 	public static void main( String[] args) {
-		new ArtikelDialogue().start();
+		new ArtikelDialog().start();
 	}
 
 	/** 
@@ -62,7 +57,7 @@ public class ArtikelDialogue {
 				System.out.println(e);
 			} catch(InputMismatchException e) {
 				System.out.println(e);
-				input.nextLine();
+				scanner.nextLine();
 			} catch(Exception e) {
 				System.out.println(e);
 				e.printStackTrace(System.out);
@@ -70,7 +65,7 @@ public class ArtikelDialogue {
 
 		}
 
-		input.close();
+		scanner.close();
 	}
 
 	/**
@@ -79,14 +74,14 @@ public class ArtikelDialogue {
 	public void menuAusgabe() {
 		System.out.print("\n"+
 				ARTIKEL_MIT_BESTAND + " : Ein Artikel mit bestand anlegen\n" +
-				ARTIKEL_OHNE_BESTAND + " : Ein Artikel ohtne bestand anlegen\n" +
+				ARTIKEL_OHNE_BESTAND + " : Ein Artikel ohne bestand anlegen\n" +
 				BUCHE_ZUGANG + " : Ein Zugang buchen\n" +
 				BUCHE_ABGANG + " : Ein Abgang buchen\n" + 
 				ARTIKEL_NUMMMER_SETZEN + " : Eine Artikelnummer setzen\n" +
 				BESTAND_SETZEN + " : Ein Bestand setzen\n" +
 				ART_SETZEN + " : Die Art setzen\n" +
-				ARKTIKEL_INFORMATION + " : Die Attributen des Artkiles\n" +
-				EXIT + " : Das Programm enden\n" +
+				ARKTIKEL_INFORMATION + " : Die Attribute des Artikels anzeigen\n" +
+				EXIT + " : Das Programm beenden\n" +
 				">>> "
 				);
 	} 
@@ -96,8 +91,8 @@ public class ArtikelDialogue {
 	 * @return userInput as an Integer 
 	 */
 	public int eingabeLesen() {
-		int userInput = input.nextInt();
-		input.nextLine();
+		int userInput = scanner.nextInt();
+		scanner.nextLine();
 		return userInput;
 	}
 
@@ -139,18 +134,18 @@ public class ArtikelDialogue {
 	 */
 	public void artikelMitBestandAnlegen() {
 		if (artikel != null) {
-			System.out.println("Der Artikel existiert schon und kann nicht ueberchrieben werden");
+			System.out.println("Das Artikel existiert bereits und kann nicht ueberchrieben werden");
 		} else {
-			System.out.println("\nEin Artikel wird angelet");
+			System.out.println("\nEin Artikel wird angelegt");
 
-			System.out.print("Artikelnummer ( ein positive Vierstelligezahl) : ");
-			int artikelNr = input.nextInt();
+			System.out.print("Artikelnummer (eine positive vierstellige Zahl) : ");
+			int artikelNr = scanner.nextInt();
 
 			System.out.print("Die Art des Artikels : ");
-			String art = input.next();
+			String art = scanner.next();
 
 			System.out.print("Der Bestand des Artikels : ");
-			int bestand = input.nextInt();
+			int bestand = scanner.nextInt();
 
 			artikel = new Artikel( artikelNr, art, bestand);
 		}
@@ -164,15 +159,15 @@ public class ArtikelDialogue {
 	 */
 	public void artikelOhneBestandAnlegen() {
 		if (artikel != null) {
-			System.out.println("Der Artikel existiert schon und kann nicht ueberchrieben werden");
+			System.out.println("Das Artikel existiert schon und kann nicht ueberchrieben werden");
 		} else {
 			System.out.println("\nEin Artikel ohne bestand wird angelet");
 
-			System.out.print("Artikelnummer ( ein positive Vierstelligezahl) : ");
-			int artikelNr = input.nextInt();
+			System.out.print("Artikelnummer (eine positive Vierstelligezahl) : ");
+			int artikelNr = scanner.nextInt();
 
 			System.out.print("Die Art des Artikels : ");
-			String art = input.next();
+			String art = scanner.next();
 
 			artikel = new Artikel( artikelNr, art);
 		}
@@ -185,11 +180,12 @@ public class ArtikelDialogue {
 	 */
 	public void bucheZugang() {
 		if (artikel == null) {
-			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
+			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
 		} else {
-			System.out.println("\nWie viel soll zugelegt werden ?");
+			System.out.println("\nWie viel soll hinzugefuegt werden ?");
 			System.out.print(">>> ");
-			int menge = input.nextInt();
+			int menge = scanner.nextInt();
 
 			artikel.bucheZugang(menge);
 		}
@@ -202,11 +198,12 @@ public class ArtikelDialogue {
 	 */
 	public void bucheAbgang() {
 		if (artikel == null) {
-			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
+			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
 		} else {
-			System.out.println("\nWie viel soll abgenomen werden ?");
+			System.out.println("\nWie viel soll abgezogen werden ?");
 			System.out.print(">>> ");
-			int menge = input.nextInt();
+			int menge = scanner.nextInt();
 
 			artikel.bucheAbgang(menge);
 		}
@@ -219,11 +216,12 @@ public class ArtikelDialogue {
 	 */
 	public void artikelNummerSetzen() {
 		if (artikel == null) {
-			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
+			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
 		} else {
-			System.out.println("\nWas soll die neue Artikelnummer sein ( ein positive Vierstelligezahl) ?");
+			System.out.println("\nGeben Sie die neue Artikelnummer ein (eine positive Vierstelligezahl) :");
 			System.out.print(">>> ");
-			int neuerArtikelNr= input.nextInt();
+			int neuerArtikelNr= scanner.nextInt();
 
 			artikel.setArtikelNr(neuerArtikelNr);
 		}
@@ -236,11 +234,12 @@ public class ArtikelDialogue {
 	 */
 	public void bestandSetzen() {
 		if (artikel == null) {
-			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
+			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
 		} else {
-			System.out.println("\nWas soll der neuer Bestand sein ?");
+			System.out.println("\nGeben Sie den neuen Bestand ein :");
 			System.out.print(">>> ");
-			int neuerBestand= input.nextInt();
+			int neuerBestand= scanner.nextInt();
 
 			artikel.setBestand(neuerBestand);;
 		}
@@ -253,11 +252,12 @@ public class ArtikelDialogue {
 	 */
 	public void artSetzen() {
 		if (artikel == null) {
-			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
+			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
 		} else {
-			System.out.println("\nWas soll die neue Art des Artikels sein ?");
+			System.out.println("\nGeben Sie die neue Art des Artikels ein :");
 			System.out.print(">>> ");
-			String neuerArt= input.next();
+			String neuerArt= scanner.next();
 
 			artikel.setArt(neuerArt);
 		}
@@ -268,7 +268,8 @@ public class ArtikelDialogue {
 	 */
 	public void artikelInformation() {
 		if (artikel == null) {
-			System.out.println("Der Artikel existiert nicht. 1 oder 2 wählen um ein Artikel zu erstellen");
+			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
 		} else {
 			System.out.println(artikel.toString());
 		}
