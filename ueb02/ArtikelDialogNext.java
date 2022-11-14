@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ArtkelDialog {
+public class ArtikelDialogNext{
 	private Artikel artikel;
 	private Scanner scanner;
 
@@ -33,7 +33,7 @@ public class ArtkelDialog {
 	/**
 	 * This constructor is the main entry point for the ArtikelDialog class
 	 */
-	public ArtkelDialog(){
+	public ArtikelDialogNext(){
 		scanner = new Scanner(System.in);
 	}
 
@@ -41,7 +41,7 @@ public class ArtkelDialog {
 	 * The main Funktion start a new ArtikelDialog Objekt
 	 */
 	public static void main( String[] args) {
-		new ArtkelDialog().start();
+		new ArtikelDialogNext().start();
 	}
 
 	/** 
