@@ -153,7 +153,7 @@ public class Artikel {
 	 */
 	public void checkArtikelNr(int inputArtikelNr) { 
         	if (inputArtikelNr < 1000  || String.valueOf(inputArtikelNr).length() != 4) { 
-           		throw new IllegalArgumentException("Die Artikelnummer muss eine vierstellige positive Zahl sein");
+           		throw new IllegalArgumentException("Die Artikelnummer muss groesser als 1000 und eine positive vierstellige Zahl sein");
 		}
 	}
     }
