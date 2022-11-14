@@ -143,7 +143,7 @@ public class Artikel {
 	 */
 	public void checkBestand(int inputBestand) {
 		if (inputBestand < 0) {
-			throw new IllegalArgumentException("Der neue Bestand kann nicht negativ seien");
+			throw new IllegalArgumentException("Der Bestand kann nicht negativ seien");
 		}
 	}
 

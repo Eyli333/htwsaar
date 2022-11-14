@@ -92,7 +92,6 @@ public class ArtikelDialog {
 	 */
 	public int eingabeLesen() {
 		int userInput = scanner.nextInt();
-		scanner.nextLine();
 		return userInput;
 	}
 
