@@ -100,26 +100,28 @@ public class ArtikelDialog {
 	 * @param userInput The input from the user
 	 */
 	public void todo(int userInput) {
-		if (userInput == ARTIKEL_MIT_BESTAND) {
-			artikelMitBestandAnlegen();
-		} else if (userInput == ARTIKEL_OHNE_BESTAND) {
-			artikelOhneBestandAnlegen();
-		} else if ( userInput == BUCHE_ZUGANG) {
-			bucheZugang();
-		} else if ( userInput == BUCHE_ABGANG) {
-			bucheAbgang();
-		} else if ( userInput == ARTIKEL_NUMMMER_SETZEN) {
-			artikelNummerSetzen();
-		} else if ( userInput == BESTAND_SETZEN) {
-			bestandSetzen();
-		} else if ( userInput == ART_SETZEN) {
-			artSetzen();
-		} else if ( userInput == ARKTIKEL_INFORMATION) {
-			artikelInformation();
-		} else if ( userInput == EXIT) {
-			System.out.println("Das Programm wird beendet");
-		} else {
-			System.out.println(userInput + " ist keine gültige Nummer");
+
+		switch (userInput) {
+			case ARTIKEL_MIT_BESTAND: artikelMitBestandAnlegen();
+			break;
+			case ARTIKEL_OHNE_BESTAND: artikelOhneBestandAnlegen();
+			break;
+			case BUCHE_ZUGANG: bucheZugang();
+			break;
+			case BUCHE_ABGANG: bucheAbgang();
+			break;
+			case ARTIKEL_NUMMMER_SETZEN: artikelNummerSetzen();
+			break;
+			case BESTAND_SETZEN: bestandSetzen();
+			break;
+			case ART_SETZEN: artSetzen();
+			break;
+			case ARKTIKEL_INFORMATION: artikelInformation();
+			break;
+			case EXIT: System.out.println("Das Programm wird beendet");
+			break;
+			default: System.out.println(userInput + " ist keine gültige Nummer");
+			break;
 		}
 	}
 
