@@ -46,7 +46,7 @@ public class Artikel {
 	 */
 	public void bucheZugang(int menge) {
 		if (menge <= 0) {
-			throw new IllegalArgumentException("Die Menge kann nicht null oder negatif sein");
+			throw new IllegalArgumentException("Die Menge kann nicht leer oder negatif sein");
 		}
 		this.bestand += menge;
 	}
@@ -57,7 +57,7 @@ public class Artikel {
 	 */
 	public void bucheAbgang(int menge) { 
 		if (this.bestand - menge < 0) {
-			throw new IllegalArgumentException("Der Bestand wurde nicht aktualisert, sonst ist der Bestand negativ");	
+			throw new IllegalArgumentException("Der Bestand wurde nicht aktualisert. Geben Sie einen positiven Bestand ein.");	
 		} 
 		this.bestand -= Math.abs(menge);
 	}
@@ -133,7 +133,7 @@ public class Artikel {
 	 */
 	public void checkArt(String inputArt) {
 		if (inputArt.strip().isEmpty()) {
-			throw new IllegalArgumentException("Art kann nicht leer seien");	
+			throw new IllegalArgumentException("Art kann nicht leer sein");	
 		}
 	}
 
@@ -143,7 +143,7 @@ public class Artikel {
 	 */
 	public void checkBestand(int inputBestand) {
 		if (inputBestand < 0) {
-			throw new IllegalArgumentException("Der Bestand kann nicht negativ seien");
+			throw new IllegalArgumentException("Der Bestand kann nicht negativ sein");
 		}
 	}
 
@@ -153,7 +153,7 @@ public class Artikel {
 	 */
 	public void checkArtikelNr(int inputArtikelNr) { 
 		if (inputArtikelNr < 0  || String.valueOf(inputArtikelNr).length() !=4) { 
-			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien oder nicht vierstellig seien");
+			throw new IllegalArgumentException("Die Artikelnummer kann nicht negativ seien und muss vierstellig sein");
 		}
 
 	}
