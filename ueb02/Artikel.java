@@ -46,7 +46,7 @@ public class Artikel {
 	 */
 	public void bucheZugang(int menge) {
 		if (menge <= 0) {
-			throw new IllegalArgumentException("Die Menge kann nicht null oder negatif sein");
+			throw new IllegalArgumentException("Die Menge kann nicht null oder negativ sein");
 		}
 		this.bestand += menge;
 	}
@@ -57,7 +57,7 @@ public class Artikel {
 	 */
 	public void bucheAbgang(int menge) { 
 		if (this.bestand - menge < 0) {
-			throw new IllegalArgumentException("Der Bestand wurde nicht aktualisert, sonst ist der Bestand negativ");	
+			throw new IllegalArgumentException("Der Bestand wurde nicht aktualisert, denn der Wert ist negativ");	
 		} 
 		this.bestand -= Math.abs(menge);
 	}
