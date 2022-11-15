@@ -5,7 +5,7 @@
  * with his items using methods
  * 
  * @author Victor Plage and David Glaser
- * @version 1.1.0
+ * @version 1.1.1
  * @since 2022-11-04
  */
 public class Artikel {
