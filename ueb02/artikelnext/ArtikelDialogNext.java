@@ -1,3 +1,5 @@
+package artikelnext;
+
 /**
  * <h1>Dialogue to Create Objects</h1>
  * Allows the user to create objects with a number, 
