@@ -1,4 +1,3 @@
-package htwsaar.Utils;
 import java.util.Scanner;
 
 class EingabeUtils {
