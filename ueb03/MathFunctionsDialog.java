@@ -112,7 +112,7 @@ public class MathFunctionsDialog{
 		System.out.print("Teilersumme: ");
 		long zahl = EingabeUtils.slong();
 
-		System.out.println(MathFunctions.berechneTeilersumme(zahl));
+		System.out.println("Die Summe aller möglichen Teiler: " + MathFunctions.berechneTeilersumme(zahl));
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class MathFunctionsDialog{
 		System.out.print("ISBN: ");
 		long zahl = EingabeUtils.slong();
 
-		System.out.println(MathFunctions.berechneChecksummeIsbn(zahl));
+		System.out.println("Die errechnete Prüfziffer: " + MathFunctions.berechneChecksummeIsbn(zahl));
 	}
 
 	/**
