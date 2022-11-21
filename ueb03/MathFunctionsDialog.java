@@ -10,11 +10,9 @@
  */
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class MathFunctionsDialog{
-	private Scanner scanner;
-
+	
 	private static final int BERECHNE_TEILERSUMME = 1;
 	private static final int BERECHNER_CHECKSUMME_ISBN = 2;
 	private static final int BERECHNER_NULLSTELLEN = 3;
@@ -28,7 +26,6 @@ public class MathFunctionsDialog{
 	 * This constructor is the main entry point for the ArtikelDialog class
 	 */
 	public MathFunctionsDialog(){
-		scanner = new Scanner(System.in);
 	}
 
 	/**
@@ -54,7 +51,6 @@ public class MathFunctionsDialog{
 				System.out.println(e);
 			} catch(InputMismatchException e) {
 				System.out.println(e);
-				scanner.nextLine();
 			} catch(Exception e) {
 				System.out.println(e);
 				e.printStackTrace(System.out);
@@ -62,7 +58,6 @@ public class MathFunctionsDialog{
 
 		}
 
-		scanner.close();
 	}
 
 	/**
@@ -83,7 +78,7 @@ public class MathFunctionsDialog{
 	 * @return userInput as an Integer 
 	 */
 	public int eingabeLesen() {
-		int userInput = scanner.nextInt();
+		int userInput = EingabeUtils.sint();
 		return userInput;
 	}
 
@@ -115,7 +110,7 @@ public class MathFunctionsDialog{
 	public void berechneTeilersumme() {
 
 		System.out.print("Teilerzumme : ");
-		long zahl = scanner.nextLong();
+		long zahl = EingabeUtils.slong();
 
 		System.out.println(MathFunctions.berechneTeilersumme(zahl));
 	}
@@ -128,7 +123,7 @@ public class MathFunctionsDialog{
 	public void berechneChecksummeIsbn() {
 
 		System.out.print("Isbn : ");
-		long zahl = scanner.nextLong();
+		long zahl = EingabeUtils.slong();
 
 		System.out.println(MathFunctions.berechneChecksummeIsbn(zahl));
 	}
@@ -142,10 +137,10 @@ public class MathFunctionsDialog{
 	public void berechneNullstellen() {
 
 		System.out.print("p : ");
-		double p = scanner.nextDouble();
+		double p = EingabeUtils.sdouble();
 
 		System.out.print("q : ");
-		double q = scanner.nextDouble();
+		double q = EingabeUtils.sdouble();
 
 		System.out.println(MathFunctions.berechneNullstellen(p, q));
 	}

@@ -10,7 +10,7 @@
 
 public class MathFunctions{
 
-	//private static final double DELTA_NUL = 0.01;
+	private static final double DELTA_NUL = 0.000000001;
 
 
 	/**
@@ -64,20 +64,21 @@ public class MathFunctions{
      	*/
 	public static String berechneNullstellen (double p, double q) {
 		double d = Math.pow(p/2,2) - q;
-		//if (d >= -DELTA_NUL && d < DELTA_NUL) {
-		if (d == 0.0) {
-			return "Komplexe Nullstellen";
-		}
-		if (d == 0.0) {
+		if (d >= -DELTA_NUL && d < DELTA_NUL) {
 			double x1 = -p/2 + Math.sqrt(d);
 
 			return "Doppelte Nullstelle: " + x1;
+
+		} else if (d < 0.0) {
+			
+			return "Komplexe Nullstellen";
+			
+		} else {
+			double x1 = -p/2 + Math.sqrt(d);
+			double x2 = -p/2 - Math.sqrt(d);
+		
+			return "Zwei Nullstellen: " + x1 + "|" + x2;
 		}
-
-		double x1 = -p/2 + Math.sqrt(d);
-		double x2 = -p/2 - Math.sqrt(d);
-
-		return "Zwei Nullstellen: " + x1 + "|" + x2;
 	}
 
 	/**

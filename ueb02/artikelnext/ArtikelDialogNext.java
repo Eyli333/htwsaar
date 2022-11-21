@@ -1,5 +1,3 @@
-package artikelnext;
-
 /**
  * <h1>Dialogue to Create Objects</h1>
  * Allows the user to create objects with a number, 
@@ -96,12 +94,12 @@ public class ArtikelDialogNext{
 		int groesse = artikels.size();
 		System.out.println("Sie haben " + groesse + " Artikel, welches wohlen sie auswaehlen (geben Sie die Artikelnummer ein) ?");
 		for (Artikel artikel : artikels){
-		    System.out.println(artikel.getArtikel());
+		    System.out.println(artikel.getArtikelNr());
 		}
 		int value = eingabeLesen();
 
 		for(int i = 0; i < groesse; i++) {
-		    if(artikels.get(i).getArtikel() == value) {
+		    if(artikels.get(i).getArtikelNr() == value) {
 			return i;
 		    }
 		}
