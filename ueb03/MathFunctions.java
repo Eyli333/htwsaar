@@ -20,7 +20,7 @@ public class MathFunctions{
 	 * @return  the sum of the divisor
 	 */
 	public static long berechneTeilersumme (long zahl) {
-		validateTeilersummeZahl(zahl);
+		checkTeilersummeZahl(zahl);
 
 		long sum = 0;
 		for (long i = 1; i<zahl+1; i++) {
@@ -38,7 +38,7 @@ public class MathFunctions{
 	 * @return X if the cheked digit is 10 else the value of the digit 
 	 */
 	public static String berechneChecksummeIsbn(long isbn) {
-		validateIsbnInput(isbn);
+		checkIsbnInput(isbn);
 		
 		long result = 0;
 		long isbn_mod = isbn;
@@ -86,7 +86,7 @@ public class MathFunctions{
 	* valid is or not
      	* @param zahl the value with wich we will make the calculation with
      	*/
-	public static void validateTeilersummeZahl(long zahl) {
+	public static void checkTeilersummeZahl(long zahl) {
 		if (zahl<1) {
 		    	throw new IllegalArgumentException("Die Zahl kann nicht negativ oder 0 sein.");
 		}
@@ -96,7 +96,7 @@ public class MathFunctions{
      	* This method is used to check if the value giving for isbn is isbn-10
      	* @param isbn the value with wich we will make the calculation with
      	*/
-	public static void validateIsbnInput(long isbn) {
+	public static void checkIsbnInput(long isbn) {
 		if (100000000L > isbn || isbn > 1000000000L) {
 		    	throw new IllegalArgumentException("Der ISBN muss 9 Ziffern lang sein");
 		}
