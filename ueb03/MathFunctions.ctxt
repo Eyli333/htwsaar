@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=MathFunctions
+comment0.text=\n\ <h1>Create\ Objects</h1>\n\ Allows\ the\ user\ to\ use\ MathFunctions\n\ to\ make\ some\ calculation\n\ \n\ @author\ Victor\ Plage\ and\ David\ Glaser\n\ @version\ 1.0.0\n\ @since\ 2022-11-16\n
+comment1.params=zahl
+comment1.target=long\ berechneTeilersumme(long)
+comment1.text=\n\ Calculate\ the\ sum\ of\ the\ divisor\ for\ a\ number\n\ and\ return\ it\ as\ a\ long\n\ @param\ take\ the\ number\ as\ a\ long\n\ @return\ \ the\ sum\ of\ the\ divisor\n
+comment2.params=isbn
+comment2.target=java.lang.String\ berechneChecksummeIsbn(long)
+comment2.text=\n\ Check\ if\ the\ isbn\ number\ giving\ is\ a\ valid\ one\ \n\ It\ just\ check\ for\ ISBN-10\n\ @param\ \ take\ the\ isbn\ number\ as\ a\ long\n\ @return\ X\ if\ the\ cheked\ digit\ is\ 10\ else\ the\ value\ of\ the\ digit\ \n
+comment3.params=p\ q
+comment3.target=java.lang.String\ berechneNullstellen(double,\ double)
+comment3.text=\n\ This\ method\ is\ used\ to\ Determine\ the\ zeros\ of\ a\ quadratic\ \ \n\ quadratic\ equation\ and\ return\ them\ as\ a\ formatted\ string\n\ @param\ p\ is\ the\ first\ value\ as\ a\ double\n\ @param\ q\ is\ the\ second\ value\ as\ a\ double\n\ @return\ x1,\ x1\ and\ x2\ or\ nothing\n
+comment4.params=zahl
+comment4.target=void\ validateTeilersummeZahl(long)
+comment4.text=\n\ This\ method\ is\ used\ to\ check\ if\ the\ value\ giving\ for\ berechneTeilersumme\n\ valid\ is\ or\ not\n\ @param\ zahl\ the\ value\ with\ wich\ we\ will\ make\ the\ calculation\ with\n
+comment5.params=isbn
+comment5.target=void\ validateIsbnInput(long)
+comment5.text=\n\ This\ method\ is\ used\ to\ check\ if\ the\ value\ giving\ for\ isbn\ is\ isbn-10\n\ @param\ isbn\ the\ value\ with\ wich\ we\ will\ make\ the\ calculation\ with\n
+numComments=6

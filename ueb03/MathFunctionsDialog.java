@@ -95,9 +95,9 @@ public class MathFunctionsDialog{
 			break;
 			case BERECHNER_NULLSTELLEN: berechneNullstellen();
 			break;
-			case EXIT_INT: System.out.println("Das Programm wird beendet");
+			case EXIT_INT: System.out.println("Das Programm wird beendet!");
 			break;
-			default: System.out.println(userInput + " ist keine gültige Nummer");
+			default: System.out.println(userInput + " ist keine gültige Nummer!");
 			break;
 		}
 	}
@@ -109,7 +109,7 @@ public class MathFunctionsDialog{
 	 */
 	public void berechneTeilersumme() {
 
-		System.out.print("Teilerzumme : ");
+		System.out.print("Teilersumme: ");
 		long zahl = EingabeUtils.slong();
 
 		System.out.println(MathFunctions.berechneTeilersumme(zahl));
@@ -122,7 +122,7 @@ public class MathFunctionsDialog{
 	 */
 	public void berechneChecksummeIsbn() {
 
-		System.out.print("Isbn : ");
+		System.out.print("ISBN: ");
 		long zahl = EingabeUtils.slong();
 
 		System.out.println(MathFunctions.berechneChecksummeIsbn(zahl));
@@ -136,10 +136,10 @@ public class MathFunctionsDialog{
 	 */
 	public void berechneNullstellen() {
 
-		System.out.print("p : ");
+		System.out.print("p: ");
 		double p = EingabeUtils.sdouble();
 
-		System.out.print("q : ");
+		System.out.print("q: ");
 		double q = EingabeUtils.sdouble();
 
 		System.out.println(MathFunctions.berechneNullstellen(p, q));

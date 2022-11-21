@@ -42,7 +42,7 @@ public class MathFunctions{
 		
 		long result = 0;
 		long isbn_mod = isbn;
-		for (int i = 9; i>0;i--) {
+		for (int i = 9; i > 0; i--) {
 			long j = isbn_mod % 10; // convert to int j
 			isbn_mod = isbn_mod / 10;
 			result += j*i;
@@ -63,7 +63,7 @@ public class MathFunctions{
 	* @return x1, x1 and x2 or nothing
      	*/
 	public static String berechneNullstellen (double p, double q) {
-		double d = Math.pow(p/2,2) - q;
+		double d = Math.pow(p/2, 2) - q;
 		if (d >= -DELTA_NUL && d < DELTA_NUL) {
 			double x1 = -p/2 + Math.sqrt(d);
 
@@ -88,7 +88,7 @@ public class MathFunctions{
      	*/
 	public static void validateTeilersummeZahl(long zahl) {
 		if (zahl<1) {
-		    	throw new IllegalArgumentException("Die Zahl kann nicht negativ oder 0 sein");
+		    	throw new IllegalArgumentException("Die Zahl kann nicht negativ oder 0 sein.");
 		}
 	}
 
@@ -98,7 +98,7 @@ public class MathFunctions{
      	*/
 	public static void validateIsbnInput(long isbn) {
 		if (100000000L > isbn || isbn > 1000000000L) {
-		    	throw new IllegalArgumentException("Der Isbn muss 9 ziffern lang sein");
+		    	throw new IllegalArgumentException("Der ISBN muss 9 Ziffern lang sein");
 		}
 	}
 }
