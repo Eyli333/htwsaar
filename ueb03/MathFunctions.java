@@ -84,7 +84,7 @@ public class MathFunctions{
      	*/
 	public static void validateTeilersummeZahl(long zahl) {
 		if (zahl<1) {
-		    	throw new IllegalArgumentException("Der Bestand kann nicht negativ oder 0 sein");
+		    	throw new IllegalArgumentException("Die Zahl kann nicht negativ oder 0 sein");
 		}
 	}
 
@@ -94,7 +94,7 @@ public class MathFunctions{
      	*/
 	public static void validateIsbnInput(long isbn) {
 		if (100000000L > isbn || isbn > 1000000000L) {
-		    	throw new IllegalArgumentException("Der Bestand muss 9 ziffern lang sein");
+		    	throw new IllegalArgumentException("Der Isbn muss 9 ziffern lang sein");
 		}
 	}
 }
