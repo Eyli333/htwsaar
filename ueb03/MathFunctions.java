@@ -10,6 +10,8 @@
 
 public class MathFunctions{
 
+	//private static final double DELTA_NUL = 0.01;
+
 
 	/**
 	 * Calculate the sum of the divisor for a number
@@ -62,7 +64,8 @@ public class MathFunctions{
      	*/
 	public static String berechneNullstellen (double p, double q) {
 		double d = Math.pow(p/2,2) - q;
-		if (d < 0.0) {
+		//if (d >= -DELTA_NUL && d < DELTA_NUL) {
+		if (d == 0.0) {
 			return "Komplexe Nullstellen";
 		}
 		if (d == 0.0) {
