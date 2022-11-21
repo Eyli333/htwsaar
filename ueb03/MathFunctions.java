@@ -94,7 +94,7 @@ public class MathFunctions{
 
 	/**
      	* This method is used to check if the value giving for isbn is isbn-10
-     	* @param isbn the value with wich we will make the calculation with
+     	* @param isbn the value with wich we will make the calculation with 
      	*/
 	public static void checkIsbnInput(long isbn) {
 		if (100000000L > isbn || isbn > 1000000000L) {
