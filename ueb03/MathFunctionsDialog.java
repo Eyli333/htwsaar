@@ -106,7 +106,7 @@ public class MathFunctionsDialog{
 				// System.out.println("Das Programm wird beendet!");
 				// break;
 			// default: 
-				// System.out.println(userInput + " ist keine gültige Nummer!");
+				// System.out.println(userInput + " ist keine gueltige Nummer!");
 				// break;
 		// }
 		if(userInput == BERECHNE_TEILERSUMME){
@@ -123,7 +123,7 @@ public class MathFunctionsDialog{
 			System.out.println("Das Programm wird beendet!");
 		}
 		else {
-			System.out.println(userInput + " ist keine gültige Nummer!");
+			System.out.println(userInput + " ist keine gueltige Nummer!");
 		}
 	}
 
@@ -137,7 +137,9 @@ public class MathFunctionsDialog{
 		System.out.print("Teilersumme: ");
 		long zahl = EingabeUtils.scanLong(scanner);
 
-		System.out.println("Die Summe aller möglichen Teiler: " + MathFunctions.berechneTeilersumme(zahl));
+		long result = MathFunctions.berechneTeilersumme(zahl);
+
+		System.out.println("Die Summe aller moeglichen Teiler: " + result);
 	}
 
 	/**
@@ -153,7 +155,7 @@ public class MathFunctionsDialog{
 
 		String result = MathFunctions.berechneChecksummeIsbn(zahl);
 
-		System.out.println("Die errechnete Prüfziffer: " + result);
+		System.out.println("Die errechnete Pruefziffer: " + result);
 	}
 
 	/**

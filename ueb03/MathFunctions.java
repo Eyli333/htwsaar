@@ -17,6 +17,7 @@ public class MathFunctions{
 	private static final int nine = 9;
 	private static final int ten = 10;
 	private static final int eleven = 11;
+	private static final long isbnNumber = 1000000000L;
 
 	/**
 	 * Calculate the sum of the divisor for a number
@@ -38,7 +39,7 @@ public class MathFunctions{
 				}
 			}
 		}
-		return sum + 1;
+		return sum + one;
 	}
 
 	/**
@@ -74,9 +75,10 @@ public class MathFunctions{
      	*/
 	public static String berechneNullstellen (double p, double q) {
 		double d = Math.pow(p/2, 2) - q;
+		double x = -p/2 + Math.sqrt(d);
 		if (d >= -DELTA_NUL && d < DELTA_NUL) {
-			double x1 = -p/2 + Math.sqrt(d);
-
+			double x1 = x;
+ 
 			return "Doppelte Nullstelle: " + x1;
 
 		} else if (d < 0.0) {
@@ -84,7 +86,7 @@ public class MathFunctions{
 			return "Komplexe Nullstellen";
 			
 		} else {
-			double x1 = -p/2 + Math.sqrt(d);
+			double x1 = x;
 			double x2 = -p/2 - Math.sqrt(d);
 		
 			return "Zwei Nullstellen: " + x1 + "|" + x2;
@@ -97,7 +99,7 @@ public class MathFunctions{
      	* @param zahl the value with wich we will make the calculation with
      	*/
 	public static void checkTeilersummeZahl(long zahl) {
-		if (zahl<1) {
+		if (zahl < one) {
 		    	throw new IllegalArgumentException("Die Zahl kann nicht negativ oder 0 sein.");
 		}
 	}
@@ -107,7 +109,7 @@ public class MathFunctions{
      	* @param isbn the value with wich we will make the calculation with 
      	*/
 	public static void checkIsbnInput(long isbn) {
-		if (100000000L > isbn || isbn > 1000000000L) {
+		if (isbnNumber > isbn || isbn > isbnNumber) {
 		    	throw new IllegalArgumentException("Der ISBN muss 9 Ziffern lang sein");
 		}
 	}
