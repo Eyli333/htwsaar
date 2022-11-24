@@ -13,7 +13,6 @@ public class MathFunctions{
 	private static final double DELTA_NUL = 0.000000001;
 	private static final int zero = 0;
 	private static final int one = 1;
-	private static final int two = 2;
 	private static final int nine = 9;
 	private static final int ten = 10;
 	private static final int eleven = 11;
@@ -28,18 +27,26 @@ public class MathFunctions{
 	public static long berechneTeilersumme (long zahl) {
 		checkTeilersummeZahl(zahl);
 
-		long maxD = (int)Math.sqrt(zahl);
-    	long sum = zero;
-		for(int i = two; i <= maxD; i++) {
-			if(zahl % i == 0) {
-				if(i == zahl / i){
-					sum += i;
+		// Final result of summation of divisors
+		int result = zero;
+
+		// find all divisors which divides 'num'
+		for (int i = one; i <= Math.sqrt(zahl); i++) {
+			// if 'i' is divisor of 'num'
+			if (zahl % i == zero) {
+				// if both divisors are same then
+				// add it only once else add both
+				if (i == (zahl / i)){
+					result += i;
 				} else {
-					sum += i + zahl / i;
+					result += (i + zahl / i);
 				}
 			}
 		}
-		return sum + one;
+
+		// Add 1 to the result as 1 is also
+		// a divisor
+		return (result);
 	}
 
 	/**
