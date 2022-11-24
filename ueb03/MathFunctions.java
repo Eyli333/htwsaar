@@ -11,7 +11,12 @@
 public class MathFunctions{
 
 	private static final double DELTA_NUL = 0.000000001;
-
+	private static final int zero = 0;
+	private static final int one = 1;
+	private static final int two = 2;
+	private static final int nine = 9;
+	private static final int ten = 10;
+	private static final int eleven = 11;
 
 	/**
 	 * Calculate the sum of the divisor for a number
@@ -22,13 +27,18 @@ public class MathFunctions{
 	public static long berechneTeilersumme (long zahl) {
 		checkTeilersummeZahl(zahl);
 
-		long sum = 0;
-		for (long i = 1; i<zahl+1; i++) {
-			if (zahl % i == 0) {
-				sum += i;
+		long maxD = (int)Math.sqrt(zahl);
+    	long sum = zero;
+		for(int i = two; i <= maxD; i++) {
+			if(zahl % i == 0) {
+				if(i == zahl / i){
+					sum += i;
+				} else {
+					sum += i + zahl / i;
+				}
 			}
 		}
-		return sum;
+		return sum + 1;
 	}
 
 	/**
@@ -40,16 +50,16 @@ public class MathFunctions{
 	public static String berechneChecksummeIsbn(long isbn) {
 		checkIsbnInput(isbn);
 		
-		long result = 0;
-		long isbn_mod = isbn;
-		for (int i = 9; i > 0; i--) {
-			long j = isbn_mod % 10; // convert to int j
-			isbn_mod = isbn_mod / 10;
-			result += j*i;
+		long result = zero;
+		long isbnMod = isbn;
+		for (int i = nine; i > zero; i--) {
+			long j = isbnMod % ten; // convert to int j
+			isbnMod = isbnMod / ten;
+			result += j * i;
 
 		}
-		result = result % 11;
-		if (result == 10) {
+		result = result % eleven;
+		if (result == ten) {
 			return "X";
 		}
 		return Long.toString(result);

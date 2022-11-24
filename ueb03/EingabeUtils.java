@@ -1,53 +1,90 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class EingabeUtils {
-    public static String sstring(){
+public class EingabeUtils {
+    public static Scanner scanOpen(){
         Scanner scanner = new Scanner(System.in);
-        String userinput = scanner.next();
-        scanner.nextLine();
-        scanner.close();
-        return userinput;
+        return scanner;
     }
-    public static int sint(){
-        Scanner scanner = new Scanner(System.in);
-        int userinput = scanner.nextInt();
-        scanner.nextLine();
-        scanner.close();
-        return userinput;
+    public static String scanString(Scanner scanner){
+        String userInput;
+        try {
+            userInput = scanner.next();
+            scanner.nextLine();
+        } catch (InputMismatchException e){
+            scanner.nextLine();
+            throw new IllegalArgumentException("Input has to be a String");
+        }
+        return userInput;
     }
-    public static long slong(){
-        Scanner scanner = new Scanner(System.in);
-        long userinput = scanner.nextLong();
-        scanner.nextLine();
-        scanner.close();
-        return userinput;
+    public static int scanInt(Scanner scanner){
+        int userInput;
+        try {
+            userInput = scanner.nextInt();
+            scanner.nextLine();
+        } catch (InputMismatchException e){
+            scanner.nextLine();
+            throw new IllegalArgumentException("Input has to be an Integer");
+        }
+        return userInput;
     }
-    public static double sdouble(){
-        Scanner scanner = new Scanner(System.in);
-        double userinput = scanner.nextDouble();
-        scanner.nextLine();
-        scanner.close();
-        return userinput;
+    public static long scanLong(Scanner scanner){
+        long userInput;
+        try{
+            userInput = scanner.nextLong();
+            scanner.nextLine();
+        } catch (InputMismatchException e){
+            scanner.nextLine();
+            throw new IllegalArgumentException("Input has to be a Long");
+        }
+        return userInput;
     }
-    public static short sshort(){
-        Scanner scanner = new Scanner(System.in);
-        short userinput = scanner.nextShort();
-        scanner.nextLine();
-        scanner.close();
-        return userinput;
+    public static double scanDouble(Scanner scanner){
+        double userInput;
+        try{
+            userInput = scanner.nextDouble();
+            scanner.nextLine();
+        } catch (InputMismatchException e){
+            scanner.nextLine();
+            throw new IllegalArgumentException("Input has to be a Double");
+        }
+        return userInput;
     }
-    public static Float sFloat(){
-        Scanner scanner = new Scanner(System.in);
-        Float userinput = scanner.nextFloat();
-        scanner.nextLine();
-        scanner.close();
-        return userinput;
+    public static short scanShort(Scanner scanner){
+        short userInput;
+        try{
+            userInput = scanner.nextShort();
+            scanner.nextLine();
+        } catch (InputMismatchException e){
+            scanner.nextLine();
+            throw new IllegalArgumentException("Input has to be a Short");
+        }    
+        return userInput;
     }
-    public static Boolean sBoolean(){
-        Scanner scanner = new Scanner(System.in);
-        Boolean userinput = scanner.nextBoolean();
-        scanner.nextLine();
-        scanner.close();
-        return userinput;
+    public static Float scanFloat(Scanner scanner){
+        float userInput;
+        try{
+            userInput = scanner.nextFloat();
+            scanner.nextLine();
+        } catch (InputMismatchException e){
+            scanner.nextLine();
+            throw new IllegalArgumentException("Input has to be a Float");
+        }
+        return userInput;
+    }
+    public static Boolean scanBoolean(Scanner scanner){
+        boolean userInput; 
+        try{
+            userInput = scanner.nextBoolean();
+            scanner.nextLine();
+        } catch (InputMismatchException e){
+            scanner.nextLine();
+            throw new IllegalArgumentException("Input has to be a Boolean");
+        }
+        return userInput;
+    }
+    public static void scanClose(Scanner scanner){
+
+
     }
 }
