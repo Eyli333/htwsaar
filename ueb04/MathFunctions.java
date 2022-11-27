@@ -191,18 +191,18 @@ public class MathFunctions{
 		TestUtils.checkEqualZero(zahl);
 		TestUtils.checkIsNonNegativ(zahl);
 
-		double asdf = (double)zahl;
-		double sqrtZahlDouble = Math.sqrt(asdf);
-		double oneThirdSqrtZahlDouble = Math.round(Math.pow(zahl, 1/3));
-		double doubleSqrtZahlDouble = Math.sqrt(sqrtZahlDouble);
+		double doubleZahl = (double)zahl;
+		double squareRootZahlDouble = Math.sqrt(doubleZahl);
+		double cubeRootZahlDouble = Math.cbrt(doubleZahl);
+		double quarticRootZahlDouble = Math.sqrt(squareRootZahlDouble);
 
-		long sqrtZahl = (long)sqrtZahlDouble;
-		long oneThirdSqrtZahl = (long)oneThirdSqrtZahlDouble;
-		long doubleSqrtZahl = (long)doubleSqrtZahlDouble;
+		long squareRootZahl = (long)squareRootZahlDouble;
+		long cubeRootZahl = (long)cubeRootZahlDouble;
+		long quarticRootZahl = (long)quarticRootZahlDouble;
 
-		for (long i = 1; i <= doubleSqrtZahl;++i) {
-			for (long j = 1; j <= oneThirdSqrtZahl;++j) {
-				for (long k = 1; k <= sqrtZahl;++k) {
+		for (long i = 1; i <= quarticRootZahl; ++i) {
+			for (long j = 1; j <= cubeRootZahl; ++j) {
+				for (long k = 1; k <= squareRootZahl; ++k) {
 
 					double a = Math.pow((double)i, 4.0); 
 					double b = Math.pow((double)j, 3.0);
@@ -234,7 +234,6 @@ public class MathFunctions{
 			double over = Math.pow(x-1, i);
 			double under = i * Math.pow(x, i);
 			sum += over / under;
-			System.out.println(i);
 		}
 		return sum;
 	}

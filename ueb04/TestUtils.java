@@ -50,8 +50,8 @@ public class TestUtils {
     * @param zahl1 the first value with wich we will make the calculation
     * @param zahl2 the second value with wich we will make the calculation  
     */
-    public static void checkBothNumbersZero(int zahl1, int zahl2) {
-        if (zahl1 == 0 && zahl2 == 0) {
+    public static void checkBothNumbersZero(long zahl1, long zahl2) {
+        if (zahl1 == zero && zahl2 == zero) {
             throw new IllegalArgumentException("Eine der Zahlen kann nicht 0 sein.");
         }
     }
