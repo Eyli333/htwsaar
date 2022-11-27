@@ -218,8 +218,6 @@ public class MathFunctionsDialog{
 		// BigInteger result = MathFunctions.berechneFakultaet(zahl);
 
 		long result = MathFunctions.berechneFakultaet(zahl);
-		
-        System.out.println("The time taken by the function is " + elapsedTime + "ms");
 
 		System.out.println(result);
 	}
