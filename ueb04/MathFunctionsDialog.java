@@ -212,9 +212,10 @@ public class MathFunctionsDialog{
 	 * - zahl that must be a int
 	 */
 	public void berechneFakultaet(){
-		System.out.println("zahl: ");
-		int zahl = EingabeUtils.scanInt(scanner);
 
+		System.out.println("zahl: ");
+		
+		int zahl = EingabeUtils.scanInt(scanner);
 		// BigInteger result = MathFunctions.berechneFakultaet(zahl);
 
 		long result = MathFunctions.berechneFakultaet(zahl);
