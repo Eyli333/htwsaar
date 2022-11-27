@@ -6,5 +6,10 @@ public class TestUtils {
         if (zahl <= zero){
             throw new IllegalArgumentException("Die Zahl kann nicht negativ sein.");
         }
+    }    
+    public static void checkAboveTwentsix(long zahl){
+        if (zahl >= twentysix){
+            throw new IllegalArgumentException("Die Zahl kann nicht groesser als 26 sein.");
+        }
     }
 }
