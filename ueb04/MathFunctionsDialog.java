@@ -211,13 +211,15 @@ public class MathFunctionsDialog{
 	 * It will ask the user to provide :
 	 * - zahl that must be a int
 	 */
-	public void berechneFakultaet() {
-
-		System.out.print("The value of Zahl : ");
-		
+	public void berechneFakultaet(){
+		System.out.println("zahl: ");
 		int zahl = EingabeUtils.scanInt(scanner);
 
+		// BigInteger result = MathFunctions.berechneFakultaet(zahl);
+
 		long result = MathFunctions.berechneFakultaet(zahl);
+		
+        System.out.println("The time taken by the function is " + elapsedTime + "ms");
 
 		System.out.println(result);
 	}
