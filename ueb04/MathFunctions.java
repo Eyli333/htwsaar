@@ -138,35 +138,23 @@ public class MathFunctions{
      	* @param zahl is the value as a int
 	* @return sum as the result of the factorial as a long
      	*/
-	public static BigInteger berechneFakultaet(long zahl){
+	public static long berechneFakultaet(long zahl){
 
 		TestUtils.checkIsNonNegativ(zahl);
 
-		if (zahl == 0 || zahl == 1) {
-			return BigInteger.valueOf(1);
+		if (zahl == zero zahl ==1) {
+			return one;
 		}
-		
-		else if (zahl < 26) {
 
-				long sum = 1;
+		long sum = one;
 
-			while (zahl > 1) {
-				sum *= zahl; 
-				zahl-= 1;
-			}
-
-			return BigInteger.valueOf(sum);
-
-		}
-	
-		BigInteger sum = new BigInteger("1");
-
-		while(zahl > 1){
-			sum = sum.multiply(BigInteger.valueOf(zahl));
-			zahl -= 1;
+		while (zahl > one) {
+			sum *= zahl; 
+			zahl-= one;
 		}
 
 		return sum;
+
 	}
 
 	/**
