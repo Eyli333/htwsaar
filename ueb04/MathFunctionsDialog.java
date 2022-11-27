@@ -9,7 +9,6 @@
  * @since 2022-11-04
  */
 
-import java.math.BigInteger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -215,9 +214,10 @@ public class MathFunctionsDialog{
 	public void berechneFakultaet() {
 
 		System.out.print("The value of Zahl : ");
+		
 		int zahl = EingabeUtils.scanInt(scanner);
 
-		BigInteger result = MathFunctions.berechneFakultaet(zahl);
+		long result = MathFunctions.berechneFakultaet(zahl);
 
 		System.out.println(result);
 	}
