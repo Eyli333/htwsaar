@@ -14,11 +14,13 @@ public class MathFunctions{
 	private static final double DELTA_NUL = 0.000000001;
 	private static final int zero = 0;
 	private static final int one = 1;
+	private static final int two = 2;
+	private static final int three = 3;
+	private static final int five = 5;
+	private static final int six = 6;
 	private static final int nine = 9;
 	private static final int ten = 10;
 	private static final int eleven = 11;
-	private static final int twentysix= 26;
-	private static final long isbnNumber = 1000000000L;
 
 	/**
 	 * Calculate the sum of the divisor for a number
@@ -27,7 +29,8 @@ public class MathFunctions{
 	 * @return  the sum of the divisor
 	 */
 	public static long berechneTeilersumme (long zahl) {
-		checkAboveOne(zahl);
+		TestUtils.checkEqualZero(zahl);
+		TestUtils.checkIsNonNegativ(zahl);
 
 		long result = 0;
 
@@ -35,12 +38,16 @@ public class MathFunctions{
 			return 1;
 		}
 
-		for (int i = 2; i <= Math.sqrt(zahl); i++) {
+		else if(istPrimzahl(zahl)){
+			return 1 + zahl;
+		}
+
+		for (int i = 4; i <= Math.sqrt(zahl); i++) {
 			if (zahl % i == 0) {
-				if (i == (zahl/ i)) {
+				if (i == (zahl / i)) {
 					result += i;
 				} else {
-					result += (i + zahl/ i);
+					result += (i + zahl / i);
 				}
 			}
 		}
@@ -54,7 +61,7 @@ public class MathFunctions{
 	 * @return X if the cheked digit is 10 else the value of the digit 
 	 */
 	public static String berechneChecksummeIsbn(long isbn) {
-		checkIsbnInput(isbn);
+		TestUtils.checkIsbnInput(isbn);
 		
 		long result = zero;
 		long isbnMod = isbn;
@@ -106,8 +113,8 @@ public class MathFunctions{
 	* @return zahl as the Ggt in int
      	*/
 	public static int berechneGgt(int zahl1, int zahl2) {
-		checkNonNegative(zahl1);
-		checkNonNegative(zahl2);
+		TestUtils.checkIsNonNegativ(zahl1);
+		TestUtils.checkIsNonNegativ(zahl2);
 
 		if (zahl1 == 0) {
 			return zahl2;
@@ -139,7 +146,6 @@ public class MathFunctions{
 	* @return sum as the result of the factorial as a long
      	*/
 	public static long berechneFakultaet(long zahl){
-
 		TestUtils.checkIsNonNegativ(zahl);
 		TestUtils.checkAboveTwentsix(zahl);
 
@@ -181,8 +187,8 @@ public class MathFunctions{
 	* @return true if it's possible else false
      	*/
 	public static boolean istSummeVonPotenzen(long zahl) {
-
-		checkAboveOne(zahl);
+		TestUtils.checkEqualZero(zahl);
+		TestUtils.checkIsNonNegativ(zahl);
 
 		double asdf = (double)zahl;
 		double sqrtZahlDouble = Math.sqrt(asdf);
@@ -213,14 +219,14 @@ public class MathFunctions{
 	}
 
 	/**
-     	* This method is used to calulate the sum of a serie
-     	* @param anzahl is the first value as a int
-     	* @param x is the second value as a double 
+    	* This method is used to calulate the sum of a serie
+    	* @param anzahl is the first value as a int
+    	* @param x is the second value as a double 
 	* @return the sum as a double
      	*/
 	public static double berechneReihensumme(int anzahl, double x) {
-
-		checkAboveOne(anzahl);
+		TestUtils.checkEqualZero(anzahl);
+		TestUtils.checkIsNonNegativ(anzahl);
 		
 		double sum = 0;
 		for (int i = 1; i <= anzahl;++i) {
@@ -233,43 +239,33 @@ public class MathFunctions{
 	}
 
 	/**
-     	* This method is used to check if the value giving is above one
-     	* @param zahl the value with wich we will make the calculation with 
+    	* This method is used check if a number is prime
+    	* @param zahl is the value as a int
+	* @return the result as a boolean
      	*/
-	public static void checkAboveOne(long zahl) {
-		if (zahl < one) {
-		    	throw new IllegalArgumentException("Die Zahl kann nicht negativ oder 0 sein.");
-		}
-	}
+	public static boolean istPrimzahl(long zahl) {
+		TestUtils.checkEqualZero(zahl);
+		TestUtils.checkIsNonNegativ(zahl);
 
-	/**
-     	* This method is used to check if the value giving is above 26
-     	* @param zahl the value with wich we will make the calculation with 
-     	*/
-	public static void checkAbovetwentsix(long zahl) {
-		if (zahl > twentysix) {
-		    	throw new IllegalArgumentException("Die Zahl kann nicht groesser als 26 sein.");
-		}
-	}
+		if (zahl <= three){
 
-	/**
-     	* This method is used to check if the value giving for isbn is isbn-10
-     	* @param isbn the value with wich we will make the calculation with
-     	*/
-	public static void checkIsbnInput(long isbn) {
-		if (isbnNumber > isbn || isbn > isbnNumber) {
-		    	throw new IllegalArgumentException("Der ISBN muss 9 Ziffern lang sein");
+			return true;
 		}
-	}
+		// This is checked so that we can skip
+		// middle five numbers in below loop
+		if (zahl % two == zero || zahl % three == zero){
 
-	/**
-	 * This method is used to check if the value is negativ 
-	 * @param zahl this is the value that will be checked 
-	 */
-	public static void checkNonNegative(int zahl) {
-		if (zahl < zero) {
-		    	throw new IllegalArgumentException("Die Zahl kann nicht negativ sein.");
+			return false;
 		}
 
+		for (int i = five; i * i <= zahl; i = i + six){
+
+			if (zahl % i == zero || zahl % (i + two) == zero){
+
+				return false;
+			}
+		}
+
+		return true;
 	}
 }

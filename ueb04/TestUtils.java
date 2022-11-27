@@ -2,16 +2,46 @@ public class TestUtils {
 
     private static final int zero = 0;
     private static final int twentysix = 26;
+    private static final long isbnNumber = 1000000000L;
     
+    /**
+	 * This method is used to check if the value is negativ 
+	 * @param zahl this is the value that will be checked 
+	 */
     public static void checkIsNonNegativ(long zahl){
-        if (zahl <= zero){
+        if (zahl < zero){
             throw new IllegalArgumentException("Die Zahl kann nicht negativ sein.");
         }
     }   
-    
-    public static void checkAboveTwentsix(long zahl){
-        if (zahl >= twentysix){
-            throw new IllegalArgumentException("Die Zahl kann nicht groesser als 26 sein.");
+
+	/**
+    * This method is used to check if the value giving is above 26
+    * @param zahl the value with wich we will make the calculation with 
+    */
+        public static void checkAboveTwentsix(long zahl) {
+        if (zahl > twentysix) {
+                throw new IllegalArgumentException("Die Zahl kann nicht groesser als 26 sein.");
         }
     }
+
+
+	/**
+     	* This method is used to check if the value giving for isbn is isbn-10
+     	* @param isbn the value with wich we will make the calculation with
+     	*/
+	public static void checkIsbnInput(long isbn) {
+		if (isbnNumber > isbn || isbn > isbnNumber) {
+		    	throw new IllegalArgumentException("Der ISBN muss 9 Ziffern lang sein");
+		}
+	}
+
+    /**
+    * This method is used to check if the value giving is above one
+    * @param zahl the value with wich we will make the calculation with 
+    */
+	public static void checkEqualZero(long zahl) {
+		if (zahl == zero) {
+		    	throw new IllegalArgumentException("Die Zahl kann nicht 0 sein.");
+		}
+	}
 }
