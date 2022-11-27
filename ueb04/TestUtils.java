@@ -44,4 +44,10 @@ public class TestUtils {
 		    	throw new IllegalArgumentException("Die Zahl kann nicht 0 sein.");
 		}
 	}
+
+    public static void checkBothNumbersZero(int zahl1, int zahl2) {
+        if (zahl1 == 0 && zahl2 == 0) {
+            throw new IllegalArgumentException("Eine der Zahlen kann nicht 0 sein.");
+        }
+    }
 }

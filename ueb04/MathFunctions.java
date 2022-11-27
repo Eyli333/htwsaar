@@ -115,6 +115,7 @@ public class MathFunctions{
 	public static int berechneGgt(int zahl1, int zahl2) {
 		TestUtils.checkIsNonNegativ(zahl1);
 		TestUtils.checkIsNonNegativ(zahl2);
+		TestUtils.checkBothNumbersZero(zahl1, zahl2);
 
 		if (zahl1 == 0) {
 			return zahl2;
