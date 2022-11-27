@@ -16,6 +16,7 @@ public class MathFunctions{
 	private static final int one = 1;
 	private static final int two = 2;
 	private static final int three = 3;
+	private static final int four = 4;
 	private static final int five = 5;
 	private static final int six = 6;
 	private static final int nine = 9;
@@ -86,8 +87,8 @@ public class MathFunctions{
 	* @return x1, x1 and x2 or nothing
      	*/
 	public static String berechneNullstellen (double p, double q) {
-		double delta = Math.pow(p/2, 2) - q;
-		double x = -p/2 + Math.sqrt(delta);
+		double delta = Math.pow(p/two, two) - q;
+		double x = -p/two + Math.sqrt(delta);
 			if (delta >= -DELTA_NUL && delta < DELTA_NUL) {
 				double x1 = x;
 	 
@@ -99,7 +100,7 @@ public class MathFunctions{
 				
 			} else {
 				double x1 = x;
-				double x2 = -p/2 - Math.sqrt(delta);
+				double x2 = -p/two - Math.sqrt(delta);
 			
 				return "Zwei Nullstellen: " + x1 + "|" + x2;
 			}
@@ -117,9 +118,9 @@ public class MathFunctions{
 		TestUtils.checkIsNonNegativ(zahl2);
 		TestUtils.checkBothNumbersZero(zahl1, zahl2);
 
-		if (zahl1 == 0) {
+		if (zahl1 == zero) {
 			return zahl2;
-		} else if (zahl2 == 0) {
+		} else if (zahl2 == zero) {
 			return zahl1;
 		}
 		
@@ -200,13 +201,13 @@ public class MathFunctions{
 		long cubeRootZahl = (long)cubeRootZahlDouble;
 		long quarticRootZahl = (long)quarticRootZahlDouble;
 
-		for (long i = 1; i <= quarticRootZahl; ++i) {
-			for (long j = 1; j <= cubeRootZahl; ++j) {
-				for (long k = 1; k <= squareRootZahl; ++k) {
+		for (long i = one; i <= quarticRootZahl; ++i) {
+			for (long j = one; j <= cubeRootZahl; ++j) {
+				for (long k = one; k <= squareRootZahl; ++k) {
 
-					double a = Math.pow((double)i, 4.0); 
-					double b = Math.pow((double)j, 3.0);
-					double c = Math.pow((double)k, 2.0);
+					double a = Math.pow((double)i, (double) four); 
+					double b = Math.pow((double)j, (double) three);
+					double c = Math.pow((double)k, (double) two);
 					double compute = a + b + c;
 
 					if ((long)compute == zahl) {
@@ -229,9 +230,9 @@ public class MathFunctions{
 		TestUtils.checkEqualZero(anzahl);
 		TestUtils.checkIsNonNegativ(anzahl);
 		
-		double sum = 0;
-		for (int i = 1; i <= anzahl;++i) {
-			double over = Math.pow(x-1, i);
+		double sum = zero;
+		for (int i = one; i <= anzahl; ++i) {
+			double over = Math.pow(x-one, i);
 			double under = i * Math.pow(x, i);
 			sum += over / under;
 		}

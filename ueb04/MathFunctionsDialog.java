@@ -234,7 +234,7 @@ public class MathFunctionsDialog{
 		long zahl = EingabeUtils.scanLong(scanner);
 
 		boolean result = MathFunctions.istSummeVonPotenzen(zahl);
-
+		
 		System.out.println(result);
 	}
 
