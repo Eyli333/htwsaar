@@ -35,12 +35,6 @@ public class MathFunctionsDialog{
 	private static Scanner scanner = EingabeUtils.scanOpen();
 
 	/**
-	 * This constructor is the main entry point for the ArtikelDialog class
-	 */
-	public MathFunctionsDialog(){
-	}
-
-	/**
 	 * The main Funktion start a new ArtikelDialog Objekt
 	 */
 	public static void main( String[] args) {
