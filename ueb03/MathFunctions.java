@@ -120,4 +120,16 @@ public class MathFunctions{
 		    	throw new IllegalArgumentException("Der ISBN muss 9 Ziffern lang sein");
 		}
 	}
+
+	public static long berechneFakultaet(int zahl){
+		TestUtils.checkIsPositiv(zahl);
+		
+		long sum = 1;
+
+		for (int i = 2; i <= zahl; i++) {
+			sum *= i;
+		}
+		
+		return sum;
+	}
 }

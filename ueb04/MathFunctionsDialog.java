@@ -98,35 +98,35 @@ public class MathFunctionsDialog{
 	 * @param userInput The input from the user
 	 */
 	public void eingabeBearbeitung(int userInput) {
-		 switch(userInput) {
+		switch(userInput) {
 		 	case BERECHNE_TEILERSUMME: 
-				 berechneTeilersumme();
-				 break;
-			 case BERECHNER_CHECKSUMME_ISBN: 
-				 berechneChecksummeIsbn();
-				 break;
-			 case BERECHNER_NULLSTELLEN: 
-				 berechneNullstellen();
-				 break;
-			 case BERECHNER_GGT:
-			 	 berechneGgt();
-				 break;
-			 case BERECHNER_FAKULTAET:
-				 berechneFakultaet();
-				 break;
-			 case BERECHNER_SUMME_POTENZEN:
-				 berechnePotenz();
-				 break;
-			 case BERECHNER_SUMME_SERIE:
-			 	 berechneSerie();
-				 break;
-			 case EXIT_INT: 
-				 System.out.println("Das Programm wird beendet!");
-				 EingabeUtils.scanClose(scanner);
-				 break;
-			 default: 
-				 System.out.println(userInput + " ist keine gueltige Nummer!");
-				 break;
+				berechneTeilersumme();
+				break;
+			case BERECHNER_CHECKSUMME_ISBN: 
+				berechneChecksummeIsbn();
+				break;
+			case BERECHNER_NULLSTELLEN: 
+				berechneNullstellen();
+				break;
+			case BERECHNER_GGT:
+			 	berechneGgt();
+				break;
+			case BERECHNER_FAKULTAET:
+				berechneFakultaet();
+				break;
+			case BERECHNER_SUMME_POTENZEN:
+				berechnePotenz();
+				break;
+			case BERECHNER_SUMME_SERIE:
+				berechneReihensumme();
+				break;
+			case EXIT_INT: 
+				System.out.println("Das Programm wird beendet!");
+				EingabeUtils.scanClose(scanner);
+				break;
+			default: 
+				System.out.println(userInput + " ist keine gueltige Nummer!");
+				break;
 		 }
 	}
 
@@ -238,7 +238,7 @@ public class MathFunctionsDialog{
 	 * - x that must be a double
 	 * - anzahl that must be a int
 	 */
-	public void berechneSerie() {
+	public void berechneReihensumme() {
 
 		System.out.print("The value of anzahl: ");
 		int anzahl = EingabeUtils.scanInt(scanner);

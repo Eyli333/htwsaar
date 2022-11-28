@@ -30,7 +30,7 @@ public class MathFunctions{
 	 * @return  the sum of the divisor
 	 */
 	public static long berechneTeilersumme (long zahl) {
-		TestUtils.checkEqualZERO(zahl);
+		TestUtils.checkEqualZero(zahl);
 		TestUtils.checkIsNonNegativ(zahl);
 
 		long result = 0;
@@ -116,7 +116,7 @@ public class MathFunctions{
 	public static int berechneGgt(int zahl1, int zahl2) {
 		TestUtils.checkIsNonNegativ(zahl1);
 		TestUtils.checkIsNonNegativ(zahl2);
-		TestUtils.checkBothNumbersZERO(zahl1, zahl2);
+		TestUtils.checkBothNumbersZero(zahl1, zahl2);
 
 		if (zahl1 == ZERO) {
 			return zahl2;
@@ -149,7 +149,7 @@ public class MathFunctions{
      	*/
 	public static long berechneFakultaet(long zahl){
 		TestUtils.checkIsNonNegativ(zahl);
-		TestUtils.checkAboveTwentSIX(zahl);
+		TestUtils.checkAboveTwentsix(zahl);
 
 		if (zahl == ZERO || zahl == ONE) {
 
@@ -189,7 +189,7 @@ public class MathFunctions{
 	* @return true if it's possible else false
      	*/
 	public static boolean istSummeVonPotenzen(long zahl) {
-		TestUtils.checkEqualZERO(zahl);
+		TestUtils.checkEqualZero(zahl);
 		TestUtils.checkIsNonNegativ(zahl);
 
 		double doubleZahl = (double)zahl;
@@ -227,7 +227,7 @@ public class MathFunctions{
 	* @return the sum as a double
      	*/
 	public static double berechneReihensumme(int anzahl, double x) {
-		TestUtils.checkEqualZERO(anzahl);
+		TestUtils.checkEqualZero(anzahl);
 		TestUtils.checkIsNonNegativ(anzahl);
 		
 		double sum = ZERO;
@@ -245,7 +245,7 @@ public class MathFunctions{
 	* @return the result as a boolean
      	*/
 	public static boolean istPrimzahl(long zahl) {
-		TestUtils.checkEqualZERO(zahl);
+		TestUtils.checkEqualZero(zahl);
 		TestUtils.checkIsNonNegativ(zahl);
 
 		if (zahl <= THREE){
