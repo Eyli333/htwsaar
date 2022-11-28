@@ -169,10 +169,10 @@ public class MathFunctionsDialog{
 	 */
 	public void berechneNullstellen() {
 
-		System.out.print("The value of p : ");
+		System.out.print("The value of p: ");
 		double pvalue = EingabeUtils.scanDouble(scanner);
 
-		System.out.print("The value of q : ");
+		System.out.print("The value of q: ");
 		double qvalue = EingabeUtils.scanDouble(scanner);
 
 		String result = MathFunctions.berechneNullstellen(pvalue, qvalue);
@@ -207,7 +207,7 @@ public class MathFunctionsDialog{
 	 */
 	public void berechneFakultaet(){
 
-		System.out.println("zahl: ");
+		System.out.println("The value of zahl: ");
 		
 		int zahl = EingabeUtils.scanInt(scanner);
 		// BigInteger result = MathFunctions.berechneFakultaet(zahl);

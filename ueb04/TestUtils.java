@@ -8,9 +8,9 @@ public class TestUtils {
 	 * This method is used to check if the value is negativ 
 	 * @param zahl this is the value that will be checked 
 	 */
-    public static void checkIsNonNegativ(long zahl){
+    public static void checkIsNonNegativ(long zahl, String name){
         if (zahl < zero){
-            throw new IllegalArgumentException("Die Zahl kann nicht negativ sein.");
+            throw new IllegalArgumentException("Die Variable " + name + " kann nicht negativ sein.");
         }
     }   
 
@@ -39,9 +39,9 @@ public class TestUtils {
     * This method is used to check if the value giving is above one
     * @param zahl the value with wich we will make the calculation 
     */
-	public static void checkEqualZero(long zahl) {
+	public static void checkEqualZero(double zahl, String name) {
 		if (zahl == zero) {
-		    	throw new IllegalArgumentException("Die Zahl kann nicht 0 sein.");
+		    	throw new IllegalArgumentException("Die Variable " + name  + " kann nicht 0 sein.");
 		}
 	}
 
@@ -50,7 +50,7 @@ public class TestUtils {
     * @param zahl1 the first value with wich we will make the calculation
     * @param zahl2 the second value with wich we will make the calculation  
     */
-    public static void checkBothNumbersZero(long zahl1, long zahl2) {
+    public static void checkBothNumbersZero(double zahl1, double zahl2) {
         if (zahl1 == zero && zahl2 == zero) {
             throw new IllegalArgumentException("Eine der Zahlen kann nicht 0 sein.");
         }

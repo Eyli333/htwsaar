@@ -30,8 +30,8 @@ public class MathFunctions{
 	 * @return  the sum of the divisor
 	 */
 	public static long berechneTeilersumme (long zahl) {
-		TestUtils.checkEqualZero(zahl);
-		TestUtils.checkIsNonNegativ(zahl);
+		TestUtils.checkEqualZero(zahl, "zahl");
+		TestUtils.checkIsNonNegativ(zahl, "zahl");
 
 		long result = 0;
 
@@ -87,6 +87,7 @@ public class MathFunctions{
 	* @return x1, x1 and x2 or nothing
      	*/
 	public static String berechneNullstellen (double p, double q) {
+		TestUtils.checkBothNumbersZero(p, q);
 		double delta = Math.pow(p/TWO, TWO) - q;
 		double x = -p/TWO + Math.sqrt(delta);
 			if (delta >= -DELTA_NUL && delta < DELTA_NUL) {
@@ -114,8 +115,8 @@ public class MathFunctions{
 	* @return zahl as the Ggt in int
      	*/
 	public static int berechneGgt(int zahl1, int zahl2) {
-		TestUtils.checkIsNonNegativ(zahl1);
-		TestUtils.checkIsNonNegativ(zahl2);
+		TestUtils.checkIsNonNegativ(zahl1, "zahl1");
+		TestUtils.checkIsNonNegativ(zahl2, "zahl2");
 		TestUtils.checkBothNumbersZero(zahl1, zahl2);
 
 		if (zahl1 == ZERO) {
@@ -148,7 +149,7 @@ public class MathFunctions{
 	* @return sum as the result of the factorial as a long
      	*/
 	public static long berechneFakultaet(long zahl){
-		TestUtils.checkIsNonNegativ(zahl);
+		TestUtils.checkIsNonNegativ(zahl, "zahl");
 		TestUtils.checkAboveTwentsix(zahl);
 
 		if (zahl == ZERO || zahl == ONE) {
@@ -189,8 +190,8 @@ public class MathFunctions{
 	* @return true if it's possible else false
      	*/
 	public static boolean istSummeVonPotenzen(long zahl) {
-		TestUtils.checkEqualZero(zahl);
-		TestUtils.checkIsNonNegativ(zahl);
+		TestUtils.checkEqualZero(zahl, "zahl");
+		TestUtils.checkIsNonNegativ(zahl, "zahl");
 
 		double doubleZahl = (double)zahl;
 		double squareRootZahlDouble = Math.sqrt(doubleZahl);
@@ -227,8 +228,9 @@ public class MathFunctions{
 	* @return the sum as a double
      	*/
 	public static double berechneReihensumme(int anzahl, double x) {
-		TestUtils.checkEqualZero(anzahl);
-		TestUtils.checkIsNonNegativ(anzahl);
+		TestUtils.checkEqualZero(anzahl, "anzahl");
+		TestUtils.checkEqualZero(x, "x");
+		TestUtils.checkIsNonNegativ(anzahl, "anzahl");
 		
 		double sum = ZERO;
 		for (int i = ONE; i <= anzahl; ++i) {
@@ -245,8 +247,8 @@ public class MathFunctions{
 	* @return the result as a boolean
      	*/
 	public static boolean istPrimzahl(long zahl) {
-		TestUtils.checkEqualZero(zahl);
-		TestUtils.checkIsNonNegativ(zahl);
+		TestUtils.checkEqualZero(zahl, "zahl");
+		TestUtils.checkIsNonNegativ(zahl, "zahl");
 
 		if (zahl <= THREE){
 
