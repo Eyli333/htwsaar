@@ -66,12 +66,12 @@ public class MathFunctions{
 	}
 
 	/**
-	 	* This method is used to Determine the ZEROs of a quadratic  
-	* quadratic equation and return them as a formatted string
-	 	* @param p is the first value as a double
-	 	* @param q is the second value as a double
-	* @return x1, x1 and x2 or nothing
-	 	*/
+	 * This method is used to Determine the ZEROs of a quadratic  
+	 * quadratic equation and return them as a formatted string
+	 * @param p is the first value as a double
+	 * @param q is the second value as a double
+	 * @return x1, x1 and x2 or nothing
+	 */
 	public static String berechneNullstellen (double p, double q) {
 		TestUtils.checkBothNumbersZero(p, q);
 		double delta = (p * p / 4.0) - q;
@@ -94,12 +94,12 @@ public class MathFunctions{
 		}
 
 	/**
-	 	* This method is used to Determine the Ggt
-	* and return them as a int
-	 	* @param zahl1 is the first value as a int
-	 	* @param zahl2 is the second value as a int
-	* @return zahl as the Ggt in int
-	 	*/
+	 * This method is used to Determine the Ggt
+	 * and return them as a int
+	 * @param zahl1 is the first value as a int
+	 * @param zahl2 is the second value as a int
+	 * @return zahl as the Ggt in int
+	 */
 	public static int berechneGgt(int zahl1, int zahl2) {
 		TestUtils.checkIsNonNegativ(zahl1, "zahl1");
 		TestUtils.checkIsNonNegativ(zahl2, "zahl2");
@@ -129,11 +129,11 @@ public class MathFunctions{
 	}
 
 	/**
-	 	* This method is used to calulate the Faktorial of a number
-	* and return them as a long
-	 	* @param zahl is the value as a int
-	* @return sum as the result of the factorial as a long
-	 	*/
+	 * This method is used to calulate the Faktorial of a number
+	 * and return them as a long
+	 * @param zahl is the value as a int
+	 * @return sum as the result of the factorial as a long
+	 */
 	public static long berechneFakultaet(long zahl){
 		TestUtils.checkIsNonNegativ(zahl, "zahl");
 		TestUtils.checkAboveTwentsix(zahl);
@@ -173,8 +173,8 @@ public class MathFunctions{
 	 * This method is used to calulate to check if a number
 	 * can be written as a^4+b^3+c^2
 	 * @param zahl is the value as a int
-	* @return true if it's possible else false
-	 	*/
+	 * @return true if it's possible else false
+	 */
 	public static boolean istSummeVonPotenzen(long zahl) {
 		TestUtils.checkEqualZero(zahl, "zahl");
 		TestUtils.checkIsNonNegativ(zahl, "zahl");
@@ -209,11 +209,11 @@ public class MathFunctions{
 	}
 
 	/**
-		* This method is used to calulate the sum of a serie
-		* @param anzahl is the first value as a int
-		* @param x is the second value as a double 
-	* @return the sum as a double
-	 	*/
+	 * This method is used to calulate the sum of a serie
+	 * @param anzahl is the first value as a int
+	 * @param x is the second value as a double 
+	 * @return the sum as a double
+	 */
 	public static double berechneReihensumme(int anzahl, double x) {
 		TestUtils.checkEqualZero(anzahl, "anzahl");
 		TestUtils.checkEqualZero(x, "x");

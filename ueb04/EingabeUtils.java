@@ -21,7 +21,7 @@ public class EingabeUtils {
 	/**
 	 * This methode is used to scann the value of the input and check
 	 * if it is a String else it will give an error 
-	 * @param scanner is a scanner
+	 * @param scanner scanns a string
 	 * @return the user input as a string 
 	 */
 	public static String scanString(Scanner scanner){
@@ -39,7 +39,7 @@ public class EingabeUtils {
 	/**
 	 * This methode is used to scann the value of the input and check
 	 * if it is a Int else it will give an error 
-	 * @param scanner is a scanner
+	 * @param scanner scanns an int
 	 * @return the user input as a int
 	 */
     	public static int scanInt(Scanner scanner){
@@ -57,7 +57,7 @@ public class EingabeUtils {
 	/**
 	 * This methode is used to scann the value of the input and check
 	 * if it is a long else it will give an error 
-	 * @param scanner is a scanner
+	 * @param scanner scanns a long
 	 * @return the user input as a long
 	 */
     	public static long scanLong(Scanner scanner){
@@ -75,7 +75,7 @@ public class EingabeUtils {
 	/**
 	 * This methode is used to scann the value of the input and check
 	 * if it is a double else it will give an error 
-	 * @param scanner is a scanner
+	 * @param scanner scanns a double
 	 * @return the user input as a double
 	 */
     	public static double scanDouble(Scanner scanner){
@@ -93,7 +93,7 @@ public class EingabeUtils {
 	/**
 	 * This methode is used to scann the value of the input and check
 	 * if it is a short else it will give an error 
-	 * @param scanner is a scanner
+	 * @param scanner scanns a short
 	 * @return the user input as a short
 	 */
     	public static short scanShort(Scanner scanner){
@@ -111,7 +111,7 @@ public class EingabeUtils {
 	/**
 	 * This methode is used to scann the value of the input and check
 	 * if it is a float else it will give an error 
-	 * @param scanner is a scanner
+	 * @param scanner scanns a float
 	 * @return the user input as a float 
 	 */
     	public static float scanFloat(Scanner scanner){
@@ -129,7 +129,7 @@ public class EingabeUtils {
 	/**
 	 * This methode is used to scann the value of the input and check
 	 * if it is a boolean else it will give an error 
-	 * @param scanner is a scanner
+	 * @param scanner scanns a boolean
 	 * @return the user input as a boolean
 	 */
     	public static boolean scanBoolean(Scanner scanner){
