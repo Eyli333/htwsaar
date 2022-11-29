@@ -16,8 +16,8 @@ public class MathFunctions{
 	/**
 	 * Calculate the sum of the divisor for a number
 	 * and return it as a long
-	 * @param take the number as a long
-	 * @return  the sum of the divisor
+	 * @param zahl takes a positive, non zero number as input
+	 * @return the sum of the divisor
 	 */
 	public static long berechneTeilersumme (long zahl) {
 		TestUtils.checkEqualZero(zahl, "zahl");
@@ -44,8 +44,8 @@ public class MathFunctions{
 	/**
 	 * Check if the isbn number giving is a valid ONE 
 	 * It just check for ISBN-10
-	 * @param  take the isbn number as a long
-	 * @return X if the cheked digit is 10 else the value of the digit 
+	 * @param isbn takes a positive, non zero numbber with 9 digits as input
+	 * @return X if the cheked digit is 9 else the value of the digit 
 	 */
 	public static String berechneChecksummeIsbn(long isbn) {
 		TestUtils.checkIsbnInput(isbn);
@@ -68,8 +68,9 @@ public class MathFunctions{
 	/**
 	 * This method is used to Determine the ZEROs of a quadratic  
 	 * quadratic equation and return them as a formatted string
-	 * @param p is the first value as a double
-	 * @param q is the second value as a double
+	 * @param p takes a number as input
+	 * @param q takes a number as input
+	 * @warning if both numbers are 0 it will return an error
 	 * @return x1, x1 and x2 or nothing
 	 */
 	public static String berechneNullstellen (double p, double q) {
@@ -96,8 +97,9 @@ public class MathFunctions{
 	/**
 	 * This method is used to Determine the Ggt
 	 * and return them as a int
-	 * @param zahl1 is the first value as a int
-	 * @param zahl2 is the second value as a int
+	 * @param zahl1 takes a number as input that is not 0 or negative
+	 * @param zahl2 takes a number as input that is not 0 or negative
+	 * @warning if both numbers are 0 it will return an error
 	 * @return zahl as the Ggt in int
 	 */
 	public static int berechneGgt(int zahl1, int zahl2) {
@@ -131,7 +133,7 @@ public class MathFunctions{
 	/**
 	 * This method is used to calulate the Faktorial of a number
 	 * and return them as a long
-	 * @param zahl is the value as a int
+	 * @param zahl takes a number between 1 and 25 as input
 	 * @return sum as the result of the factorial as a long
 	 */
 	public static long berechneFakultaet(long zahl){
@@ -172,7 +174,7 @@ public class MathFunctions{
 	/**
 	 * This method is used to calulate to check if a number
 	 * can be written as a^4+b^3+c^2
-	 * @param zahl is the value as a int
+	 * @param zahl takes a number as input that is not 0 or negative
 	 * @return true if it's possible else false
 	 */
 	public static boolean istSummeVonPotenzen(long zahl) {
@@ -210,8 +212,8 @@ public class MathFunctions{
 
 	/**
 	 * This method is used to calulate the sum of a serie
-	 * @param anzahl is the first value as a int
-	 * @param x is the second value as a double 
+	 * @param anzahl takes a number as input that is not 0 or negative
+	 * @param x takes a number as input that is not 0
 	 * @return the sum as a double
 	 */
 	public static double berechneReihensumme(int anzahl, double x) {
