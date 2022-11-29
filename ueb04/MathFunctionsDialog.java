@@ -14,23 +14,23 @@ import java.util.Scanner;
 
 public class MathFunctionsDialog{
 	
-	private static final int BERECHNE_TEILERSUMME = 1;
-	private static final int BERECHNER_CHECKSUMME_ISBN = 2;
-	private static final int BERECHNER_NULLSTELLEN = 3;
-	private static final int BERECHNER_GGT= 4;
-	private static final int BERECHNER_FAKULTAET = 5;
-	private static final int BERECHNER_SUMME_POTENZEN = 6;
-	private static final int BERECHNER_SUMME_SERIE = 7;
-	private static final int EXIT_INT = 8;
+	private static final int BERECHNE_TEILERSUMME 		= 1;
+	private static final int BERECHNER_CHECKSUMME_ISBN 	= 2;
+	private static final int BERECHNER_NULLSTELLEN 		= 3;
+	private static final int BERECHNER_GGT				= 4;
+	private static final int BERECHNER_FAKULTAET 		= 5;
+	private static final int BERECHNER_SUMME_POTENZEN 	= 6;
+	private static final int BERECHNER_SUMME_SERIE 		= 7;
+	private static final int EXIT_INT 					= 8;
 
-	private static final String BERECHNE_TEILERSUMME_STRING = " : Berechne die Teilersumme einer Zahl";
-	private static final String BERECHNER_CHECKSUMME_ISBN_STRING=" : Berechne die Checksum von einer ISBN-10";
-	private static final String BERECHNER_NULLSTELLEN_STRING = " : Berechne die Nullstellen von p und q";
-	private static final String BERECHNER_GGT_STRING = " : Berechne der GGT von zahl1 und zahl2";
-	private static final String BERECHNER_FAKULTAET_STRING = " : Berechne die Fakultaet von einer Zahl";
-	private static final String BERECHNER_SUMME_POTENZEN_STRING = " : Berechne die Summe von Potenzen";
-	private static final String BERECHNER_SUMME_SERIE_STRING = " : Berechne die Summe von der Serie";
-	private static final String EXIT_STRING = " : Das Programm beenden";
+	private static final String BERECHNE_TEILERSUMME_STRING 		= " : Berechne die Teilersumme einer Zahl";
+	private static final String BERECHNER_CHECKSUMME_ISBN_STRING 	=" : Berechne die Checksum von einer ISBN-10";
+	private static final String BERECHNER_NULLSTELLEN_STRING 		= " : Berechne die Nullstellen von p und q";
+	private static final String BERECHNER_GGT_STRING 				= " : Berechne der GGT von zahl1 und zahl2";
+	private static final String BERECHNER_FAKULTAET_STRING 			= " : Berechne die Fakultaet von einer Zahl";
+	private static final String BERECHNER_SUMME_POTENZEN_STRING 	= " : Berechne die Summe von Potenzen";
+	private static final String BERECHNER_SUMME_SERIE_STRING 		= " : Berechne die Summe von der Serie";
+	private static final String EXIT_STRING 						= " : Das Programm beenden";
 
 	private static Scanner scanner = EingabeUtils.scanOpen();
 

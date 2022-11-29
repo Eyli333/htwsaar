@@ -12,16 +12,6 @@ import java.lang.Math;
 public class MathFunctions{
 
 	private static final double DELTA_NUL = 0.000000001;
-	private static final int ZERO = 0;
-	private static final int ONE = 1;
-	private static final int TWO = 2;
-	private static final int THREE = 3;
-	private static final int FOUR = 4;
-	private static final int FIVE = 5;
-	private static final int SIX = 6;
-	private static final int NINE = 9;
-	private static final int TEN = 10;
-	private static final int ELEVEN = 11;
 
 	/**
 	 * Calculate the sum of the divisor for a number
@@ -39,11 +29,7 @@ public class MathFunctions{
 			return 1;
 		}
 
-		else if(istPrimzahl(zahl)){
-			return 1 + zahl;
-		}
-
-		for (int i = 4; i <= Math.sqrt(zahl); i++) {
+		for (int i = 2; i <= Math.sqrt(zahl); i++) {
 			if (zahl % i == 0) {
 				if (i == (zahl / i)) {
 					result += i;
@@ -64,16 +50,16 @@ public class MathFunctions{
 	public static String berechneChecksummeIsbn(long isbn) {
 		TestUtils.checkIsbnInput(isbn);
 		
-		long result = ZERO;
+		long result = 0;
 		long isbnMod = isbn;
-		for (int i = NINE; i > ZERO; i--) {
-			long j = isbnMod % TEN; // convert to int j
-			isbnMod = isbnMod / TEN;
+		for (int i = 9; i > 0; i--) {
+			long j = isbnMod % 10; // convert to int j
+			isbnMod = isbnMod / 10;
 			result += j * i;
 
 		}
-		result = result % ELEVEN;
-		if (result == TEN) {
+		result = result % 11;
+		if (result == 10) {
 			return "X";
 		}
 		return Long.toString(result);
@@ -88,20 +74,20 @@ public class MathFunctions{
      	*/
 	public static String berechneNullstellen (double p, double q) {
 		TestUtils.checkBothNumbersZero(p, q);
-		double delta = Math.pow(p/TWO, TWO) - q;
-		double x = -p/TWO + Math.sqrt(delta);
+		double delta = (p * p / 4.0) - q;
+		double sqrtdelta = Math.sqrt(delta);
 			if (delta >= -DELTA_NUL && delta < DELTA_NUL) {
-				double x1 = x;
+				double x1 = -p/2.0 + sqrtdelta;;
 	 
 				return "Doppelte Nullstelle: " + x1;
 
-			} else if (delta < 0.0) {
+			} else if (delta < -DELTA_NUL) {
 				
 				return "Komplexe Nullstellen";
 				
 			} else {
-				double x1 = x;
-				double x2 = -p/TWO - Math.sqrt(delta);
+				double x1 = -p/2.0 + sqrtdelta;;
+				double x2 = -p/2.0 - sqrtdelta;
 			
 				return "Zwei Nullstellen: " + x1 + "|" + x2;
 			}
@@ -119,9 +105,9 @@ public class MathFunctions{
 		TestUtils.checkIsNonNegativ(zahl2, "zahl2");
 		TestUtils.checkBothNumbersZero(zahl1, zahl2);
 
-		if (zahl1 == ZERO) {
+		if (zahl1 == 0) {
 			return zahl2;
-		} else if (zahl2 == ZERO) {
+		} else if (zahl2 == 0) {
 			return zahl1;
 		}
 		
@@ -131,7 +117,7 @@ public class MathFunctions{
 			zahl1 = temp;	
 		}
 
-		while (zahl2 != ZERO) {
+		while (zahl2 != 0) {
 			int temp = zahl1;
 			zahl1 = zahl2;
 			zahl2 = temp % zahl1;
@@ -152,20 +138,20 @@ public class MathFunctions{
 		TestUtils.checkIsNonNegativ(zahl, "zahl");
 		TestUtils.checkAboveTwentsix(zahl);
 
-		if (zahl == ZERO || zahl == ONE) {
+		if (zahl == 0 || zahl == 1) {
 
-			return ONE;
+			return 1;
 
 			// return BigInteger.valueOf(1);
 		}
 		
 		// else if (zahl < 26) {
 		
-		long sum = ONE;
+		long sum = 1;
 
-		while (zahl > ONE) {
+		while (zahl > 1) {
 			sum *= zahl; 
-			zahl -= ONE;
+			zahl -= 1;
 		}
 		
 		return sum;
@@ -196,22 +182,23 @@ public class MathFunctions{
 		double doubleZahl = (double)zahl;
 		double squareRootZahlDouble = Math.sqrt(doubleZahl);
 		double cubeRootZahlDouble = Math.cbrt(doubleZahl);
-		double quarticRootZahlDouble = Math.sqrt(squareRootZahlDouble);
+		double quarticRootZahlDouble = Math.pow(doubleZahl, 0.25);
 
 		long squareRootZahl = (long)squareRootZahlDouble;
 		long cubeRootZahl = (long)cubeRootZahlDouble;
 		long quarticRootZahl = (long)quarticRootZahlDouble;
 
-		for (long i = ONE; i <= quarticRootZahl; ++i) {
-			for (long j = ONE; j <= cubeRootZahl; ++j) {
-				for (long k = ONE; k <= squareRootZahl; ++k) {
+		long a, b, c;
+		for (long i = 1; i <= quarticRootZahl; ++i) {
+			a = i * i * i * i; 
 
-					double a = Math.pow((double)i, (double) FOUR); 
-					double b = Math.pow((double)j, (double) THREE);
-					double c = Math.pow((double)k, (double) TWO);
-					double compute = a + b + c;
+			for (long j = 1; j <= cubeRootZahl; ++j) {
+				b = j * j * j;
 
-					if ((long)compute == zahl) {
+				for (long k = 1; k <= squareRootZahl; ++k) {
+					c = k * k;
+
+					if (a + b + c == zahl) {
 						return true;
 					}
 				}
@@ -232,43 +219,15 @@ public class MathFunctions{
 		TestUtils.checkEqualZero(x, "x");
 		TestUtils.checkIsNonNegativ(anzahl, "anzahl");
 		
-		double sum = ZERO;
-		for (int i = ONE; i <= anzahl; ++i) {
-			double over = Math.pow(x-ONE, i);
-			double under = i * Math.pow(x, i);
+		double over = (x-1);
+		double under1 = x;
+		double sum = over / under1;
+		for (int i = 2; i <= anzahl; ++i) {
+			over *= (x-1);
+			under1 *= x;
+			double under = i * under1;
 			sum += over / under;
 		}
 		return sum;
-	}
-
-	/**
-    	* This method is used check if a number is prime
-    	* @param zahl is the value as a int
-	* @return the result as a boolean
-     	*/
-	public static boolean istPrimzahl(long zahl) {
-		TestUtils.checkEqualZero(zahl, "zahl");
-		TestUtils.checkIsNonNegativ(zahl, "zahl");
-
-		if (zahl <= THREE){
-
-			return true;
-		}
-		// This is checked so that we can skip
-		// middle FIVE numbers in below loop
-		if (zahl % TWO == ZERO || zahl % THREE == ZERO){
-
-			return false;
-		}
-
-		for (int i = FIVE; i * i <= zahl; i = i + SIX){
-
-			if (zahl % i == ZERO || zahl % (i + TWO) == ZERO){
-
-				return false;
-			}
-		}
-
-		return true;
 	}
 }
