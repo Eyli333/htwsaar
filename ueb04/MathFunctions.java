@@ -224,9 +224,10 @@ public class MathFunctions{
 		double over = (x-1);
 		double under1 = x;
 		double sum = over / under1;
-		for (int i = 2; i <= anzahl; ++i) {
+		for (double i = 2.0; i <= anzahl; ++i) {
 			over *= (x-1);
 			under1 *= x;
+			System.out.println(over + " " + under1);
 			double under = i * under1;
 			sum += over / under;
 		}

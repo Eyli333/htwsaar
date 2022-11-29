@@ -140,9 +140,7 @@ public class MathFunctionsDialog{
 		System.out.print("Teilersumme: ");
 		long zahl = EingabeUtils.scanLong(scanner);
 
-		long result = MathFunctions.berechneTeilersumme(zahl);
-
-		System.out.println("Die Summe aller moeglichen Teiler: " + result);
+		System.out.println("Die Summe aller moeglichen Teiler: " + MathFunctions.berechneTeilersumme(zahl));
 	}
 
 	/**
@@ -156,9 +154,7 @@ public class MathFunctionsDialog{
 
 		long zahl = EingabeUtils.scanLong(scanner);
 
-		String result = MathFunctions.berechneChecksummeIsbn(zahl);
-
-		System.out.println("Die errechnete Pruefziffer: " + result);
+		System.out.println("Die errechnete Pruefziffer: " + MathFunctions.berechneChecksummeIsbn(zahl));
 	}
 
 	/**
@@ -175,9 +171,7 @@ public class MathFunctionsDialog{
 		System.out.print("The value of q: ");
 		double qvalue = EingabeUtils.scanDouble(scanner);
 
-		String result = MathFunctions.berechneNullstellen(pvalue, qvalue);
-
-		System.out.println(result);
+		System.out.println(MathFunctions.berechneNullstellen(pvalue, qvalue));
 		
 	}
 
@@ -195,9 +189,7 @@ public class MathFunctionsDialog{
 		System.out.print("The value of zahl 2: ");
 		int zahl2 = EingabeUtils.scanInt(scanner);
 
-		int result = MathFunctions.berechneGgt(zahl1, zahl2);
-
-		System.out.println(result);
+		System.out.println(MathFunctions.berechneGgt(zahl1, zahl2));
 	}	
 
 	/**
@@ -212,9 +204,7 @@ public class MathFunctionsDialog{
 		int zahl = EingabeUtils.scanInt(scanner);
 		// BigInteger result = MathFunctions.berechneFakultaet(zahl);
 
-		long result = MathFunctions.berechneFakultaet(zahl);
-
-		System.out.println(result);
+		System.out.println(MathFunctions.berechneFakultaet(zahl));
 	}
 
 	/**
@@ -227,9 +217,7 @@ public class MathFunctionsDialog{
 		System.out.print("The value of Zahl : ");
 		long zahl = EingabeUtils.scanLong(scanner);
 
-		boolean result = MathFunctions.istSummeVonPotenzen(zahl);
-		
-		System.out.println(result);
+		System.out.println(MathFunctions.istSummeVonPotenzen(zahl));
 	}
 
 	/**
@@ -246,10 +234,6 @@ public class MathFunctionsDialog{
 		System.out.print("The value of x: ");
 		double xValue = EingabeUtils.scanDouble(scanner);
 
-		double result = MathFunctions.berechneReihensumme(anzahl, xValue);
-
-		System.out.println(result);
+		System.out.println(MathFunctions.berechneReihensumme(anzahl, xValue));
 	}
-
-	
 }
