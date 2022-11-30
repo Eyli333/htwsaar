@@ -16,7 +16,7 @@ public class MathFunctions{
 	/**
 	 * Calculate the sum of the divisor for a number
 	 * and return it as a long
-	 * @param take the number as a long
+	 * @param zahl has to be greter than 0  
 	 * @return  the sum of the divisor
 	 */
 	public static long berechneTeilersumme (long zahl) {
@@ -44,7 +44,7 @@ public class MathFunctions{
 	/**
 	 * Check if the isbn number giving is a valid ONE 
 	 * It just check for ISBN-10
-	 * @param  take the isbn number as a long
+	 * @param isbn has to be a positiv non zero number with 10 digits
 	 * @return X if the cheked digit is 10 else the value of the digit 
 	 */
 	public static String berechneChecksummeIsbn(long isbn) {
@@ -68,8 +68,8 @@ public class MathFunctions{
 	/**
 	 	* This method is used to Determine the ZEROs of a quadratic  
 	* quadratic equation and return them as a formatted string
-	 	* @param p is the first value as a double
-	 	* @param q is the second value as a double
+	 	* @param p has to be a number
+	 	* @param q has to be a number
 	* @return x1, x1 and x2 or nothing
 	 	*/
 	public static String berechneNullstellen (double p, double q) {
@@ -219,14 +219,12 @@ public class MathFunctions{
 		TestUtils.checkEqualZero(x, "x");
 		TestUtils.checkIsNonNegativ(anzahl, "anzahl");
 		
-		double over = (x-1);
-		double under1 = x;
-		double sum = over / under1;
+		double division = (x-1)/x;
+		double sum = division;
+		double temp = division;
 		for (int i = 2; i <= anzahl; ++i) {
-			over *= (x-1);
-			under1 *= x;
-			double under = i * under1;
-			sum += over / under;
+			temp *= division;
+			sum += temp / i;
 		}
 		return sum;
 	}
