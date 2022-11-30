@@ -220,14 +220,12 @@ public class MathFunctions{
 		TestUtils.checkEqualZero(x, "x");
 		TestUtils.checkIsNonNegativ(anzahl, "anzahl");
 		
-		double over = (x-1);
-		double under1 = x;
-		double sum = over / under1;
+		double division = (x-1)/x;
+		double sum = division;
+		double temp = division;
 		for (int i = 2; i <= anzahl; ++i) {
-			over *= (x-1);
-			under1 *= x;
-			double under = i * under1;
-			sum += over / under;
+			temp *= division;
+			sum += temp / i;
 		}
 		return sum;
 	}
