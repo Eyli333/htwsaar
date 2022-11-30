@@ -142,11 +142,7 @@ public class MathFunctions{
 		if (zahl == 0 || zahl == 1) {
 
 			return 1;
-
-			// return BigInteger.valueOf(1);
 		}
-		
-		// else if (zahl < 26) {
 		
 		long sum = 1;
 
@@ -156,19 +152,6 @@ public class MathFunctions{
 		}
 		
 		return sum;
-
-		// return BigInteger.valueOf(sum);
-
-		// }
-	
-		// BigInteger sum = new BigInteger("1");
-
-		// while(zahl > 1){
-		// 	sum = sum.multiply(BigInteger.valueOf(zahl));
-		// 	zahl -= 1;
-		// }
-
-		// return sum;
 	}
 	/**
 	 * This method is used to calulate to check if a number
