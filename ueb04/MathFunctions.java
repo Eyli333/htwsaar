@@ -181,31 +181,28 @@ public class MathFunctions{
 		TestUtils.checkIsNonNegativ(zahl, "zahl");
 
 		double doubleZahl = (double)zahl;
-		double squareRootZahlDouble = Math.sqrt(doubleZahl);
+		// double squareRootZahlDouble = Math.sqrt(doubleZahl);
 		double cubeRootZahlDouble = Math.cbrt(doubleZahl);
 		double quarticRootZahlDouble = Math.pow(doubleZahl, 0.25);
 
-		long squareRootZahl = (long)squareRootZahlDouble;
+		// long squareRootZahl = (long)squareRootZahlDouble;
 		long cubeRootZahl = (long)cubeRootZahlDouble;
 		long quarticRootZahl = (long)quarticRootZahlDouble;
 
 		long a, b, c;
-		for (long i = 1; i <= quarticRootZahl; ++i) {
-			a = i * i * i * i; 
-
-			for (long j = 1; j <= cubeRootZahl; ++j) {
+		for (long i = 1; i <= quarticRootZahl; i++) {
+			a = i * i * i * i;
+			for (long j = 1; j <= cubeRootZahl; j++) {
 				b = j * j * j;
-
-				for (long k = 1; k <= squareRootZahl; ++k) {
-					c = k * k;
-
-					if (a + b + c == zahl) {
-						return true;
-					}
+				c = (long)Math.sqrt(zahl - a - b);
+				if(c == 0){
+					return false;
+				}
+				if (zahl == a + b + c * c) {
+					return true;
 				}
 			}
 		}
-
 		return false;
 	}
 
