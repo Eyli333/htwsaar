@@ -43,7 +43,6 @@ public class ArtikelDialog {
 	 * This constructor is the main entry point for the ArtikelDialog class
 	 */
 	public ArtikelDialog(){
-		scanner = new Scanner(System.in);
 	}
 
 	/**
@@ -220,7 +219,7 @@ public class ArtikelDialog {
 	public void bucheZugang() {
 		if (artikel == null) {
 			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
-			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 10 um das Programm zu verlassen.");
 		} else {
 			System.out.println("\nDer Bestand ist " + artikel.getBestand() + ", wie viel soll hinzugefuegt werden ?");
 			System.out.print(">>> ");
@@ -239,7 +238,7 @@ public class ArtikelDialog {
 	public void bucheAbgang() {
 		if (artikel == null) {
 			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
-			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 10 um das Programm zu verlassen.");
 		} else {
 			System.out.println("\nDer Bestand ist " + artikel.getBestand() + ", wie viel soll abgezogen werden ?");
 			System.out.print(">>> ");
@@ -258,7 +257,7 @@ public class ArtikelDialog {
 	public void artikelNummerSetzen() {
 		if (artikel == null) {
 			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
-			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 10 um das Programm zu verlassen.");
 		} else {
 			System.out.println("\nDie Aktuelle Artikel Nummer ist " + artikel.getArtikelNr() + ", geben Sie die neue Artikelnummer ein (eine positive Vierstelligezahl) :");
 			System.out.print(">>> ");
@@ -277,7 +276,7 @@ public class ArtikelDialog {
 	public void bestandSetzen() {
 		if (artikel == null) {
 			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
-			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 10 um das Programm zu verlassen.");
 		} else {
 			System.out.println("\nDie Aktuelle Artikel Nummer ist " + artikel.getBestand() + ", geben Sie den neuen Bestand ein :");
 			System.out.print(">>> ");
@@ -296,7 +295,7 @@ public class ArtikelDialog {
 	public void artSetzen() {
 		if (artikel == null) {
 			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
-			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 10 um das Programm zu verlassen.");
 		} else {
 			System.out.println("\nDie Aktuelle Artikel Nummer ist " + artikel.getArt() + ", geben Sie die neue Art des Artikels ein :");
 			System.out.print(">>> ");
@@ -315,7 +314,7 @@ public class ArtikelDialog {
 	public void preisSetzen() {
 		if (artikel == null) {
 			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
-			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 10 um das Programm zu verlassen.");
 		} else {
 			System.out.println("\nDer aktuelle Preis ist " + artikel.getPreis() + ", geben Sie den  neuen Preis des Artikels ein :");
 			System.out.print(">>> ");
@@ -332,7 +331,7 @@ public class ArtikelDialog {
 	public void artikelInformation() {
 		if (artikel == null) {
 			System.out.println("Sie können diese Funktion noch nicht nutzen, denn es existiert noch kein Artikel.\n" + 
-			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 9 um das Programm zu verlassen.");
+			"Bitte tätigen Sie 1 oder 2 um ein Artikel zu erstellen, oder 10 um das Programm zu verlassen.");
 		} else {
 			System.out.println(artikel);
 		}
