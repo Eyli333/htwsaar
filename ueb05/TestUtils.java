@@ -42,4 +42,33 @@ public class TestUtils {
         }
     }
 
+    /**
+     * This method is used to check if the size is not bigger than 10 
+     * @param size this is the size that will be checked
+     * @param MAX this is the Max that will be used to compare
+     */
+    public static void checkSize(int size, int MAX) {
+        if (size > MAX) {
+            throw new IllegalArgumentException("Die Groesse kann nicht groesser als " + MAX + " sein");
+        }
+        if (size < 0) {
+            throw new IllegalArgumentException("Die Groesse kann nicht kleiner als 0 sein");
+        }
+    }
+
+    /**
+     * This method is used to check if a Array have a null value in a index
+     * @param array this is the array that will be checked
+     */
+    public static void checkNotNull(Artikel[] lager) {
+        int temp = 0;
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i] != null) {
+                temp++;
+            }
+        }
+        if (temp != 0) {
+            throw new IllegalArgumentException("Der Lager ist voll ein Artikel soll zuerst geloescht werden");
+        }
+    }
 }
