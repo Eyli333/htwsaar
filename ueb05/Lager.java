@@ -29,25 +29,8 @@ public class Lager {
      * @param artikel The article to be added
      */
     public void legeAnArtikel(Artikel artikel) {
-        // This is a alternativ becaause the checkNotNull doesn funcktion
-        // TestUtils.checkNotNull(lager);
-        int temp = 0;
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i] != null) {
-                temp++;
-            }
-        }
-        if (temp == lager.length) {
-            throw new IllegalArgumentException("Der Lager ist voll ein Artikel soll zuerst geloescht werden");
-        }
-        // end
-
-        // check if the article is not already in the array
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i] != null && lager[i].getArtikelNr() == artikel.getArtikelNr()) {
-                throw new IllegalArgumentException("Der Artikel ist schon im Lager");
-            }
-        }
+        TestUtils.checkNotNull(lager);
+        TestUtils.checkInLager(lager, artikel.getArtikelNr());
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] == null) {
@@ -62,6 +45,8 @@ public class Lager {
      * @param artikel The article to be removed
      */
     public void entferneArtikel(int artikelNr) {
+        TestUtils.checkNotInLager(lager, artikelNr);
+
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
                 lager[i] = null;
@@ -78,6 +63,8 @@ public class Lager {
      * @param abgang is how many will be remove
      */
     public void bucheAbgang(int artikelNr, int abgang) {
+        TestUtils.checkNotInLager(lager, artikelNr);
+
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
                 lager[i].bucheAbgang(abgang);
@@ -92,6 +79,8 @@ public class Lager {
      * @param zugang is how many will be added
      */
     public void bucheZugang(int artikelNr, int zugang) {
+        TestUtils.checkNotInLager(lager, artikelNr);
+
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
                 lager[i].bucheZugang(zugang);
@@ -106,6 +95,8 @@ public class Lager {
      * @param preis is the new Preis
      */
     public void aenderePreisEinesArtikels(int artikelNr, double prozent) {
+        TestUtils.checkNotInLager(lager, artikelNr);
+
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
                 lager[i].setPreis(lager[i].getPreis() * (1 + prozent / 100));
@@ -119,6 +110,8 @@ public class Lager {
      * @param prozent is the new Preis
      */
     public void aenderePreisAllerArtikel(double prozent) {
+        TestUtils.checkNull(lager);
+
         for (int i = 0; i < lager.length; i++) {
             lager[i].setPreis(lager[i].getPreis() * (1 + prozent / 100));
         }
@@ -130,6 +123,7 @@ public class Lager {
      * @return the Artikel at the index
      */
     public Artikel getArtikel(int index) {
+        TestUtils.checkIndex(index, lager.length);
         return lager[index];
     }
 
@@ -161,7 +155,8 @@ public class Lager {
      * @return the elements of the array
      */
     public String toString() {
-        // TestUtils.checkNotNull(lager); see first or second function
+        TestUtils.checkNotNull(lager);
+
         String s = "";
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] != null) {

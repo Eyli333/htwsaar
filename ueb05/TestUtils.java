@@ -67,8 +67,62 @@ public class TestUtils {
                 temp++;
             }
         }
-        if (temp != 0) {
+        if (temp == lager.length) {
             throw new IllegalArgumentException("Der Lager ist voll ein Artikel soll zuerst geloescht werden");
+        }
+    }
+
+    /**
+     * This method is used to check if the lager is empty
+     * @param lager this is the lager that will be checked
+     */
+    public static void checkNull(Artikel[] lager) {
+        int temp = 0;
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i] == null) {
+                temp++;
+            }
+        }
+        if (temp == lager.length) {
+            throw new IllegalArgumentException("Der Lager ist leer");
+        }
+    }
+
+    /**
+     * This method is used to check if the lager containe the Artikel
+     * @param lager this is the lager that will be checked
+     * @param artikel this is the artikel that will be checked
+     */
+    public static void checkInLager(Artikel[] lager, int artikelNr) {
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i] != null && lager[i].getArtikelNr() == artikelNr) {
+                throw new IllegalArgumentException("Der Artikel mit der Artikelnummer " + artikelNr + " ist bereits im Lager");
+            }
+        }
+    }
+
+    /**
+     * This method is used to check if the lager containe the Artikel
+     * @param lager this is the lager that will be checked
+     * @param artikel this is the artikel that will be checked
+     */
+    public static void checkNotInLager(Artikel[] lager, int artikelNr) {
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i] != null && lager[i].getArtikelNr() == artikelNr) {
+                return;
+            }
+        }
+        throw new IllegalArgumentException("Der Artikel mit der Artikelnummer " + artikelNr + " ist nicht im Lager");
+    }
+    
+    /**
+     * This method is used to check if the idex is in the range of the lager
+     * @param lager this is the lager that will be checked
+     * @param index this is the index that will be checked
+     */
+    public static void checkIndex(int index, int size) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Der Index " + index + " ist nicht gueltig");
         }
     }
 }
