@@ -172,7 +172,7 @@ public class Lager {
      * @return the quantity of Artikel in the array lager
      */
     public int getArtikelAnzahl(){
-        TestUtils.checkIfLagerIsEmpty(lager); //jsp
+        TestUtils.checkIfLagerIsEmpty(lager);
 
         int count = 0;
         for (int i = 0; i < lager.length; i++) {
