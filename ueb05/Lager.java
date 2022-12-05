@@ -25,7 +25,6 @@ public class Lager {
             lager[i] = null;
         }
     }
-
     /**
      * This constructor is the second entry point for the Lager class
      */
@@ -57,8 +56,8 @@ public class Lager {
      * @param artikelNr This is the object that is removed from the array lager
      */
     public void entferneArtikel(int artikelNr){
-        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
@@ -70,7 +69,6 @@ public class Lager {
 
         sortLager();
     }
-    
 
     /**
      * This methode is used to add a quantity to the attribute bestand
@@ -78,8 +76,8 @@ public class Lager {
      * @param zugang This is the quantity that is added to the attribute bestand
      */
     public void bucheZugang(int artikelNr, int zugang){ 
-        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
@@ -96,8 +94,8 @@ public class Lager {
      * @abgang This is the quantity that is removed from the attribute bestand
      */
     public void bucheAbgang(int artikelNr, int abgang){
-        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
@@ -114,13 +112,13 @@ public class Lager {
      * @param prozent This is the percentage that is added or removed of the target Artikel 
      */
     public void aenderePreisEinesArtikels(int artikelNr, double prozent){
-        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkArtikelNr(artikelNr);
         TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
-                lager[i].setPreis(lager[i].getPreis() * (1 + prozent / 100));
+                lager[i].setPreis(lager[i].getPreis() * (1.0 + prozent / 100));
                 break;
             }
         }
@@ -136,7 +134,7 @@ public class Lager {
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] != null) {
-                lager[i].setPreis(lager[i].getPreis() * (1 + prozent / 100));
+                lager[i].setPreis(lager[i].getPreis() * (1.0 + prozent / 100));
             }
         }
     }

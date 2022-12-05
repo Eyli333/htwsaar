@@ -56,10 +56,11 @@ public class TestUtils {
 
     public static void checkIfNotInLager(int artikelNr, Artikel[] artikel){
         for (int i = 0; i < artikel.length; i++) {
-            if (!(artikel[i] != null)) {
-                throw new IllegalArgumentException("Die Artikelnummer " + artikelNr + " ist nicht im Lager.");
+            if (artikel[i] != null && artikel[i].getArtikelNr() == artikelNr) {
+                return;
             }
         }
+        throw new IllegalArgumentException("Die Artikelnummer " + artikelNr + " ist nicht im Lager.");
     }
 
     /**
@@ -67,11 +68,15 @@ public class TestUtils {
      * @param lager This is the Lager that will be checked
      */
     public static void checkIfLagerIsFull(Artikel[] lager) {
+        int count = 0;
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] != null ){
-                throw new IllegalArgumentException("Das Lager ist voll, wenn Sie an dem Lager aederungen vornehmen wollen," + "\n"  
-                + "muessen Sie erst einen Artikel loeschen.");
+            count++;
             }
+        }
+        if (count == lager.length) {
+            throw new IllegalArgumentException("Das Lager ist voll, wenn Sie an dem Lager aederungen vornehmen wollen," + "\n"  
+            + "muessen Sie erst einen Artikel loeschen.");
         }
     }
 
