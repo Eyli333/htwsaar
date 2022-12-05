@@ -8,29 +8,41 @@
  * @version 1.1.1
  * @since 2022-11-04
  */
+
 public class Lager {
-    private static final int MAX = 10;
     private Artikel[] lager;
+    private final int STANDART_GROESSE = 10;
+
 
     /**
-     * This constructor is the main entry point for the Artikel class
-     * @param size The size of the array
+     * This constructor is the main entry point for the Lager class
      */
-    public Lager(int size) {
-        TestUtils.checkSize(size, MAX);
-        lager = new Artikel[size];
+    public Lager(int maxArtikel) {
+        TestUtils.checkLagerSize(maxArtikel);
+
+        lager = new Artikel[maxArtikel];
         for (int i = 0; i < lager.length; i++) {
             lager[i] = null;
         }
     }
 
     /**
-     * This method adds an article to the array
-     * @param artikel The article to be added
+     * This constructor is the second entry point for the Lager class
      */
-    public void legeAnArtikel(Artikel artikel) {
-        TestUtils.checkNotNull(lager);
-        TestUtils.checkInLager(lager, artikel.getArtikelNr());
+    public Lager() {
+        lager = new Artikel[STANDART_GROESSE];
+        for (int i = 0; i < lager.length; i++) {
+            lager[i] = null;
+        }
+    }
+
+    /**
+     * This method is used to add an object to the array lager
+     * @param artikel This is the object that is added to the array lager
+     */
+    public void legeAnArtikel(Artikel artikel){
+        TestUtils.checkIfLagerIsFull(lager);
+        TestUtils.checkIfInLager(artikel.getArtikelNr(), lager);
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] == null) {
@@ -41,11 +53,13 @@ public class Lager {
     }
 
     /**
-     * This method removes an article from the array
-     * @param artikel The article to be removed
+     * This method is used to remove an object from the array lager
+     * @param artikelNr This is the object that is removed from the array lager
      */
-    public void entferneArtikel(int artikelNr) {
-        TestUtils.checkNotInLager(lager, artikelNr);
+    public void entferneArtikel(int artikelNr){
+        TestUtils.checkArtikelNr(artikelNr);
+        TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
@@ -54,32 +68,19 @@ public class Lager {
             }
         }
 
-        sort();
+        sortLager();
     }
+    
 
     /**
-     * This method is used remove a menge fron the artikel
-     * @param artikelNr is the targeted Artikel 
-     * @param abgang is how many will be remove
+     * This methode is used to add a quantity to the attribute bestand
+     * @param artikelNr This is the target Artikel
+     * @param zugang This is the quantity that is added to the attribute bestand
      */
-    public void bucheAbgang(int artikelNr, int abgang) {
-        TestUtils.checkNotInLager(lager, artikelNr);
-
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i].getArtikelNr() == artikelNr) {
-                lager[i].bucheAbgang(abgang);
-                break;
-            }
-        }
-    }
-
-    /**
-     * This mehtod is used to add to the artikel a new zugang
-     * @param artikelNr is the targeted Artikel
-     * @param zugang is how many will be added
-     */
-    public void bucheZugang(int artikelNr, int zugang) {
-        TestUtils.checkNotInLager(lager, artikelNr);
+    public void bucheZugang(int artikelNr, int zugang){ 
+        TestUtils.checkArtikelNr(artikelNr);
+        TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
@@ -90,12 +91,32 @@ public class Lager {
     }
 
     /**
-     * This method is used to change the Preis 
-     * @param artikelNr is the targeted Artikel
-     * @param preis is the new Preis
+     * This method is used to get the value of the attribute bestand
+     * @param artikelNr This is the target Artikel
+     * @abgang This is the quantity that is removed from the attribute bestand
      */
-    public void aenderePreisEinesArtikels(int artikelNr, double prozent) {
-        TestUtils.checkNotInLager(lager, artikelNr);
+    public void bucheAbgang(int artikelNr, int abgang){
+        TestUtils.checkArtikelNr(artikelNr);
+        TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkIfNotInLager(artikelNr, lager);
+
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i].getArtikelNr() == artikelNr) {
+                lager[i].bucheAbgang(abgang);
+                break;
+            }
+        }
+    }
+
+    /**
+     * This method is used to get the value of the attribute bestand
+     * @param artikelNr This is the target Artikel
+     * @param prozent This is the percentage that is added or removed of the target Artikel 
+     */
+    public void aenderePreisEinesArtikels(int artikelNr, double prozent){
+        TestUtils.checkArtikelNr(artikelNr);
+        TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
@@ -106,32 +127,55 @@ public class Lager {
     }
 
     /**
-     * This method is used to change the Preis of all Artikel 
-     * @param prozent is the new Preis
+     * This method is used to get the value of the attribute bestand
+     * @param artikelNr This is the target Artikel
+     * @param prozent This is the percentage that is added or removed of all the Artikel in the array lager
      */
-    public void aenderePreisAllerArtikel(double prozent) {
-        TestUtils.checkNull(lager);
+    public void aenderePreisAllerArtikel(double prozent){
+        TestUtils.checkIfLagerIsEmpty(lager);
 
         for (int i = 0; i < lager.length; i++) {
-            lager[i].setPreis(lager[i].getPreis() * (1 + prozent / 100));
+            if (lager[i] != null) {
+                lager[i].setPreis(lager[i].getPreis() * (1 + prozent / 100));
+            }
         }
     }
 
     /**
-     * This method is used to get the Artikel at a specific index
-     * @param index is the index of the Artikel
-     * @return the Artikel at the index
+     * This method is used to get the value of a target Artikel 
+     * @param index This is the index of target Artikel
      */
-    public Artikel getArtikel(int index) {
-        TestUtils.checkIndex(index, lager.length);
+    public Artikel getArtikel(int index){
+        TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkIfIndexIsInRange(index, lager.length);
+        TestUtils.checkIfIndexIsNull(lager, index);
+
         return lager[index];
     }
 
     /**
-     * This method is used to return the number of Artikel in the array
-     * @return the number of Artikel in the array
+     * This method is used to print all the Artikel from the array lager
+     * @return the Artikel from the array lager at the index
      */
-    public int getArtikelAnzahl() {
+    public String toString(){
+        TestUtils.checkIfLagerIsEmpty(lager);
+
+        String output = "";
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i] != null) {
+                output += lager[i].toString() + "\n";
+            }
+        }
+        return output;
+    }
+
+    /**
+     * This method is used to get the quantity of Artikel in the array lager
+     * @return the quantity of Artikel in the array lager
+     */
+    public int getArtikelAnzahl(){
+        TestUtils.checkIfLagerIsEmpty(lager); //jsp
+
         int count = 0;
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] != null) {
@@ -142,34 +186,17 @@ public class Lager {
     }
 
     /**
-     * This method is used to return the max number that 
-     * can be stored in the array
-     * @return the max number that can be stored in the array
+     * This method is used to get the size of the array lager
+     * @return the size of the array lager
      */
-    public int getLagerGroesse() {
+    public int getLagerGroesse(){
         return lager.length;
-    }
-
-    /**
-     * This method is used to return the elements of the array
-     * @return the elements of the array
-     */
-    public String toString() {
-        TestUtils.checkNotNull(lager);
-
-        String s = "";
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i] != null) {
-                s += lager[i].toString() + "\n";
-            }
-        }
-        return s;
     }
 
     /**
      * This method sort the Null in the array to the end 
      */
-    public void sort() {
+    public void sortLager() {
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] == null) {
                 for (int j = i; j < lager.length; j++) {
@@ -182,5 +209,5 @@ public class Lager {
             }
         }
     }
-
 }
+

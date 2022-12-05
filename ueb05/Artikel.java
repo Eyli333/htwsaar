@@ -11,7 +11,7 @@
 public class Artikel {
     private int artikelNr;
     private int bestand;
-    private String art; 
+    private String art;
     private double preis;
     
     /**
@@ -28,7 +28,6 @@ public class Artikel {
         setPreis(preis);
 
     }
-    
     
     /**
      * This constructor is the second entry of the class Artikel
@@ -65,7 +64,8 @@ public class Artikel {
 
     /**
     * This method is used to return the value of the attribute artikelNr
-    * @return artikelNr as a int This returns the content of ArtikelNr
+    * @param artikelNr This is the first attribute of the class Artikel
+    * @return string This returns the content of art
     */
     public int getArtikelNr() { 
         return artikelNr;
@@ -73,7 +73,8 @@ public class Artikel {
 
     /**
      * This method is used to return the value of the attribute art
-     * @return art as a string This returns the value of art
+     * @param art This is the second attribute of the class Artikel
+     * @return string This returns the value of art
      */
     public String getArt() { 
         return art;
@@ -81,17 +82,14 @@ public class Artikel {
     
     /**
      * This method is used to return the value of the attribute bestand
-     * @return bestand as a int This returns the value of bestand
+     * @param bestand This is the third attribute of the class Artikel
+     * @return int This returns the value of bestand
      */
     public int getBestand() { 
         return bestand;
     }
 
-    /**
-     * This method is used to return the value of the attribute preis
-     * @return preis as a double This returns the value of preis
-     */
-    public double getPreis() { 
+    public double getPreis() {
         return preis;
     }
 
@@ -115,17 +113,13 @@ public class Artikel {
     
     /**
      * This method is used to set the value of art
-     * @param neuerArt is the third attribute of the class Artikel
+     * @param bestand This is the third attribute of the class Artikel
      */
     public void setArt(String neuerArt) {
         TestUtils.checkArt(neuerArt);
         this.art = neuerArt;
     }
 
-    /**
-     * This method is used to set the value of preis
-     * @param neuerPreis is the four attribute of the class Artikel
-     */
     public void setPreis(double neuerPreis) {
         TestUtils.checkPreis(neuerPreis);
         this.preis = neuerPreis;
@@ -133,6 +127,9 @@ public class Artikel {
 
     /**
      * This method is used to return the values of the attributes of the class Artikel
+     * @param artikelNr This is the first attribute of the class Artikel 
+     * @param art This is the second attribute of the class Artikel
+     * @param bestand This is the third attribute of the class Artikel
      * @return string This returns the attributes artikelNr, art and bestand in a String
      */
     public String toString() { 

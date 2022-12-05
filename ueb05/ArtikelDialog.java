@@ -261,7 +261,7 @@ public class ArtikelDialog {
 		} else {
 			System.out.println("\nDie Aktuelle Artikel Nummer ist " + artikel.getArtikelNr() + ", geben Sie die neue Artikelnummer ein (eine positive Vierstelligezahl) :");
 			System.out.print(">>> ");
-			int neuerArtikelNr= scanner.nextInt();
+			int neuerArtikelNr = scanner.nextInt();
 
 			artikel.setArtikelNr(neuerArtikelNr);
 			System.out.println("\nDie neue Artikel Nummer ist " + artikel.getArtikelNr());
@@ -280,7 +280,7 @@ public class ArtikelDialog {
 		} else {
 			System.out.println("\nDie Aktuelle Artikel Nummer ist " + artikel.getBestand() + ", geben Sie den neuen Bestand ein :");
 			System.out.print(">>> ");
-			int neuerBestand= scanner.nextInt();
+			int neuerBestand = scanner.nextInt();
 
 			artikel.setBestand(neuerBestand);
 			System.out.println("\nDer neue Bestand ist " + artikel.getBestand());

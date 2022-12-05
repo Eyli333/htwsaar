@@ -1,12 +1,22 @@
 public class TestUtils {
     
     /**
+	 * This method is used to check if the value is negativ 
+	 * @param preis this is the value that will be checked 
+	 */
+    public static void checkPreis(double preis){
+        if (preis < 0.0){
+            throw new IllegalArgumentException("Der Preis " + preis + " muss groesser als 0 sein.");
+        }
+    }   
+
+    /**
      * This method is used to check if new Art variable can be used
      * @param inputArt This is the new Art that will be checked
      */
     public static void checkArt(String inputArt) {
         if (inputArt.strip().isEmpty()) {
-            throw new IllegalArgumentException("Art kann nicht leer sein");    
+            throw new IllegalArgumentException("Die Art kann nicht leer sein.");    
         } else if (!inputArt.equals(inputArt.strip())){
             throw new IllegalArgumentException("Sie koennen keine Leerzeichen vor oder nach dem Objekt eingeben.");    
         }
@@ -18,7 +28,7 @@ public class TestUtils {
      */
     public static void checkBestand(int inputBestand) {
         if (inputBestand < 0) {
-            throw new IllegalArgumentException("Der Bestand kann nicht negativ sein");
+            throw new IllegalArgumentException("Der Bestand muss positiv sein.");
         }
     }
 
@@ -27,102 +37,88 @@ public class TestUtils {
      * @param inputArtikelNr This is the new ArtikelNr that will be checked
      */
     public static void checkArtikelNr(int inputArtikelNr) { 
-        if (inputArtikelNr < 1000  || inputArtikelNr > 9999) { 
-            throw new IllegalArgumentException("Die Artikelnummer muss groesser als 1000 und eine positive vierstellige Zahl sein");
+            if (inputArtikelNr < 1000  || inputArtikelNr > 9999) { 
+                   throw new IllegalArgumentException("Die Artikelnummer muss groesser als 1000 und eine positive vierstellige Zahl sein.");
         }
     }
 
     /**
-     * This method is used to check if new preis variable can be used
-     * @param preis This is the new preis that will be checked
+     * This method is used to check if the Artikelnr is already in use
+     * @param artikelNr This is the ArtikelNr that will be checked
      */
-    public static void checkPreis(double inputPreis) { 
-        if (inputPreis < 0.0) { 
-            throw new IllegalArgumentException("Der Preis " + inputPreis + " ist nicht gueltig. Der Preis soll groesser als 0 sein");
-        }
-    }
-
-    /**
-     * This method is used to check if the size is not bigger than 10 
-     * @param size this is the size that will be checked
-     * @param MAX this is the Max that will be used to compare
-     */
-    public static void checkSize(int size, int MAX) {
-        if (size > MAX) {
-            throw new IllegalArgumentException("Die Groesse kann nicht groesser als " + MAX + " sein");
-        }
-        if (size < 0) {
-            throw new IllegalArgumentException("Die Groesse kann nicht kleiner als 0 sein");
-        }
-    }
-
-    /**
-     * This method is used to check if a Array have a null value in a index
-     * @param array this is the array that will be checked
-     */
-    public static void checkNotNull(Artikel[] lager) {
-        int temp = 0;
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i] != null) {
-                temp++;
+    public static void checkIfInLager(int artikelNr, Artikel[] artikel){
+        for (int i = 0; i < artikel.length; i++) {
+            if (artikel[i] != null && artikel[i].getArtikelNr() == artikelNr) {
+                throw new IllegalArgumentException("Die Artikelnummer " + artikelNr + " ist bereits vergeben.");
             }
         }
-        if (temp == lager.length) {
-            throw new IllegalArgumentException("Der Lager ist voll ein Artikel soll zuerst geloescht werden");
-        }
     }
 
-    /**
-     * This method is used to check if the lager is empty
-     * @param lager this is the lager that will be checked
-     */
-    public static void checkNull(Artikel[] lager) {
-        int temp = 0;
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i] == null) {
-                temp++;
-            }
-        }
-        if (temp == lager.length) {
-            throw new IllegalArgumentException("Der Lager ist leer");
-        }
-    }
-
-    /**
-     * This method is used to check if the lager containe the Artikel
-     * @param lager this is the lager that will be checked
-     * @param artikel this is the artikel that will be checked
-     */
-    public static void checkInLager(Artikel[] lager, int artikelNr) {
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i] != null && lager[i].getArtikelNr() == artikelNr) {
-                throw new IllegalArgumentException("Der Artikel mit der Artikelnummer " + artikelNr + " ist bereits im Lager");
+    public static void checkIfNotInLager(int artikelNr, Artikel[] artikel){
+        for (int i = 0; i < artikel.length; i++) {
+            if (!(artikel[i] != null)) {
+                throw new IllegalArgumentException("Die Artikelnummer " + artikelNr + " ist nicht im Lager.");
             }
         }
     }
 
     /**
-     * This method is used to check if the lager containe the Artikel
-     * @param lager this is the lager that will be checked
-     * @param artikel this is the artikel that will be checked
+     * This method is used to check if the Lager is empty
+     * @param lager This is the Lager that will be checked
      */
-    public static void checkNotInLager(Artikel[] lager, int artikelNr) {
+    public static void checkIfLagerIsFull(Artikel[] lager) {
         for (int i = 0; i < lager.length; i++) {
-            if (lager[i] != null && lager[i].getArtikelNr() == artikelNr) {
-                return;
+            if (lager[i] != null ){
+                throw new IllegalArgumentException("Das Lager ist voll, wenn Sie an dem Lager aederungen vornehmen wollen," + "\n"  
+                + "muessen Sie erst einen Artikel loeschen.");
             }
         }
-        throw new IllegalArgumentException("Der Artikel mit der Artikelnummer " + artikelNr + " ist nicht im Lager");
+    }
+
+
+     /**
+     * This method is used to check if the Lager is empty
+     * @param lager This is the Lager that will be checked
+     */
+    public static void checkIfLagerIsEmpty(Artikel[] lager) {
+        int count = 0;
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i] != null ){
+                count++;
+            }
+        }
+        if (count == 0){
+            throw new IllegalArgumentException("Das Lager ist leer, wenn Sie an dem Lager aederungen vornehmen wollen," + "\n" 
+            + "muessen Sie erst ein Artikel hinzufuegen.");
+        }
     }
     
     /**
-     * This method is used to check if the idex is in the range of the lager
-     * @param lager this is the lager that will be checked
-     * @param index this is the index that will be checked
+     * This method is used to check if the index is valid
+     * @param index This is the index that will be checked
      */
-    public static void checkIndex(int index, int size) {
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Der Index " + index + " ist nicht gueltig");
+    public static void checkIfIndexIsInRange(int index, int length) {
+        if (index < 0 || index >= length) {
+            throw new IllegalArgumentException("Der Index ist nicht im Bereich des Lagers." + "\n" 
+            + " Er muss zwischen 0 und " + (length - 1) + " liegen.");
+        }
+    }
+
+    public static void checkIfIndexIsNull(Artikel[] lager, int index) {
+        if (lager[index] == null) {
+            throw new IllegalArgumentException("An dem Index ist kein Artikel.");
+        }
+    }
+
+    /**
+     * This method is used to check if the input of the user is lower than 1
+     * @param maxArtikel This is the input of the user
+     * @param string This is the name of the variable that will be checked
+     */
+    public static void checkLagerSize(int maxArtikel) {
+        if (maxArtikel < 1) {
+            throw new IllegalArgumentException("Das Lager muss mindestens ein Artikel enthalten können.");
         }
     }
 }
+

@@ -15,36 +15,38 @@ import java.util.Scanner;
 public class LagerDialog {
     private Artikel artikel;
     private Lager lager;
+    private static Scanner scanner = EingabeUtils.scanOpen();
 
-    private static final int LAGER_KONSTRUKTEUR_INT = 1;
-    private static final int ARTIKEL_LEGEN_MIT_BESTANT_INT = 2;
-    private static final int ARTIKEL_LEGEN_OHNE_BESTANT_INT = 3;
-    private static final int ARTIKEL_ENTFERNEN_INT = 4;
-    private static final int BUCHE_ZUGANG_INT = 5;
-    private static final int BUCHE_ABGANG_INT = 6;
-    private static final int ANDERER_PREIS_ARTIKEL_INT = 7;
-    private static final int ANDERER_PREIS_GLOBAL_INT = 8;
-    private static final int GET_ARTIKEL_INT = 9;
-    private static final int INFORMATION_LAGER_INT = 10;
-    private static final int GET_NUMBER_OF_ARTIKEL_INT = 11;
-    private static final int GET_GROESSE_LAGER_INT = 12;
-    private static final int EXIT_INT = 13;
+    private static final int LAGER_CONSTRUCTOR_INT = 1;
+    private static final int LAGER_CONSTRUCTOR_DEFAULT_INT = 2;
+    private static final int SET_ARTIKEL_WITH_BESTAND_INT = 3;
+    private static final int SET_ARTIKEL_WITHOUT_BESTAND_INT = 4;
+    private static final int REMOVE_ARTIKEL_INT = 5;
+    private static final int BOOK_RECEIPT_INT = 6;
+    private static final int BOOK_RELEASE_INT = 7;
+    private static final int CHANGE_PRICE_OF_ONE_ARTIKEL_INT = 8;
+    private static final int CHANGE_PRICE_OF_ALL_ARTIKEL_INT = 9;
+    private static final int GET_ARTIKEL_INT = 10;
+    private static final int GET_INFORMATION_OF_LAGER_INT = 11;
+    private static final int GET_NUMBER_OF_ARTIKEL_INT = 12;
+    private static final int GET_SIZE_OF_LAGER_INT = 13;
+    private static final int EXIT_INT = 14;
 
-    private static final String LAGER_KONSTRUKTEUR_STRING = " : Ein neuer Lager erstellen";
-    private static final String ARTIKEL_LEGEN_MIT_BESTANT_STRING = " : Ein neuer Artikel mit Bestand legen";
-    private static final String ARTIKEL_LEGEN_OHNE_BESTANT_STRING = " : Ein neuer Artikel ohne Bestand legen";
-    private static final String ARTIKEL_ENTFERNEN_STRING = " : Ein Artikel entfernen";
-    private static final String BUCHE_ZUGANG_STRING = " : Buche Zugang";
-    private static final String BUCHE_ABGANG_STRING = " : Buche Abgang";
-    private static final String ANDERER_PREIS_ARTIKEL_STRING = " : Den Preis eines Artikel ändern";
-    private static final String ANDERER_PREIS_GLOBAL_STRING = " : Den Preis aller Artikel ändern";
-    private static final String GET_ARTIKEL_STRING = " : Ein Artikel bekommen";
-    private static final String INFORMATION_LAGER_STRING = " : Informationen über das Lager";
-    private static final String GET_NUMBER_OF_ARTIKEL_STRING = " : Die Anzahl der Artikel bekommen";
-    private static final String GET_GROESSE_LAGER_STRING = " : Die Größe des Lagers bekommen";
+    private static final String LAGER_CONSTRUCTOR_STRING = " : Ein neues Lager erstellen";
+    private static final String LAGER_CONSTRUCTOR_DEFAULT_STRING = " : Ein neues Lager mit der vorgegebenen Maximalgroesse 10 erstellen";
+    private static final String SET_ARTIKEL_WITH_BESTAND_STRING = " : Ein neuen Artikel mit Bestand anlegen";
+    private static final String SET_ARTIKEL_WITHOUT_BESTAND_STRING = " : Ein neuen Artikel ohne Bestand anlegen";
+    private static final String REMOVE_ARTIKEL_STRING = " : Ein Artikel entfernen";
+    private static final String BOOK_RECEIPT_STRING = " : Buche Zugang";
+    private static final String BOOK_RELEASE_STRING = " : Buche Abgang";
+    private static final String CHANGE_PRICE_OF_ONE_ARTIKEL_STRING = " : Den Preis eines Artikel ändern";
+    private static final String CHANGE_PRICE_OF_ALL_ARTIKEL_STRING = " : Den Preis aller Artikel ändern";
+    private static final String GET_ARTIKEL_STRING = " : Informationen eines Artikels ausgeben";
+    private static final String GET_INFORMATION_OF_LAGER_STRING = " : Informationen über das Lager";
+    private static final String GET_NUMBER_OF_ARTIKEL_STRING = " : Anzahl der Artikel im Lager";
+    private static final String GET_SIZE_OF_LAGER_STRING = " : Größe des Lagers";
     private static final String EXIT_STRING = " : Das Programm beenden";
 
-    private static Scanner scanner = EingabeUtils.scanOpen();
 
     /**
      * The main Funktion start a new ArtikelDialog Objekt
@@ -85,18 +87,19 @@ public class LagerDialog {
      */
     public void menuAusgabe() {
         System.out.print("\n"+
-            LAGER_KONSTRUKTEUR_INT + LAGER_KONSTRUKTEUR_STRING + "\n" +
-            ARTIKEL_LEGEN_MIT_BESTANT_INT + ARTIKEL_LEGEN_MIT_BESTANT_STRING + "\n" +
-            ARTIKEL_LEGEN_OHNE_BESTANT_INT + ARTIKEL_LEGEN_OHNE_BESTANT_STRING + "\n" +
-            ARTIKEL_ENTFERNEN_INT + ARTIKEL_ENTFERNEN_STRING + "\n" +
-            BUCHE_ZUGANG_INT + BUCHE_ZUGANG_STRING + "\n" +
-            BUCHE_ABGANG_INT + BUCHE_ABGANG_STRING + "\n" +
-            ANDERER_PREIS_ARTIKEL_INT + ANDERER_PREIS_ARTIKEL_STRING + "\n" +
-            ANDERER_PREIS_GLOBAL_INT + ANDERER_PREIS_GLOBAL_STRING + "\n" +
+            LAGER_CONSTRUCTOR_INT + LAGER_CONSTRUCTOR_STRING + "\n" +
+            LAGER_CONSTRUCTOR_DEFAULT_INT + LAGER_CONSTRUCTOR_DEFAULT_STRING + "\n" +
+            SET_ARTIKEL_WITH_BESTAND_INT + SET_ARTIKEL_WITH_BESTAND_STRING + "\n" +
+            SET_ARTIKEL_WITHOUT_BESTAND_INT + SET_ARTIKEL_WITHOUT_BESTAND_STRING + "\n" +
+            REMOVE_ARTIKEL_INT + REMOVE_ARTIKEL_STRING + "\n" +
+            BOOK_RECEIPT_INT + BOOK_RECEIPT_STRING + "\n" +
+            BOOK_RELEASE_INT + BOOK_RELEASE_STRING + "\n" +
+            CHANGE_PRICE_OF_ONE_ARTIKEL_INT + CHANGE_PRICE_OF_ONE_ARTIKEL_STRING + "\n" +
+            CHANGE_PRICE_OF_ALL_ARTIKEL_INT + CHANGE_PRICE_OF_ALL_ARTIKEL_STRING + "\n" +
             GET_ARTIKEL_INT + GET_ARTIKEL_STRING + "\n" +
-            INFORMATION_LAGER_INT + INFORMATION_LAGER_STRING + "\n" +
+            GET_INFORMATION_OF_LAGER_INT + GET_INFORMATION_OF_LAGER_STRING + "\n" +
             GET_NUMBER_OF_ARTIKEL_INT + GET_NUMBER_OF_ARTIKEL_STRING + "\n" +
-            GET_GROESSE_LAGER_INT + GET_GROESSE_LAGER_STRING + "\n" +
+            GET_SIZE_OF_LAGER_INT + GET_SIZE_OF_LAGER_STRING + "\n" +
             EXIT_INT + EXIT_STRING + "\n"
             + ">>> "
         );
@@ -117,41 +120,44 @@ public class LagerDialog {
      */
     public void eingabeBearbeitung(int userInput) {
         switch (userInput) {
-            case LAGER_KONSTRUKTEUR_INT:
-                lagerKonstrukteur();
+            case LAGER_CONSTRUCTOR_INT:
+                lagerConstructor();
                 break;
-            case ARTIKEL_LEGEN_MIT_BESTANT_INT:
-                artikelLegenMitBestand();
+            case LAGER_CONSTRUCTOR_DEFAULT_INT:
+                lagerConstructorDefault();
                 break;
-            case ARTIKEL_LEGEN_OHNE_BESTANT_INT:
-                artikelLegenOhneBestand();
+            case SET_ARTIKEL_WITH_BESTAND_INT:
+                setArtikelWithBestand();
                 break;
-            case ARTIKEL_ENTFERNEN_INT:
-                artikelEntfernen();
+            case SET_ARTIKEL_WITHOUT_BESTAND_INT:
+                setArtikelWithoutBestand();
                 break;
-            case BUCHE_ZUGANG_INT:
-                bucheZugang();
+            case REMOVE_ARTIKEL_INT:
+                removeArtikel();
                 break;
-            case BUCHE_ABGANG_INT:
-                bucheAbgang();
+            case BOOK_RECEIPT_INT:
+                bookReceipt();
                 break;
-            case ANDERER_PREIS_ARTIKEL_INT:
-                andererPreisArtikel();
+            case BOOK_RELEASE_INT:
+                bookRelease();
                 break;
-            case ANDERER_PREIS_GLOBAL_INT:
-                andererPreisGlobal();
+            case CHANGE_PRICE_OF_ONE_ARTIKEL_INT:
+                changePriceOfOneArtikel();
+                break;
+            case CHANGE_PRICE_OF_ALL_ARTIKEL_INT:
+                changePriceOfAllArtikel();
                 break;
             case GET_ARTIKEL_INT:
                 getArtikel();
                 break;
-            case INFORMATION_LAGER_INT:
-                informationLager();
+            case GET_INFORMATION_OF_LAGER_INT:
+                getInformationOfLager();
                 break;
             case GET_NUMBER_OF_ARTIKEL_INT:
                 getNumberOfArtikel();
                 break;
-            case GET_GROESSE_LAGER_INT:
-                getSizeLager();
+            case GET_SIZE_OF_LAGER_INT:
+                getSizeOfLager();
                 break;
             case EXIT_INT:
                 System.out.println("Das Programm wird beendet");
@@ -167,11 +173,11 @@ public class LagerDialog {
      * This method is used to create a new Lager
      * It ask the user for the size of the Lager
      */
-    public void lagerKonstrukteur() {
+    public void lagerConstructor() {
         if (lager != null) {
-            System.out.println("Es gibt schon ein Lager");
+            System.out.println("Es gibt schon ein Lager.");
         } else {
-            System.out.println("Geben Sie die Größe des Lagers ein");
+            System.out.println("Geben Sie die Größe des Lagers ein:");
             System.out.print(">>> ");
             int groesse = EingabeUtils.scanInt(scanner);
 
@@ -180,29 +186,39 @@ public class LagerDialog {
     }
 
     /**
+     * This method is used to create a new Lager with the default size of 10
+     */
+    public void lagerConstructorDefault() {
+        if (lager != null) {
+            System.out.println("Es gibt schon ein Lager.");
+        } else {
+            lager = new Lager();
+        }
+    }
+
+    /**
      * This method is used to create a new Artikel with a bestand
      * It ask the user for the ArtikelNr, art, preis and bestand of the Artikel
      */
-    public void artikelLegenMitBestand() {
+    public void setArtikelWithBestand() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
-
-            System.out.println("Geben Sie die ArtikelNr ein");
+            System.out.println("Geben Sie die ArtikelNr ein:");
             System.out.print(">>> ");
             int artikelNr = EingabeUtils.scanInt(scanner);
 
-            System.out.println("Geben Sie die Art ein");
+            System.out.println("Geben Sie die Art ein:");
             System.out.print(">>> ");
             String art = EingabeUtils.scanString(scanner);
 
-            System.out.println("Geben Sie den Preis ein");
-            System.out.print(">>> ");
-            double preis = EingabeUtils.scanDouble(scanner);
-
-            System.out.println("Geben Sie den Bestand ein");
+            System.out.println("Geben Sie den Bestand ein:");
             System.out.print(">>> ");
             int bestand = EingabeUtils.scanInt(scanner);
+
+            System.out.println("Geben Sie den Preis ein:");
+            System.out.print(">>> ");
+            double preis = EingabeUtils.scanDouble(scanner);
 
             artikel = new Artikel(artikelNr, art, bestand, preis);
             lager.legeAnArtikel(artikel);
@@ -213,20 +229,20 @@ public class LagerDialog {
      * This method is used to create a new Artikel without a bestand
      * It ask the user for the ArtikelNr, art and preis of the Artikel
      */
-    public void artikelLegenOhneBestand() {
+    public void setArtikelWithoutBestand() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
 
-            System.out.println("Geben Sie die ArtikelNr ein");
+            System.out.println("Geben Sie die ArtikelNr ein:");
             System.out.print(">>> ");
             int artikelNr = EingabeUtils.scanInt(scanner);
 
-            System.out.println("Geben Sie die Art ein");
+            System.out.println("Geben Sie die Art ein:");
             System.out.print(">>> ");
             String art = EingabeUtils.scanString(scanner);
 
-            System.out.println("Geben Sie den Preis ein");
+            System.out.println("Geben Sie den Preis ein:");
             System.out.print(">>> ");
             double preis = EingabeUtils.scanDouble(scanner);
 
@@ -239,11 +255,11 @@ public class LagerDialog {
      * This method is used to remove an Artikel from the Lager
      * It ask the user for the ArtikelNr of the Artikel
      */
-    public void artikelEntfernen() {
+    public void removeArtikel() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
-            System.out.println("Geben Sie die ArtikelNr ein");
+            System.out.println("Geben Sie die ArtikelNr ein:");
             System.out.print(">>> ");
             int artikelNr = EingabeUtils.scanInt(scanner);
 
@@ -255,15 +271,15 @@ public class LagerDialog {
      * This method is used to add a bestand to an Artikel
      * It ask the user for the ArtikelNr and the amount of the bestand that need to be modifed
      */
-    public void bucheZugang() {
+    public void bookRelease() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
-            System.out.println("Geben Sie die ArtikelNr ein");
+            System.out.println("Geben Sie die ArtikelNr ein:");
             System.out.print(">>> ");
             int artikelNr = EingabeUtils.scanInt(scanner);
 
-            System.out.println("Geben Sie die Menge ein");
+            System.out.println("Geben Sie die Menge ein:");
             System.out.print(">>> ");
             int menge = EingabeUtils.scanInt(scanner);
 
@@ -275,11 +291,11 @@ public class LagerDialog {
      * This method is used to remove a bestand from an Artikel
      * It ask the user the amount of the bestand that need to be modifed
      */
-    public void bucheAbgang() {
+    public void bookReceipt() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
-            System.out.println("Geben Sie die ArtikelNr ein");
+            System.out.println("Geben Sie die ArtikelNr ein:");
             System.out.print(">>> ");
             int artikelNr = EingabeUtils.scanInt(scanner);
 
@@ -293,17 +309,17 @@ public class LagerDialog {
 
     /**
      * This method is used to change the price of an Artikel
-     * It ask the user for the ArtikelNr and the new price of the Artikel
+     * It ask the user for the ArtikelNr and the percentage by which to change the price 
      */
-    public void andererPreisArtikel() {
-        if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+    public void changePriceOfOneArtikel() {
+        if (lager == null) { 
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
             System.out.println("Geben Sie die ArtikelNr ein");
             System.out.print(">>> ");
             int artikelNr = EingabeUtils.scanInt(scanner);
 
-            System.out.println("Geben Sie den neuen Preis ein");
+            System.out.println("Geben Sie den Prozentsatz ein:");
             System.out.print(">>> ");
             double preis = EingabeUtils.scanDouble(scanner);
 
@@ -313,13 +329,13 @@ public class LagerDialog {
 
     /** 
      * This method is used to change the price of all Artikel
-     * It ask the user for the new price of all Artikel
+     * It ask the user for the percentage by which to change the price 
      */
-    public void andererPreisGlobal() {
+    public void changePriceOfAllArtikel() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
-            System.out.println("Geben Sie den neuen Preis ein");
+            System.out.println("Geben Sie den Prozentsatz ein:");
             System.out.print(">>> ");
             double preis = EingabeUtils.scanDouble(scanner);
 
@@ -333,9 +349,9 @@ public class LagerDialog {
      */
     public void getArtikel() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
-            System.out.println("Geben Sie den Index ein");
+            System.out.println("Geben Sie den Index ein: ");
             System.out.print(">>> ");
             int index = EingabeUtils.scanInt(scanner);
 
@@ -346,11 +362,15 @@ public class LagerDialog {
     /**
      * This method is used to print the Lager
      */
-    public void informationLager() {
+    public void getInformationOfLager() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager, erstellen Sie erstmal eins.");
         } else {
-            System.out.println(lager);
+            if( lager.getArtikelAnzahl() == 0) {
+                System.out.println("Es gibt keine Artikel im Lager, erstellen Sie erstmal welche.");
+            } else {
+                System.out.println(lager);
+            }
         }
     }
 
@@ -359,7 +379,7 @@ public class LagerDialog {
      */
     public void getNumberOfArtikel() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
             System.out.println("Anzahl der Artikel: " + lager.getArtikelAnzahl());
         }
@@ -368,9 +388,9 @@ public class LagerDialog {
     /**
      * This method is used to print the size of the Lager
      */
-    public void getSizeLager() {
+    public void getSizeOfLager() {
         if (lager == null) {
-            System.out.println("Es gibt kein Lager. Erstellen Sie ein Lager");
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
             System.out.println("Lagergröße: " + lager.getLagerGroesse());
         }
