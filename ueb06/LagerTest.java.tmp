@@ -1,0 +1,66 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class LagerTest {
+
+
+    @Test
+    public void testLager() {
+        Lager lager = new Lager(10);
+        assertNotNull(lager);
+        assertEquals(lager.getLagerGroesse(), 10);
+    }
+
+    @Test
+    public void testLegeAnArtikel() {
+        Lager lager = new Lager(10);
+        Artikel artikel = new Artikel(1000, "Test", 5);
+        lager.legeAnArtikel(artikel);
+        assertEquals(lager.getArtikel(1000), artikel);
+    }
+
+    @Test
+    public void testEntferneArtikel() {
+        Lager lager = new Lager(10);
+        Artikel artikel = new Artikel(1000, "Test", 5);
+        lager.legeAnArtikel(artikel);
+        lager.entferneArtikel(1000);
+        assertThrows(IllegalArgumentException.class, () -> lager.getArtikel(1000));
+    }
+
+    @Test
+    public void testBucheZugang() {
+        Lager lager = new Lager(10);
+        Artikel artikel = new Artikel(1000, "Test", 5);
+        lager.legeAnArtikel(artikel);
+        lager.bucheZugang(1000, 5);
+        assertEquals(lager.getLager()[0].getBestand(), 10);
+    }
+
+    @Test
+    public void testBucheAbgang() {
+        Lager lager = new Lager(10);
+        Artikel artikel = new Artikel(1000, "Test", 5);
+        lager.legeAnArtikel(artikel);
+        lager.bucheAbgang(1000, 5);
+        assertEquals(lager.getLager()[0].getBestand(), 0);
+    }
+
+    @Test
+    public void testPreiserhoehung() {
+        Lager lager = new Lager(10);
+        Artikel artikel = new Artikel(1000, "Test", 5, 10);
+        lager.legeAnArtikel(artikel);
+        lager.preiserhoehung(1000, 10);
+        assertEquals(lager.getLager()[0].getPreis(), 11);
+    }
+
+    @Test
+    public void testGetLagerbestand() {
+        Lager lager = new Lager(10);
+        Artikel artikel = new Artikel(1000, "Test", 5);
+        lager.legeAnArtikel(artikel);
+        assertEquals(lager.getLagerbestand(), 5);
+        assertEquals(lager[0].getBestand(), 5);
+    }
+}
