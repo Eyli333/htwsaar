@@ -11,11 +11,12 @@
 
 public class Lager {
     private Artikel[] lager;
-    private final int STANDART_GROESSE = 10;
+    private static final int STANDARD_GROESSE = 10;
 
 
     /**
      * This constructor is the main entry point for the Lager class
+     * @param maxArtikel The maximum number of articles that can be stored in the arrayx
      */
     public Lager(int maxArtikel) {
         TestUtils.checkLagerSize(maxArtikel);
@@ -29,10 +30,7 @@ public class Lager {
      * This constructor is the second entry point for the Lager class
      */
     public Lager() {
-        lager = new Artikel[STANDART_GROESSE];
-        for (int i = 0; i < lager.length; i++) {
-            lager[i] = null;
-        }
+        this(STANDARD_GROESSE);
     }
 
     /**
@@ -118,7 +116,7 @@ public class Lager {
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i].getArtikelNr() == artikelNr) {
-                lager[i].setPreis(lager[i].getPreis() * (1.0 + prozent / 100));
+                lager[i].aenderePreis(prozent);
                 break;
             }
         }
@@ -134,7 +132,7 @@ public class Lager {
 
         for (int i = 0; i < lager.length; i++) {
             if (lager[i] != null) {
-                lager[i].setPreis(lager[i].getPreis() * (1.0 + prozent / 100));
+                lager[i].aenderePreis(prozent);
             }
         }
     }
@@ -172,7 +170,7 @@ public class Lager {
      * @return the quantity of Artikel in the array lager
      */
     public int getArtikelAnzahl(){
-        TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkIfLagerIsEmpty(lager); //jsp
 
         int count = 0;
         for (int i = 0; i < lager.length; i++) {
@@ -208,4 +206,3 @@ public class Lager {
         }
     }
 }
-

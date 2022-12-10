@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Compile all Java files with the javac command
+javac -cp .:../Utils/junit4.jar *.java
+
+# Find all test files ending with Test.class
+test_files=`find . -name "*Test.class"`
+
+# Loop through all test files and run the tests using the java command
+for test_file in $test_files; do
+  # Extract the test class name without the .class extension
+  test_class=`echo $test_file | sed 's/.*\///' | sed 's/\.class//'`
+  java -cp .:../Utils/junit4.jar:../Utils/hamcrest.jar org.junit.runner.JUnitCore $test_class
+done
+

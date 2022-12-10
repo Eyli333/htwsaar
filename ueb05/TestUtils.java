@@ -1,5 +1,7 @@
 public class TestUtils {
-    
+    private static final int MIN_ARTIKELNR = 1000;
+    private static final int MAX_ARTIKELNR = 9999;
+
     /**
 	 * This method is used to check if the value is negativ 
 	 * @param preis this is the value that will be checked 
@@ -37,7 +39,7 @@ public class TestUtils {
      * @param inputArtikelNr This is the new ArtikelNr that will be checked
      */
     public static void checkArtikelNr(int inputArtikelNr) { 
-            if (inputArtikelNr < 1000  || inputArtikelNr > 9999) { 
+            if (inputArtikelNr < MIN_ARTIKELNR  || inputArtikelNr > MAX_ARTIKELNR) {
                    throw new IllegalArgumentException("Die Artikelnummer muss groesser als 1000 und eine positive vierstellige Zahl sein.");
         }
     }
@@ -123,6 +125,11 @@ public class TestUtils {
     public static void checkLagerSize(int maxArtikel) {
         if (maxArtikel < 1) {
             throw new IllegalArgumentException("Das Lager muss mindestens ein Artikel enthalten können.");
+        }
+    }
+    public static void checkProzent(double prozent){
+        if (prozent < -100.0){
+            throw new IllegalArgumentException("Sie können nicht mehr als 100% rabattieren.");
         }
     }
 }

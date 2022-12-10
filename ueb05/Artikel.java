@@ -120,9 +120,23 @@ public class Artikel {
         this.art = neuerArt;
     }
 
+    
+    /**
+     * Sets the price of an object.
+     * @param neuerPreis the new price of the object
+     */
     public void setPreis(double neuerPreis) {
         TestUtils.checkPreis(neuerPreis);
         this.preis = neuerPreis;
+    }
+
+    /**
+     * Changes the price of an object by a specified percentage.
+     * @param prozent the percentage by which to change the price of the object
+     */
+    public void aenderePreis(double prozent) {
+        TestUtils.checkProzent(prozent);
+        this.preis = this.preis * (1 + prozent / 100);
     }
 
     /**
