@@ -205,4 +205,26 @@ public class Lager {
             }
         }
     }
+
+    /**
+     * This a method that search for a Artikel in the array lager
+     * it return true if the Artikel is in the array lager
+     * else it return false
+     * @param artikelNr This is the target Artikel
+     * @return true if the Artikel is in the array lager
+     * @return false if the Artikel is not in the array lager
+     */
+    public boolean sucheArtikel(int artikelNr){
+        TestUtils.checkIfLagerIsEmpty(lager);
+        TestUtils.checkArtikelNr(artikelNr);
+
+        for (int i = 0; i < lager.length; i++) {
+            if (lager[i] != null) {
+                if (lager[i].getArtikelNr() == artikelNr) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
