@@ -1,5 +1,6 @@
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LagerTest {
 
@@ -92,7 +93,7 @@ public class LagerTest {
     /**
      * Test the legeArtikelAn method with a full lager
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testLegeArtikelAnWithFullLager() {
         int size = 1;
         Lager lager = new Lager(size);
@@ -101,7 +102,7 @@ public class LagerTest {
         Artikel artikel2 = new Artikel(2000, "Test article", 0, 0);
 
         lager.legeAnArtikel(artikel1);
-        lager.legeAnArtikel(artikel2);
+        assertThrows(IllegalArgumentException.class, () -> lager.legeAnArtikel(artikel2));
     }
 
     /**
@@ -118,20 +119,20 @@ public class LagerTest {
         lager.legeAnArtikel(artikel2);
         lager.entferneArtikel(artikel.getArtikelNr());
 
-	assertFalse(lager.sucheArtikel(artikel.getArtikelNr()));
+    assertFalse(lager.sucheArtikel(artikel.getArtikelNr()));
     }
 
     /**
      * Test the entferneArtikel method with an invalid article number
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testEntferneArtikelWithInvalidArticleNumber() {
         Lager lager = new Lager();
 
         Artikel artikel = new Artikel(1000, "Test article", 0, 0);
         lager.legeAnArtikel(artikel);
 
-        lager.entferneArtikel(2000);
+        assertThrows(IllegalArgumentException.class, () -> lager.entferneArtikel(2000));
     }
 
     /**
@@ -159,14 +160,14 @@ public class LagerTest {
     /**
      * Test the bucheZugang method with an invalid article number
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testBucheZugangWithInValidArticleNumberAndQuantity() {
         Lager lager = new Lager();
 
         Artikel artikel = new Artikel(1000, "Test article", 0, 0);
         lager.legeAnArtikel(artikel);
 
-        lager.bucheZugang(2000, 10);
+        assertThrows(IllegalArgumentException.class, () -> lager.bucheZugang(2000, 10));
     }
 
     /**
@@ -214,25 +215,25 @@ public class LagerTest {
     /**
      * Test the aenderePreisEinesArtikels method with an invalid article number
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testAenderePreisEinesArtikelsWithInvalidArticleNumber() {
         Lager lager = new Lager();
         Artikel artikel = new Artikel(1000, "Test article", 0, 10);
         lager.legeAnArtikel(artikel);
 
-        lager.aenderePreisEinesArtikels(2000, 10);
+        assertThrows(IllegalArgumentException.class, () -> lager.aenderePreisEinesArtikels(2000, 10));
     }
 
     /**
      * Test the aenderePreisEinesArtikels method with a negative price change
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testAenderePreisEinesArtikelsWithNegativePriceChange() {
         Lager lager = new Lager();
 
         Artikel artikel = new Artikel(1000, "Test article", 0, 1);
         lager.legeAnArtikel(artikel);
 
-        lager.aenderePreisEinesArtikels(1000, -101);
+        assertThrows(IllegalArgumentException.class, () -> lager.aenderePreisEinesArtikels(1000, -101));
     }
 }
