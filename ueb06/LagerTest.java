@@ -1,5 +1,5 @@
-import org.junit.Assert;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class LagerTest {
 
@@ -11,8 +11,12 @@ public class LagerTest {
         int size = 5;
         Lager lager = new Lager(size);
 
-        // Check that the lager array has the expected size
-        Assert.assertEquals(size, lager.getLagerGroesse());
+        assertEquals(size, lager.getLagerGroesse());
+
+        int size2 = 100;
+        Lager lager2 = new Lager(size2);
+
+        assertEquals(size2, lager2.getLagerGroesse());
     }
 
     /**
@@ -23,18 +27,27 @@ public class LagerTest {
     public void testConstructorWithoutArgument() {
         Lager lager = new Lager();
 
-        // Check that the lager array has the default size
-        Assert.assertEquals(10, lager.getLagerGroesse());
+        assertEquals(10, lager.getLagerGroesse());
     }
 
     /**
      * Test the lager constructor with an invalid size
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testConstructorWithInvalidSize() {
         int size = -1;
-        Lager lager = new Lager(size);
+        int size2 = 0;
+        int size3 = -101;
 
+        assertThrows(IllegalArgumentException.class, () -> {
+            Lager lager = new Lager(size);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            Lager lager = new Lager(size2);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            Lager lager = new Lager(size3);
+        });
     }
 
     /**
@@ -45,15 +58,21 @@ public class LagerTest {
         Lager lager = new Lager();
 
         Artikel artikel = new Artikel(1000, "Test article", 0, 0);
-
         lager.legeAnArtikel(artikel);
 
-        Assert.assertTrue(lager.sucheArtikel(artikel.getArtikelNr()));
+        assertTrue(lager.sucheArtikel(artikel.getArtikelNr()));
+
+        Artikel artikel2 = new Artikel(9999, "Test article 2", 0, 0);
+        lager.legeAnArtikel(artikel2);
+
+        assertTrue(lager.sucheArtikel(artikel2.getArtikelNr()));
 
     }
 
-    // Test the legeArtikelAn method with an article that already exists in the lager
-    @Test(expected = IllegalArgumentException.class)
+    /**
+     * Test the legeArtikelAn method with an article that already exists in the lager
+     */
+    @Test
     public void testLegeArtikelAnWithExistingArticle() {
         Lager lager = new Lager();
 
@@ -61,10 +80,18 @@ public class LagerTest {
         Artikel artikel2 = new Artikel(1000, "Test article", 0, 0);
 
         lager.legeAnArtikel(artikel1);
-        lager.legeAnArtikel(artikel2);
+        assertThrows(IllegalArgumentException.class, () -> lager.legeAnArtikel(artikel2));
+
+        Artikel artikel3 = new Artikel(9999, "Test article", 0, 0);
+        Artikel artikel4 = new Artikel(9999, "Test article", 0, 0);
+
+        lager.legeAnArtikel(artikel3);
+        assertThrows(IllegalArgumentException.class, () -> lager.legeAnArtikel(artikel4));
     }
 
-    // Test the legeArtikelAn method with a full lager
+    /**
+     * Test the legeArtikelAn method with a full lager
+     */
     @Test(expected = IllegalArgumentException.class)
     public void testLegeArtikelAnWithFullLager() {
         int size = 1;
@@ -77,7 +104,9 @@ public class LagerTest {
         lager.legeAnArtikel(artikel2);
     }
 
-    // Test the entferneArtikel method with a valid article number
+    /**
+     * Test the entferneArtikel method with a valid article number
+     */
     @Test
     public void testEntferneArtikelWithValidArticleNumber() {
         Lager lager = new Lager();
@@ -89,10 +118,12 @@ public class LagerTest {
         lager.legeAnArtikel(artikel2);
         lager.entferneArtikel(artikel.getArtikelNr());
 
-	Assert.assertFalse(lager.sucheArtikel(artikel.getArtikelNr()));
+	assertFalse(lager.sucheArtikel(artikel.getArtikelNr()));
     }
 
-    // Test the entferneArtikel method with an invalid article number
+    /**
+     * Test the entferneArtikel method with an invalid article number
+     */
     @Test(expected = IllegalArgumentException.class)
     public void testEntferneArtikelWithInvalidArticleNumber() {
         Lager lager = new Lager();
@@ -103,18 +134,33 @@ public class LagerTest {
         lager.entferneArtikel(2000);
     }
 
+    /**
+     * Test the bucheZugang method with a valid article number and quantity
+     */
     @Test
     public void testBucheZugang() {
-        Lager lager = new Lager(1);
+        Lager lager = new Lager();
+
         Artikel artikel = new Artikel(1000, "TestArtikel", 1);
         lager.legeAnArtikel(artikel);
 
         lager.bucheZugang(1000, 10);
+
+        assertEquals(10, artikel.getBestand());
+
+        Artikel artikel2 = new Artikel(2000, "TestArtikel", 1);
+        lager.legeAnArtikel(artikel2);
+
+        lager.bucheZugang(2000, 100);
+
+        assertEquals(100, artikel2.getBestand());
     }
 
-    // Test the bucheZugang method with a valid article number and quantity
+    /**
+     * Test the bucheZugang method with an invalid article number
+     */
     @Test(expected = IllegalArgumentException.class)
-    public void testBucheZugangWithValidArticleNumberAndQuantity() {
+    public void testBucheZugangWithInValidArticleNumberAndQuantity() {
         Lager lager = new Lager();
 
         Artikel artikel = new Artikel(1000, "Test article", 0, 0);
@@ -123,7 +169,9 @@ public class LagerTest {
         lager.bucheZugang(2000, 10);
     }
 
-    // Test the aenderePreisEinesArtikels method with a valid article number and price increase
+    /**
+     * Test the aenderePreisEinesArtikels method with a valid article number and price increase
+     */
     @Test
     public void testAenderePreisEinesArtikelsWithValidArticleNumberAndPriceIncrease() {
         Lager lager = new Lager();
@@ -131,12 +179,20 @@ public class LagerTest {
         Artikel artikel = new Artikel(1000, "Test article", 0, 10);
         lager.legeAnArtikel(artikel);
 
-
         lager.aenderePreisEinesArtikels(1000, 10);
+        assertEquals(11, artikel.getPreis(), 0.001);
+
+        Artikel artikel2 = new Artikel(2000, "Test article", 0, 10);
+        lager.legeAnArtikel(artikel2);
+
+        lager.aenderePreisEinesArtikels(2000, 100);
+        assertEquals(20, artikel2.getPreis(), 0.001);
 
     }
 
-    // Test the aenderePreisEinesArtikels method with a valid article number and price decrease
+    /**
+     * Test the aenderePreisEinesArtikels method with a valid article number and price decrease
+     */
     @Test
     public void testAenderePreisEinesArtikelsWithValidArticleNumberAndPriceDecrease() {
         Lager lager = new Lager();
@@ -145,21 +201,31 @@ public class LagerTest {
         lager.legeAnArtikel(artikel);
 
         lager.aenderePreisEinesArtikels(1000, -10);
+        assertEquals(9, artikel.getPreis(), 0.001);
+
+        Artikel artikel2 = new Artikel(2000, "Test article", 0, 10);
+        lager.legeAnArtikel(artikel2);
+
+        lager.aenderePreisEinesArtikels(2000, -100);
+        assertEquals(0, artikel2.getPreis(), 0.001);
 
     }
 
-    // Test the aenderePreisEinesArtikels method with an invalid article
-    // number
+    /**
+     * Test the aenderePreisEinesArtikels method with an invalid article number
+     */
     @Test(expected = IllegalArgumentException.class)
     public void testAenderePreisEinesArtikelsWithInvalidArticleNumber() {
         Lager lager = new Lager();
         Artikel artikel = new Artikel(1000, "Test article", 0, 10);
         lager.legeAnArtikel(artikel);
 
-        lager.aenderePreisEinesArtikels(2000, 10.0);
+        lager.aenderePreisEinesArtikels(2000, 10);
     }
 
-    // Test the aenderePreisEinesArtikels method with a negative price change
+    /**
+     * Test the aenderePreisEinesArtikels method with a negative price change
+     */
     @Test(expected = IllegalArgumentException.class)
     public void testAenderePreisEinesArtikelsWithNegativePriceChange() {
         Lager lager = new Lager();
@@ -167,6 +233,6 @@ public class LagerTest {
         Artikel artikel = new Artikel(1000, "Test article", 0, 1);
         lager.legeAnArtikel(artikel);
 
-        lager.aenderePreisEinesArtikels(1000, -1000);
+        lager.aenderePreisEinesArtikels(1000, -101);
     }
 }

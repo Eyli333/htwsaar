@@ -23,6 +23,12 @@ public class ArtikelTest {
         assertEquals(0, a2.getBestand());
         assertEquals(3.0, a2.getPreis(), 0.001);
         
+        // Test the third constructor
+        Artikel a3 = new Artikel(5000, "Test Artikel 3",3.0);
+        assertEquals(5000, a3.getArtikelNr());
+        assertEquals("Test Artikel 3", a3.getArt());
+        assertEquals(0, a3.getBestand());
+        assertEquals(3.0, a3.getPreis(), 0.001);
 
     }
 
@@ -46,9 +52,14 @@ public class ArtikelTest {
         Artikel a1 = new Artikel(1000, "Test Artikel 1", 10, 5.0);
         assertEquals(10, a1.getBestand());
 
-        a1.bucheZugang(5);
-        assertEquals(15, a1.getBestand(), 0.001);
+        a1.bucheZugang(1);
+        assertEquals(11, a1.getBestand(), 0.001);
 
+        Artikel a2 = new Artikel(2000, "Test Artikel 1", 20, 10.0);
+        assertEquals(20, a2.getBestand());
+
+        a2.bucheZugang(10);
+        assertEquals(30, a2.getBestand(), 0.001);
     }
 
     /**
@@ -59,8 +70,9 @@ public class ArtikelTest {
         Artikel a1 = new Artikel(1000, "Test Artikel 1", 10, 5.0);
         assertEquals(10, a1.getBestand());
 
-        // Test that the method throws an exception for invalid input
+        assertThrows(IllegalArgumentException.class, () -> a1.bucheZugang(0));
         assertThrows(IllegalArgumentException.class, () -> a1.bucheZugang(-1));
+        assertThrows(IllegalArgumentException.class, () -> a1.bucheZugang(-100));
     }
 
     /**
@@ -71,9 +83,14 @@ public class ArtikelTest {
         Artikel a1 = new Artikel(1000, "Test Artikel 1", 10, 5.0);
         assertEquals(10, a1.getBestand());
 
-        a1.bucheAbgang(5);
-        assertEquals(5, a1.getBestand(), 0.001);
+        a1.bucheAbgang(1);
+        assertEquals(9, a1.getBestand(), 0.001);
 
+        Artikel a2 = new Artikel(2000, "Test Artikel 1", 20, 10.0);
+        assertEquals(20, a2.getBestand());
+
+        a2.bucheAbgang(20);
+        assertEquals(0, a2.getBestand(), 0.001);
     }
 
     /**
@@ -84,10 +101,10 @@ public class ArtikelTest {
         Artikel a1 = new Artikel(1000, "Test Artikel 1", 10, 5.0);
         assertEquals(10, a1.getBestand());
 
-        // Test that the method throws an exception for invalid input
+        assertThrows(IllegalArgumentException.class, () -> a1.bucheAbgang(0));
         assertThrows(IllegalArgumentException.class, () -> a1.bucheAbgang(-1));
+        assertThrows(IllegalArgumentException.class, () -> a1.bucheAbgang(-100));
+        assertThrows(IllegalArgumentException.class, () -> a1.bucheAbgang(11));
+
     }
-
 }
-       
-
