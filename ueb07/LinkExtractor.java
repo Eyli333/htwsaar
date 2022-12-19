@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LinkExtractor {
-    private static final String LINK_REGEX = "<\\s*a.*?href\\s*=\\s*\"\\s*(.+?)\\s*\".*?>\\s*(.+?)\\s*</a>";
+    private static final String LINK_REGEX = "<\\s*a.*?href\\s*=\\s*\"\\s*(.+?)\\s*\".*?>\\s*(.+?)\\s*<\\s*/a\\s*>";
     private static final Pattern LINK_PATTERN = Pattern.compile(LINK_REGEX);
 
     int linkCount = 0;
