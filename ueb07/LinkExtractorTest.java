@@ -283,4 +283,21 @@ public class LinkExtractorTest {
         runExtractor(testInput);
         assertEquals(expectedOutput, outContent.toString());
     }
+
+    /**
+     * Tests the LinkExtractor's printf method with multiple hypertext link on one lines.
+     * Verifies that the output is correct.
+     */
+    @Test
+    public void printf_run_output_multiple_hypertextlinks_on_1_lines() {
+        String testInput = "<p>\n<li><a href=\"http://www.htwsaar.de/\">htwsaar</a></li><li><a href=\"http://www.google.com\">Google</a></li><a href=\"http://www.heise.de\">Heise Online</a>\n</p>";
+        int expectedLinkCount = 3;
+        int expectedLineCount = 5;
+
+        String expectedOutput = String.format("htwsaar: http://www.htwsaar.de/, Anzahl Zeichen: 22\nGoogle: http://www.google.com, Anzahl Zeichen: 21\nHeise Online: http://www.heise.de, Anzahl Zeichen: 19\n3 Links wurden in 3 Zeilen gefunden.\n");
+
+        runExtractor(testInput);
+        assertEquals(expectedOutput, outContent.toString());
+
+    }
 }

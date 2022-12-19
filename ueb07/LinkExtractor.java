@@ -45,7 +45,7 @@ public class LinkExtractor {
             lineCount++;
 
             Matcher linkMatcher = LINK_PATTERN.matcher(line);
-            if (linkMatcher.find()) {
+            while (linkMatcher.find()) {
                 String linkUrl = linkMatcher.group(1);
 
                 if (linkUrl.equals(linkUrl.toLowerCase())) {
