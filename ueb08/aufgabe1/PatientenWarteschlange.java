@@ -1,4 +1,4 @@
-/**
+/** 
  * This class is used to extract links from a given input and display their text and URL.
  * It also counts the number of links found and the number of lines in the input.
  * 
@@ -21,14 +21,8 @@ public class PatientenWarteschlange {
     }
 
     public void neuerPatient(int number, String vorname, String nachname) {
-        // check if array was build
-        // and +
 
-        Patient patient = new Patient();
-        patient.number = number;
-        patient.checkNumber();
-        patient.vorname = vorname;
-        patient.nachname = nachname;
+        Patient patient = new Patient(number, vorname, nachname);
 
         for (int i = 0; i < warteschlange.length; i++) {
             if (warteschlange[i] == null) {
@@ -38,35 +32,33 @@ public class PatientenWarteschlange {
         }
     }
 
-    public String entfernePatient(int number) {
-        // make some test before
+    public Patient entfernePatient(int number) {
 
         for (int i = 0; i < warteschlange.length; i++) {
-            if (warteschlange[i] != null && warteschlange[i].number == number) {
+            if (warteschlange[i] != null && warteschlange[i].getNumber() == number) {
                 Patient patientValue = warteschlange[i];
                 warteschlange[i] = null;
 
                 sort();
 
-                return "Patient geloescht : " +  patientValue;
+                return patientValue;
             }
         }
         
-        return "Patient nicht gefunden";
+        return null;
     }
     
-    public String derNaechsteBitte() {
-        // check if not null 
-        // and more
+    public Patient derNaechsteBitte() {
 
         Patient patientValue = warteschlange[0];
         warteschlange[0] = null;
 
         sort();
 
-        return "Naechster Patient: " +  patientValue;
+        return patientValue;
     }
 
+    @Override
     public String toString() {
         String buffer = new String();
         buffer = "Warteschlange\n" + "Patientenummer Vorname Nachname\n";
@@ -78,7 +70,11 @@ public class PatientenWarteschlange {
         return buffer;
     }
 
-    public  void sort() {
+    public int getArraySize() {
+        return warteschlange.length ;
+    }
+
+    public void sort() {
         for (int i = 0; i < warteschlange.length; i++) {
             if (warteschlange[i] == null) {
                 for (int j = i; j < warteschlange.length; j++) {

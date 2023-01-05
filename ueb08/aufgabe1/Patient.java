@@ -1,11 +1,19 @@
 class Patient {
-    int number;
-    String vorname;
-    String nachname;
+    private int number;
+    private String vorname;
+    private String nachname;
 
-    private final int MIN_NUMBER = 1000;
-    private final int MAX_NUMBER = 9999;
 
+    public Patient(int number, String vorname, String nachname) {
+        TestUtils.checkNumber(number);
+        TestUtils.checkNotEmpty(vorname);
+        TestUtils.checkNotEmpty(nachname);
+
+        this.number = number;
+        this.vorname = vorname;
+        this.nachname = nachname;
+    }
+    
     public int getNumber() {
         return number;
     }
@@ -17,14 +25,9 @@ class Patient {
     public String getNachname() {
         return nachname;
     }
-
+    
+    @Override
     public String toString() {
-        return "  " + number + "          " + vorname + " " + nachname;
-    }
-
-    public void checkNumber() {
-        if (this.number < MIN_NUMBER || this.number > MAX_NUMBER) {
-            throw new IllegalArgumentException("Die Artikelnummer muss zwischen " + MIN_NUMBER + " und " + MAX_NUMBER + " liegen.");
-        }
+        return " " + number + " " + vorname + " " + nachname;
     }
 }
