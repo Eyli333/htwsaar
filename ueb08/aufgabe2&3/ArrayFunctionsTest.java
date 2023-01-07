@@ -2,6 +2,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayFunctionsTest {
+
+    /**
+     * Tests the stringsAuswerten method with an array of strings containing 3 valid strings.
+     */
     @Test
     void test_Strings_Auswerten_expecte_2() {
         String[] strings1 = {"HTW", "saarland", "Saarbruecken"};
@@ -9,6 +13,9 @@ class ArrayFunctionsTest {
         assertEquals(3, result1);
     }
 
+    /**
+     * Tests the stringsAuswerten method with an array of strings containing 3 valid strings.
+     */
     @Test
     void test_Strings_Auswerten_expecte_3() {
         String[] strings2 = {"HTW. saarland", "Saarbruecken", "MERZIG", "UNIversitaet"};
@@ -16,6 +23,9 @@ class ArrayFunctionsTest {
         assertEquals(3, result2);
     } 
 
+    /**
+     * Tests the stringsAuswerten method with an array of strings containing 2 valid strings.
+     */
     @Test
     void test_Strings_Auswerten_expecte_2_() {
         String[] strings3 = {"123", "abc", "def"};
@@ -23,6 +33,9 @@ class ArrayFunctionsTest {
         assertEquals(2, result3);
     }
 
+    /**
+     * Tests the stringsAuswerten method with an array of strings containing 0 valid strings.
+     */
     @Test
     void test_Strings_Auswerten_expecte_0() {
         String[] strings4 = {};
@@ -30,6 +43,9 @@ class ArrayFunctionsTest {
         assertEquals(0, result4);
     }
 
+    /**
+     * Tests the stringsAuswerten method with an array of strings containing 0 valid strings.
+     */
     @Test
     void test_Strings_Auswerten_expected_0() {
         String[] strings5 = {"12fa"};
@@ -37,6 +53,9 @@ class ArrayFunctionsTest {
         assertEquals(0, result5);
     }
 
+    /**
+     *  Tests the getter method of the class ArrayFunctions.
+     */
     @Test
     void test_Getters_Mittelwert() {
         Mittelwert mittelwert = new Mittelwert(10.5, 9.5, 11.5);
@@ -45,6 +64,9 @@ class ArrayFunctionsTest {
         assertEquals(11.5, mittelwert.getWeitestenwert(), 0.0001);
     }
 
+    /**
+     * Tests the mittelwertBerechnen method
+     */
     @Test
     void test_Berechne_Mittelwert_1() {
         double[] values1 = {1.0, 2.0, 3.0, 4.0};
@@ -54,6 +76,9 @@ class ArrayFunctionsTest {
         assertEquals(1.0, result1.getWeitestenwert(), 0.0001);
     }
 
+    /**
+     * Tests the mittelwertBerechnen method
+     */
     @Test
     void test_Berechne_Mittelwert_2() {
         double[] values2 = {1.5, 2.5, 3.5, 4.5};
@@ -63,6 +88,9 @@ class ArrayFunctionsTest {
         assertEquals(1.5, result2.getWeitestenwert(), 0.0001);
     }
 
+    /**
+     * Tests the mittelwertBerechnen method
+     */
     @Test
     void test_BerechneMittelwert_3() {
         double[] values3 = {1.0, 1.0, 1.0, 1.0};
@@ -72,6 +100,9 @@ class ArrayFunctionsTest {
         assertEquals(1.0, result3.getWeitestenwert(), 0.0001);
     }
 
+    /**
+     * Tests the mittelwertBerechnen method
+     */
     @Test
     void test_BerechneMittelwert_4() {
         double[] values4 = {1.0};
@@ -82,4 +113,3 @@ class ArrayFunctionsTest {
     }
 
 }
-

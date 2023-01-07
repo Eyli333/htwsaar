@@ -1,4 +1,10 @@
 class ArrayFunctions {
+
+    /**
+     * Calculates the average value, nearest value, and farthest value of the given array of doubles.
+     * @param messverte the array of doubles
+     * @return a Mittelwert object with the calculated average value, nearest value, and farthest value
+     */
     public static Mittelwert berechneMittelwert(double[] messverte) {
         double sum = 0;
         for (int i = 0; i < messverte.length; i++) {
@@ -22,6 +28,11 @@ class ArrayFunctions {
         return new Mittelwert(mittelwert, naehstewert, weitestenwert);
     }
 
+    /**
+     * Counts the number of valid strings in the given array. A string is considered valid if it consists only of letters.
+     * @param strings the array of strings
+     * @return the number of valid strings
+     */
     public static int stringsAuswerten(String[] strings) {
         int count = 0;
 
