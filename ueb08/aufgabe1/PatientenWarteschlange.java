@@ -11,8 +11,9 @@ public class PatientenWarteschlange {
     private Patient[] warteschlange; 
 
     /**
-     * Constructor for objects of class PatientenWarteschlange
-     * @param groesse
+     * Constructor for the PatientenWarteschlange class.
+     * @param groesse The size of the queue
+     * @throws IllegalArgumentException If groesse is less than 1
      */
     public PatientenWarteschlange(int groesse) {
         TestUtils.checkAboveOne(groesse);
@@ -20,6 +21,12 @@ public class PatientenWarteschlange {
         warteschlange = new Patient[groesse];
     }
 
+    /**
+     * Adds a new patient to the queue.
+     * @param number The patient's number
+     * @param vorname The patient's first name
+     * @param nachname The patient's last name
+     */
     public void neuerPatient(int number, String vorname, String nachname) {
 
         Patient patient = new Patient(number, vorname, nachname);
@@ -32,6 +39,11 @@ public class PatientenWarteschlange {
         }
     }
 
+    /**
+     * Removes a patient from the queue based on their number.
+     * @param number The patient's number
+     * @return The patient that was removed, or null if no patient with the given number was found
+     */
     public Patient entfernePatient(int number) {
 
         for (int i = 0; i < warteschlange.length; i++) {
@@ -48,6 +60,10 @@ public class PatientenWarteschlange {
         return null;
     }
     
+    /**
+     * Removes the patient at the front of the queue and returns them.
+     * @return The patient at the front of the queue
+     */
     public Patient derNaechsteBitte() {
 
         Patient patientValue = warteschlange[0];
@@ -58,6 +74,10 @@ public class PatientenWarteschlange {
         return patientValue;
     }
 
+    /**
+     * Returns a string representation of the queue.
+     * @return A string representation of the queue
+     */
     @Override
     public String toString() {
         String buffer = new String();
@@ -70,10 +90,17 @@ public class PatientenWarteschlange {
         return buffer;
     }
 
+    /**
+     * Returns the size of the queue.
+     * @return The size of the queue
+     */
     public int getArraySize() {
         return warteschlange.length ;
     }
 
+    /**
+     * Sorts the queue so that null elements are at the end.
+     */
     public void sort() {
         for (int i = 0; i < warteschlange.length; i++) {
             if (warteschlange[i] == null) {
