@@ -5,11 +5,11 @@ public class TestUtils {
     /**
      * This function checks if a given number is within the range of MIN_NUMBER and MAX_NUMBER (inclusive).
      * If the number is outside of this range, an IllegalArgumentException is thrown.
-     * @param number The number to check
+     * @param patientenNr The number to check
      * @throws IllegalArgumentException If the number is outside of the range MIN_NUMBER and MAX_NUMBER
     */
-     public static void checkPatientenNr(int number) {
-        if (number < MIN_NUMBER || number > MAX_NUMBER) {
+     public static void checkPatientenNr(int patientenNr) {
+        if (patientenNr < MIN_NUMBER || patientenNr > MAX_NUMBER) {
             throw new IllegalArgumentException("Die Artikelnummer muss zwischen " + MIN_NUMBER + " und " + MAX_NUMBER + " liegen.");
         }
     }
@@ -17,11 +17,11 @@ public class TestUtils {
     /**
      * This function checks if a given number is equal to or above 1.
      * If the number is below 1, an IllegalArgumentException is thrown.
-     * @param number The number to check
+     * @param patientenNr The number to check
      * @throws IllegalArgumentException If the number is below 1
     */
-    public static void checkAboveOne(int number) {
-        if (number < 1) {
+    public static void checkAboveOne(int patientenNr) {
+        if (patientenNr < 1) {
             throw new IllegalArgumentException("Die Anzahl muss mindestens 1 sein.");
         }
     }
