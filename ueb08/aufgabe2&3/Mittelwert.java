@@ -1,18 +1,18 @@
 public class Mittelwert {
     private double mittelwert;
     private double naehstewert;
-    private double weitestenwert;
+    private double entferntesterwert;
 
     /**
      * Constructs a new Mittelwert with the given values.
      * @param mittelwert the average value
      * @param naehstewert the nearest value
-     * @param weitestenwert the farthest value
+     * @param entferntesterwert the farthest value
      */
-    public Mittelwert(double mittelwert, double naehstewert, double weitestenwert) {
+    public Mittelwert(double mittelwert, double naehstewert, double entferntesterwert) {
         this.mittelwert = mittelwert;
         this.naehstewert = naehstewert;
-        this.weitestenwert = weitestenwert;
+        this.entferntesterwert = entferntesterwert;
     }
 
     /**
@@ -27,7 +27,7 @@ public class Mittelwert {
      * Returns the nearest value of this Mittelwert.
      * @return the nearest value
      */
-    public double getNaehstewert() {
+    public double getNaehesterWert() {
         return naehstewert;
     }
 
@@ -35,16 +35,16 @@ public class Mittelwert {
      * Returns the farthest value of this Mittelwert.
      * @return the farthest value
      */
-    public double getWeitestenwert() {
-        return weitestenwert;
+    public double getEntferntesterWert() {
+        return entferntesterwert;
     }
 
     /**
      * Returns a string representation of this Mittelwert.
-     * @return a string in the format "Mittelwert: {mittelwert}, Naehstewert: {naehstewert}, Weitestenwert: {weitestenwert}"
+     * @return a string in the format "Mittelwert: {mittelwert}, Naehstewert: {naehstewert}, Weitestenwert: {entferntesterwert}"
      */
     @Override
     public String toString() {
-        return "Mittelwert: " + mittelwert + ", Naehstewert: " + naehstewert + ", Weitestenwert: " + weitestenwert;
+        return "Mittelwert: " + mittelwert + ", Naehstewert: " + naehstewert + ", Weitestenwert: " + entferntesterwert;
     }
 }

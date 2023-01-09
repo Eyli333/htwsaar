@@ -13,19 +13,19 @@ class ArrayFunctions {
 
         double mittelwert = sum / messverte.length;
 
-        double weitestenwert = messverte[0];
+        double entferntesterwert = messverte[0];
         double naehstewert = messverte[0];
 
         for (int i = 1; i < messverte.length; i++) {
             if (Math.abs(mittelwert - messverte[i]) < Math.abs(mittelwert - naehstewert)) {
                 naehstewert = messverte[i];
             }
-            if (Math.abs(mittelwert - messverte[i]) > Math.abs(mittelwert - weitestenwert)) {
-                weitestenwert = messverte[i];
+            if (Math.abs(mittelwert - messverte[i]) > Math.abs(mittelwert - entferntesterwert)) {
+                entferntesterwert = messverte[i];
             }
         }
 
-        return new Mittelwert(mittelwert, naehstewert, weitestenwert);
+        return new Mittelwert(mittelwert, naehstewert, entferntesterwert);
     }
 
     /**

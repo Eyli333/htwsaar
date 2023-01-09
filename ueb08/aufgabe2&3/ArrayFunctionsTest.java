@@ -70,8 +70,8 @@ class ArrayFunctionsTest {
     void test_Getters_Mittelwert() {
         Mittelwert mittelwert = new Mittelwert(10.5, 9.5, 11.5);
         assertEquals(10.5, mittelwert.getMittelwert(), 0.0001);
-        assertEquals(9.5, mittelwert.getNaehstewert(), 0.0001);
-        assertEquals(11.5, mittelwert.getWeitestenwert(), 0.0001);
+        assertEquals(9.5, mittelwert.getNaehesterWert(), 0.0001);
+        assertEquals(11.5, mittelwert.getEntferntesterWert(), 0.0001);
     }
 
     /**
@@ -82,8 +82,8 @@ class ArrayFunctionsTest {
         double[] values1 = {1.0, 2.0, 3.0, 4.0};
         Mittelwert result1 = ArrayFunctions.berechneMittelwert(values1);
         assertEquals(2.5, result1.getMittelwert(), 0.0001);
-        assertEquals(2.0, result1.getNaehstewert(), 0.0001);
-        assertEquals(1.0, result1.getWeitestenwert(), 0.0001);
+        assertEquals(2.0, result1.getNaehesterWert(), 0.0001);
+        assertEquals(1.0, result1.getEntferntesterWert(), 0.0001);
     }
 
     /**
@@ -94,8 +94,8 @@ class ArrayFunctionsTest {
         double[] values2 = {1.5, 2.5, 3.5, 4.5};
         Mittelwert result2 = ArrayFunctions.berechneMittelwert(values2);
         assertEquals(3.0, result2.getMittelwert(), 0.0001);
-        assertEquals(2.5, result2.getNaehstewert(), 0.0001);
-        assertEquals(1.5, result2.getWeitestenwert(), 0.0001);
+        assertEquals(2.5, result2.getNaehesterWert(), 0.0001);
+        assertEquals(1.5, result2.getEntferntesterWert(), 0.0001);
     }
 
     /**
@@ -106,8 +106,8 @@ class ArrayFunctionsTest {
         double[] values3 = {1.0, 1.0, 1.0, 1.0};
         Mittelwert result3 = ArrayFunctions.berechneMittelwert(values3);
         assertEquals(1.0, result3.getMittelwert(), 0.0001);
-        assertEquals(1.0, result3.getNaehstewert(), 0.0001);
-        assertEquals(1.0, result3.getWeitestenwert(), 0.0001);
+        assertEquals(1.0, result3.getNaehesterWert(), 0.0001);
+        assertEquals(1.0, result3.getEntferntesterWert(), 0.0001);
     }
 
     /**
@@ -118,8 +118,8 @@ class ArrayFunctionsTest {
         double[] values4 = {1.0};
         Mittelwert result4 = ArrayFunctions.berechneMittelwert(values4);
         assertEquals(1.0, result4.getMittelwert(), 0.0001);
-        assertEquals(1.0, result4.getNaehstewert(), 0.0001);
-        assertEquals(1.0, result4.getWeitestenwert(), 0.0001);
+        assertEquals(1.0, result4.getNaehesterWert(), 0.0001);
+        assertEquals(1.0, result4.getEntferntesterWert(), 0.0001);
     }
 
     /**
@@ -130,8 +130,8 @@ class ArrayFunctionsTest {
         double[] values5 = {1.0, 2.0, 3.0, 4.0, 5.0};
         Mittelwert result5 = ArrayFunctions.berechneMittelwert(values5);
         assertEquals(3.0, result5.getMittelwert(), 0.0001);
-        assertEquals(3.0, result5.getNaehstewert(), 0.0001);
-        assertEquals(1.0, result5.getWeitestenwert(), 0.0001);
+        assertEquals(3.0, result5.getNaehesterWert(), 0.0001);
+        assertEquals(1.0, result5.getEntferntesterWert(), 0.0001);
     }
 
     /**
@@ -142,8 +142,8 @@ class ArrayFunctionsTest {
         double[] values6 = {5.0, 4.0, 3.0, 2.0, 1.0};
         Mittelwert result6 = ArrayFunctions.berechneMittelwert(values6);
         assertEquals(3.0, result6.getMittelwert(), 0.0001);
-        assertEquals(3.0, result6.getNaehstewert(), 0.0001);
-        assertEquals(5.0, result6.getWeitestenwert(), 0.0001);
+        assertEquals(3.0, result6.getNaehesterWert(), 0.0001);
+        assertEquals(5.0, result6.getEntferntesterWert(), 0.0001);
     }
 
     /**
@@ -154,8 +154,8 @@ class ArrayFunctionsTest {
         double[] values7 = {-1.0, -2.0, -3.0, -4.0, -5.0};
         Mittelwert result7 = ArrayFunctions.berechneMittelwert(values7);
         assertEquals(-3.0, result7.getMittelwert(), 0.0001);
-        assertEquals(-3.0, result7.getNaehstewert(), 0.0001);
-        assertEquals(-1.0, result7.getWeitestenwert(), 0.0001);
+        assertEquals(-3.0, result7.getNaehesterWert(), 0.0001);
+        assertEquals(-1.0, result7.getEntferntesterWert(), 0.0001);
     }
 
 }

@@ -10,8 +10,8 @@ public class MittelwertTest {
     public void Test_Constructor_And_Getter_Ohne_Fehler() {
         Mittelwert m = new Mittelwert(1, 2, 3);
         assertEquals(1, m.getMittelwert(), 0.0001);
-        assertEquals(2, m.getNaehstewert(), 0.0001);
-        assertEquals(3, m.getWeitestenwert(), 0.0001);
+        assertEquals(2, m.getNaehesterWert(), 0.0001);
+        assertEquals(3, m.getEntferntesterWert(), 0.0001);
     }
 
     /**
