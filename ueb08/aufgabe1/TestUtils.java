@@ -8,7 +8,7 @@ public class TestUtils {
      * @param number The number to check
      * @throws IllegalArgumentException If the number is outside of the range MIN_NUMBER and MAX_NUMBER
     */
-     public static void checkNumber(int number) {
+     public static void checkPatientenNr(int number) {
         if (number < MIN_NUMBER || number > MAX_NUMBER) {
             throw new IllegalArgumentException("Die Artikelnummer muss zwischen " + MIN_NUMBER + " und " + MAX_NUMBER + " liegen.");
         }
