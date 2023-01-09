@@ -135,4 +135,17 @@ class ArrayFunctionsTest {
         assertEquals(3.0, result6.getNaehstewert(), 0.0001);
         assertEquals(5.0, result6.getWeitestenwert(), 0.0001);
     }
+
+    /**
+     * tests the mittelwertberechnen method
+     */
+    @Test
+    void test_berechnemittelwert_7() {
+        double[] values7 = {-1.0, -2.0, -3.0, -4.0, -5.0};
+        Mittelwert result7 = ArrayFunctions.berechneMittelwert(values7);
+        assertEquals(-3.0, result7.getMittelwert(), 0.0001);
+        assertEquals(-3.0, result7.getNaehstewert(), 0.0001);
+        assertEquals(-1.0, result7.getWeitestenwert(), 0.0001);
+    }
+
 }
