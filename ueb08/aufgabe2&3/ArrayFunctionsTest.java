@@ -101,10 +101,10 @@ class ArrayFunctionsTest {
     }
 
     /**
-     * Tests the mittelwertBerechnen method
+     * tests the mittelwertberechnen method
      */
     @Test
-    void test_BerechneMittelwert_4() {
+    void test_berechnemittelwert_4() {
         double[] values4 = {1.0};
         Mittelwert result4 = ArrayFunctions.berechneMittelwert(values4);
         assertEquals(1.0, result4.getMittelwert(), 0.0001);
@@ -112,4 +112,27 @@ class ArrayFunctionsTest {
         assertEquals(1.0, result4.getWeitestenwert(), 0.0001);
     }
 
+    /**
+     * tests the mittelwertberechnen method
+     */
+    @Test
+    void test_berechnemittelwert_5() {
+        double[] values5 = {1.0, 2.0, 3.0, 4.0, 5.0};
+        Mittelwert result5 = ArrayFunctions.berechneMittelwert(values5);
+        assertEquals(3.0, result5.getMittelwert(), 0.0001);
+        assertEquals(3.0, result5.getNaehstewert(), 0.0001);
+        assertEquals(1.0, result5.getWeitestenwert(), 0.0001);
+    }
+
+    /**
+     * tests the mittelwertberechnen method
+     */
+    @Test
+    void test_berechnemittelwert_6() {
+        double[] values6 = {5.0, 4.0, 3.0, 2.0, 1.0};
+        Mittelwert result6 = ArrayFunctions.berechneMittelwert(values6);
+        assertEquals(3.0, result6.getMittelwert(), 0.0001);
+        assertEquals(3.0, result6.getNaehstewert(), 0.0001);
+        assertEquals(5.0, result6.getWeitestenwert(), 0.0001);
+    }
 }
