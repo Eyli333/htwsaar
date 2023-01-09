@@ -1,4 +1,4 @@
-class ArrayFunctions {
+public class ArrayFunctions {
 
     /**
      * Calculates the average value, nearest value, and farthest value of the given array of doubles.
