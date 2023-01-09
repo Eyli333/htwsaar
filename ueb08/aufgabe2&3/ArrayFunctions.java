@@ -6,6 +6,10 @@ class ArrayFunctions {
      * @return a Mittelwert object with the calculated average value, nearest value, and farthest value
      */
     public static Mittelwert berechneMittelwert(double[] messverte) {
+        if (messverte.length == 0) {
+            return new Mittelwert(0, 0, 0);
+        }
+
         double sum = 0;
         for (int i = 0; i < messverte.length; i++) {
             sum += messverte[i];
