@@ -35,20 +35,30 @@ class ArrayFunctions {
      */
     public static int stringsAuswerten(String[] strings) {
         int count = 0;
+        
 
         for (int i = 0; i < strings.length; i++) {
             boolean isValid = true;
+            int lowerCase = 0;
+            int upperCase = 0;
+            int stringLength = strings[i].length();
 
-            for (int j = 0; j < strings[i].length(); j++) {
+            for (int j = 0; j < stringLength; j++) {
                 char c = strings[i].charAt(j);
 
                 if (!Character.isLetter(c)) {
                     isValid = false;
                     break;
                 }
+
+                if (Character.isLowerCase(c)) {
+                    lowerCase++;
+                } else {
+                    upperCase++;
+                }
             }
 
-            if (isValid) {
+            if (isValid && lowerCase == stringLength || upperCase == stringLength) {
                 count++;
             }
         }

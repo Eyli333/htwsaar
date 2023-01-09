@@ -10,7 +10,7 @@ class ArrayFunctionsTest {
     void test_Strings_Auswerten_expecte_2() {
         String[] strings1 = {"HTW", "saarland", "Saarbruecken"};
         int result1 = ArrayFunctions.stringsAuswerten(strings1);
-        assertEquals(3, result1);
+        assertEquals(2, result1);
     }
 
     /**
@@ -18,7 +18,7 @@ class ArrayFunctionsTest {
      */
     @Test
     void test_Strings_Auswerten_expecte_3() {
-        String[] strings2 = {"HTW. saarland", "Saarbruecken", "MERZIG", "UNIversitaet"};
+        String[] strings2 = {"HTW", "saarland", "Saarbruecken", "MERZIG", "UNIversitaet"};
         int result2 = ArrayFunctions.stringsAuswerten(strings2);
         assertEquals(3, result2);
     } 
