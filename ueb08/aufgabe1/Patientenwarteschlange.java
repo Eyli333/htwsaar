@@ -23,13 +23,13 @@ public class PatientenWarteschlange {
 
     /**
      * Adds a new patient to the queue.
-     * @param number The patient's number
+     * @param patientenNr The patient's number
      * @param vorname The patient's first name
      * @param nachname The patient's last name
      */
-    public void neuerPatient(int number, String vorname, String nachname) {
+    public void neuerPatient(int patientenNr, String vorname, String nachname) {
 
-        Patient patient = new Patient(number, vorname, nachname);
+        Patient patient = new Patient(patientenNr, vorname, nachname);
 
         for (int i = 0; i < warteschlange.length; i++) {
             if (warteschlange[i] == null) {
@@ -41,13 +41,13 @@ public class PatientenWarteschlange {
 
     /**
      * Removes a patient from the queue based on their number.
-     * @param number The patient's number
+     * @param patientenNr The patient's number
      * @return The patient that was removed, or null if no patient with the given number was found
      */
-    public Patient entfernePatient(int number) {
+    public Patient entfernePatient(int patientenNr) {
 
         for (int i = 0; i < warteschlange.length; i++) {
-            if (warteschlange[i] != null && warteschlange[i].getNumber() == number) {
+            if (warteschlange[i] != null && warteschlange[i].getPatientenNr() == patientenNr) {
                 Patient patientValue = warteschlange[i];
                 warteschlange[i] = null;
 

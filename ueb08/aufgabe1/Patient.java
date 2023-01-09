@@ -47,10 +47,10 @@ class Patient {
     
     /**
      * Returns a string representation of the patient.
-     * @return A string in the format " number vorname nachname"
+     * @return A string in the format " patientenNr vorname nachname"
     */
     @Override
     public String toString() {
-        return " " + number + " " + vorname + " " + nachname;
+        return " " + patientenNr + " " + vorname + " " + nachname;
     }
 }
