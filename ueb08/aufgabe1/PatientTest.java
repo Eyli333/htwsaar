@@ -10,7 +10,7 @@ public class PatientTest {
     public void test_Patient_attribut_Ohne_Fehler() {
         Patient patient = new Patient(9999, "asdf", "sdfg");
 
-        assertEquals(patient.getNumber(), 9999);
+        assertEquals(patient.getPatientenNr(), 9999);
         assertEquals(patient.getVorname(), "asdf");
         assertEquals(patient.getNachname(), "sdfg");
     }
@@ -22,7 +22,7 @@ public class PatientTest {
     public void test_Patient_attribut_Ohne_Fehler_2() {
         Patient patient = new Patient(1000, "f", "2");
 
-        assertEquals(patient.getNumber(), 1000);
+        assertEquals(patient.getPatientenNr(), 1000);
         assertEquals(patient.getVorname(), "f");
         assertEquals(patient.getNachname(), "2");
     }

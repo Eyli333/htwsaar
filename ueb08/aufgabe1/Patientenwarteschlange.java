@@ -7,7 +7,7 @@
  * @since 2013-13-13
  */
 
-public class PatientenWarteschlange {
+public class Patientenwarteschlange {
     private Patient[] warteschlange; 
 
     /**
@@ -15,10 +15,10 @@ public class PatientenWarteschlange {
      * @param groesse The size of the queue
      * @throws IllegalArgumentException If groesse is less than 1
      */
-    public PatientenWarteschlange(int groesse) {
-        TestUtils.checkAboveOne(groesse);
+    public Patientenwarteschlange(int groesse) {
+	TestUtils.checkAboveOne(groesse);
 
-        warteschlange = new Patient[groesse];
+	warteschlange = new Patient[groesse];
     }
 
     /**
@@ -29,14 +29,14 @@ public class PatientenWarteschlange {
      */
     public void neuerPatient(int patientenNr, String vorname, String nachname) {
 
-        Patient patient = new Patient(patientenNr, vorname, nachname);
+	Patient patient = new Patient(patientenNr, vorname, nachname);
 
-        for (int i = 0; i < warteschlange.length; i++) {
-            if (warteschlange[i] == null) {
-                warteschlange[i] = patient;
-                break;
-            }
-        }
+	for (int i = 0; i < warteschlange.length; i++) {
+	    if (warteschlange[i] == null) {
+		warteschlange[i] = patient;
+		break;
+	    }
+	}
     }
 
     /**
@@ -46,32 +46,32 @@ public class PatientenWarteschlange {
      */
     public Patient entfernePatient(int patientenNr) {
 
-        for (int i = 0; i < warteschlange.length; i++) {
-            if (warteschlange[i] != null && warteschlange[i].getPatientenNr() == patientenNr) {
-                Patient patientValue = warteschlange[i];
-                warteschlange[i] = null;
+	for (int i = 0; i < warteschlange.length; i++) {
+	    if (warteschlange[i] != null && warteschlange[i].getPatientenNr() == patientenNr) {
+		Patient patientValue = warteschlange[i];
+		warteschlange[i] = null;
 
-                sort();
+		sort();
 
-                return patientValue;
-            }
-        }
-        
-        return null;
+		return patientValue;
+	    }
+	}
+
+	return null;
     }
-    
+
     /**
      * Removes the patient at the front of the queue and returns them.
      * @return The patient at the front of the queue
      */
     public Patient derNaechsteBitte() {
 
-        Patient patientValue = warteschlange[0];
-        warteschlange[0] = null;
+	Patient patientValue = warteschlange[0];
+	warteschlange[0] = null;
 
-        sort();
+	sort();
 
-        return patientValue;
+	return patientValue;
     }
 
     /**
@@ -80,14 +80,14 @@ public class PatientenWarteschlange {
      */
     @Override
     public String toString() {
-        String buffer = new String();
-        buffer = "Warteschlange\n" + "Patientenummer Vorname Nachname\n";
-        for (int i = 0; i < warteschlange.length; i++) {
-            if (warteschlange[i] != null ) {
-                buffer +=  warteschlange[i].toString() + "\n";
-            }
-        }
-        return buffer;
+	String buffer = new String();
+	buffer = "Warteschlange\n" + "Patientenummer Vorname Nachname\n";
+	for (int i = 0; i < warteschlange.length; i++) {
+	    if (warteschlange[i] != null ) {
+		buffer +=  warteschlange[i].toString() + "\n";
+	    }
+	}
+	return buffer;
     }
 
     /**
@@ -95,23 +95,23 @@ public class PatientenWarteschlange {
      * @return The size of the queue
      */
     public int getArraySize() {
-        return warteschlange.length ;
+	return warteschlange.length ;
     }
 
     /**
      * Sorts the queue so that null elements are at the end.
      */
     public void sort() {
-        for (int i = 0; i < warteschlange.length; i++) {
-            if (warteschlange[i] == null) {
-                for (int j = i; j < warteschlange.length; j++) {
-                    if (warteschlange[j] != null) {
-                        warteschlange[i] = warteschlange[j];
-                        warteschlange[j] = null;
-                        break;
-                    }
-                }
-            }
-        }
+	for (int i = 0; i < warteschlange.length; i++) {
+	    if (warteschlange[i] == null) {
+		for (int j = i; j < warteschlange.length; j++) {
+		    if (warteschlange[j] != null) {
+			warteschlange[i] = warteschlange[j];
+			warteschlange[j] = null;
+			break;
+		    }
+		}
+	    }
+	}
     }
 }
