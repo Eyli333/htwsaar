@@ -34,8 +34,10 @@ class ArrayFunctions {
      * @return the number of valid strings
      */
     public static int stringsAuswerten(String[] strings) {
+        if (strings == null) {
+            return 0;
+        }
         int count = 0;
-        
 
         for (int i = 0; i < strings.length; i++) {
             boolean isValid = true;
@@ -43,23 +45,26 @@ class ArrayFunctions {
             int upperCase = 0;
             int stringLength = strings[i].length();
 
-            for (int j = 0; j < stringLength; j++) {
-                char c = strings[i].charAt(j);
+            if (strings[i].strip().length() != 0) {
 
-                if (!Character.isLetter(c)) {
-                    isValid = false;
-                    break;
+                for (int j = 0; j < stringLength; j++) {
+                    char c = strings[i].charAt(j);
+
+                    if (!Character.isLetter(c)) {
+                        isValid = false;
+                        break;
+                    }
+
+                    if (Character.isLowerCase(c)) {
+                        lowerCase++;
+                    } else {
+                        upperCase++;
+                    }
                 }
 
-                if (Character.isLowerCase(c)) {
-                    lowerCase++;
-                } else {
-                    upperCase++;
+                if (isValid && lowerCase == stringLength || upperCase == stringLength) {
+                    count++;
                 }
-            }
-
-            if (isValid && lowerCase == stringLength || upperCase == stringLength) {
-                count++;
             }
         }
 

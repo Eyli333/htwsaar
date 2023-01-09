@@ -54,6 +54,16 @@ class ArrayFunctionsTest {
     }
 
     /**
+     * Tests the stringsAuswerten method with an array of strings containing 0 valid strings.
+     */
+    @Test
+    void test_Strings_Auswerten_expected_0_() {
+        String[] strings6 = {""};
+        int result6 = ArrayFunctions.stringsAuswerten(strings6);
+        assertEquals(0, result6);
+    }
+
+    /**
      *  Tests the getter method of the class ArrayFunctions.
      */
     @Test
