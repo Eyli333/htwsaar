@@ -12,7 +12,7 @@
 import java.util.Objects;
 
 public final class Video extends Artikel {
-    private String title;
+    private String titel;
     private int spieldauer;
     private int jahr;
 
@@ -25,24 +25,24 @@ public final class Video extends Artikel {
      * @param art the type of the Video.
      * @param bestand the stock of the Video.
      * @param preis the price of the Video.
-     * @param title the title of the Video.
+     * @param titel the titel of the Video.
      * @param spieldauer the playtime of the Video.
      * @param jahr the year of the Video.
      */
-    public Video(int artikelNr, int bestand, double preis, String title, int spieldauer, int jahr) {
+    public Video(int artikelNr, int bestand, double preis, String titel, int spieldauer, int jahr) {
         super(artikelNr, ARTIKEL_ART, bestand, preis);
-        setTitle(title);
+        setTitle(titel);
         setSpieldauer(spieldauer);
         setJahr(jahr);
     }
 
     /**
-     * Sets the title of this Video.
-     * @param title the title to set.
+     * Sets the titel of this Video.
+     * @param titel the titel to set.
      */
-    public final void setTitle(String title) {
-        TestUtils.checkIfEmpty(title);
-        this.title = title;
+    public final void setTitle(String titel) {
+        TestUtils.checkIfEmpty(titel);
+        this.titel = titel;
     }
 
     /**
@@ -50,7 +50,7 @@ public final class Video extends Artikel {
      * @param spieldauer the playtime to set.
      */
     public final void setSpieldauer(int spieldauer) {
-        TestUtils.checkGreaterThan(spieldauer, 0, "spieldauer");
+        TestUtils.checkGreaterThan(spieldauer, 1, "spieldauer");
         this.spieldauer = spieldauer;
     }
 
@@ -68,7 +68,7 @@ public final class Video extends Artikel {
      * @param jahr the year to set.
      */
     public final String getTitle() {
-        return title;
+        return titel;
     }
 
     /**
@@ -89,11 +89,11 @@ public final class Video extends Artikel {
 
     /**
      * Returns the description of this Video.
-     * @return the title.
+     * @return the titel.
      */
     @Override
     public final String getBeschreibung() {
-        return title;
+        return titel;
     }
 
     /**
@@ -102,7 +102,7 @@ public final class Video extends Artikel {
      */
     @Override
     public final String toString() {
-        return super.toString() + " Video title: " + title + ", spieldauer: " + spieldauer + ", jahr: " + jahr;
+        return super.toString() + " Video titel: " + titel + ", spieldauer: " + spieldauer + ", jahr: " + jahr;
     }
 
     /**
@@ -124,7 +124,7 @@ public final class Video extends Artikel {
         
         Video video = (Video) object;
         
-        return Objects.equals(title, video.title) &&
+        return Objects.equals(titel, video.titel) &&
             spieldauer == video.spieldauer &&
             jahr == video.jahr;
     }
@@ -136,6 +136,6 @@ public final class Video extends Artikel {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), title, spieldauer, jahr);
+        return Objects.hash(super.hashCode(), titel, spieldauer, jahr);
     }
 }
