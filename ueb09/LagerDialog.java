@@ -31,11 +31,11 @@ public class LagerDialog {
     private static final int GET_SIZE_OF_LAGER_INT = 12;
     private static final int LAGER_EXIT_INT = 13;
 
-    private static final int SET_BUCH_INT = 1;
-    private static final int SET_VIDEO_INT = 2;
-    private static final int SET_CD_INT = 3;
-    private static final int SET_ARTIKEL_WITH_BESTAND_INT = 4;
-    private static final int SET_ARTIKEL_WITHOUT_BESTAND_INT = 5;
+    private static final int SET_ARTIKEL_WITH_BESTAND_INT = 1;
+    private static final int SET_ARTIKEL_WITHOUT_BESTAND_INT = 2;
+    private static final int SET_BUCH_INT = 3;
+    private static final int SET_VIDEO_INT = 4;
+    private static final int SET_CD_INT = 5;
     private static final int ARTIKEL_EXIT_INT = 6;
 
     private static final String LAGER_CONSTRUCTOR_STRING = " : Ein neues Lager erstellen";
@@ -250,7 +250,7 @@ public class LagerDialog {
             System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
             int userInput = 0;
-            while (userInput != ARTIKEL_EXIT_INT) {
+            while (userInput == 0) {
                 try {
                     artikelMenuAusgabe();
                     userInput = eingabeLesen();
