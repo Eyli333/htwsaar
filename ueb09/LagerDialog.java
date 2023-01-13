@@ -29,7 +29,8 @@ public class LagerDialog {
     private static final int GET_INFORMATION_OF_LAGER_INT = 10;
     private static final int GET_NUMBER_OF_ARTIKEL_INT = 11;
     private static final int GET_SIZE_OF_LAGER_INT = 12;
-    private static final int LAGER_EXIT_INT = 13;
+    private static final int GET_BESTAND_LISTE_INT = 13;
+    private static final int LAGER_EXIT_INT = 14;
 
     private static final String LAGER_CONSTRUCTOR_STRING = " : Ein neues Lager erstellen";
     private static final String LAGER_CONSTRUCTOR_DEFAULT_STRING = " : Ein neues Lager mit der vorgegebenen Maximalgroesse 10 erstellen";
@@ -43,6 +44,7 @@ public class LagerDialog {
     private static final String GET_INFORMATION_OF_LAGER_STRING = " : Informationen über das Lager";
     private static final String GET_NUMBER_OF_ARTIKEL_STRING = " : Anzahl der Artikel im Lager";
     private static final String GET_SIZE_OF_LAGER_STRING = " : Größe des Lagers";
+    private static final String GET_BESTAND_LISTE_STRING = " : Bestandsliste ausgeben";
     private static final String LAGER_EXIT_STRING = " : Das Programm beenden";
 
     private static final int SET_ARTIKEL_WITH_BESTAND_INT = 1;
@@ -114,6 +116,7 @@ public class LagerDialog {
             .append(GET_INFORMATION_OF_LAGER_INT).append(GET_INFORMATION_OF_LAGER_STRING).append("\n")
             .append(GET_NUMBER_OF_ARTIKEL_INT).append(GET_NUMBER_OF_ARTIKEL_STRING).append("\n")
             .append(GET_SIZE_OF_LAGER_INT).append(GET_SIZE_OF_LAGER_STRING).append("\n")
+            .append(GET_BESTAND_LISTE_INT).append(GET_BESTAND_LISTE_STRING).append("\n")
             .append(LAGER_EXIT_INT).append(LAGER_EXIT_STRING).append("\n")
             .append(">>> ");
 
@@ -171,6 +174,9 @@ public class LagerDialog {
                 break;
             case GET_SIZE_OF_LAGER_INT:
                 getSizeOfLager();
+                break;
+            case GET_BESTAND_LISTE_INT:
+                getBestandListe();
                 break;
             case LAGER_EXIT_INT:
                 System.out.println("Das Programm wird beendet");
@@ -586,6 +592,14 @@ public class LagerDialog {
             System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
             System.out.println("Lagergröße: " + lager.getLagerGroesse());
+        }
+    }
+
+    public final void getBestandListe() {
+        if (lager == null) {
+            System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
+        } else {
+            System.out.println(lager.ausgebenBestandsListe());
         }
     }
 }

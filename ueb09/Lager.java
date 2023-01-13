@@ -1,9 +1,7 @@
 /**
  * <h1>Create Objects</h1>
- * Allows the user to create, store and minpulate multiple 
- * objects. Then the user can interact 
- * with his items using methods
- * 
+ * This class allows the user to create, store, and manipulate multiple objects. The user can then interact with the objects using various methods provided by the class.
+ *
  * @author Victor Plage and David Glaser
  * @version 1.1.1
  * @since 2022-11-04
@@ -15,8 +13,8 @@ public final class Lager {
 
 
     /**
-     * This constructor is the main entry point for the Lager class
-     * @param maxArtikel The maximum number of articles that can be stored in the arrayx
+     * Constructor that creates a Lager object with a given maximum number of articles that can be stored in the array.
+     * @param maxArtikel The maximum number of articles that can be stored in the array.
      */
     public Lager(int maxArtikel) {
         TestUtils.checkGreaterThan(maxArtikel, 1, "lager");
@@ -27,15 +25,15 @@ public final class Lager {
         }
     }
     /**
-     * This constructor is the second entry point for the Lager class
+     * Alternate constructor that creates a Lager object with the default maximum number of articles that can be stored in the array.
      */
     public Lager() {
         this(STANDARD_GROESSE);
     }
 
     /**
-     * This method is used to add an object to the array lager
-     * @param artikel This is the object that is added to the array lager
+     * This method used to add an object to the array lager.
+     * @param artikel The object that is added to the array lager.
      */
     public final void legeAnArtikel(Artikel artikel){
         TestUtils.checkIfLagerIsFull(lager);
@@ -50,8 +48,8 @@ public final class Lager {
     }
 
     /**
-     * This method is used to remove an object from the array lager
-     * @param artikelNr This is the object that is removed from the array lager
+     * This method is used to remove an object from the array lager.
+     * @param artikelNr The object that is removed from the array lager.
      */
     public final void entferneArtikel(int artikelNr){
         TestUtils.checkIfLagerIsEmpty(lager);
@@ -69,7 +67,7 @@ public final class Lager {
     }
 
     /**
-     * This methode is used to add a quantity to the attribute bestand
+     * This method is used to add a quantity to the attribute bestand
      * @param artikelNr This is the target Artikel
      * @param zugang This is the quantity that is added to the attribute bestand
      */
@@ -87,9 +85,9 @@ public final class Lager {
     }
 
     /**
-     * This method is used to get the value of the attribute bestand
+     * This method is used to remove a quantity from the attribute bestand
      * @param artikelNr This is the target Artikel
-     * @abgang This is the quantity that is removed from the attribute bestand
+     * @param abgang This is the quantity that is removed from the attribute bestand
      */
     public final void bucheAbgang(int artikelNr, int abgang){
         TestUtils.checkIfLagerIsEmpty(lager);
@@ -105,9 +103,9 @@ public final class Lager {
     }
 
     /**
-     * This method is used to get the value of the attribute bestand
+     * This method is used to change the price of a specific Artikel by a certain percentage
      * @param artikelNr This is the target Artikel
-     * @param prozent This is the percentage that is added or removed of the target Artikel 
+     * @param prozent This is the percentage that is added or removed from the target Artikel's price
      */
     public final void aenderePreisEinesArtikels(int artikelNr, double prozent){
         TestUtils.checkIfLagerIsEmpty(lager);
@@ -123,9 +121,8 @@ public final class Lager {
     }
 
     /**
-     * This method is used to get the value of the attribute bestand
-     * @param artikelNr This is the target Artikel
-     * @param prozent This is the percentage that is added or removed of all the Artikel in the array lager
+     * This method is used to change the price of all Artikel in the array lager by a certain percentage
+     * @param prozent This is the percentage that is added or removed from all the Artikel's prices in the array lager
      */
     public final void aenderePreisAllerArtikel(double prozent){
         TestUtils.checkIfLagerIsEmpty(lager);
@@ -138,8 +135,9 @@ public final class Lager {
     }
 
     /**
-     * This method is used to get the value of a target Artikel 
-     * @param index This is the index of target Artikel
+     * This method is used to get the value of a target Artikel
+     * @param index This is the index of target Artikel in the array lager
+     * @return the target Artikel from the array lager at the given index
      */
     public final Artikel getArtikel(int index){
         TestUtils.checkIfLagerIsEmpty(lager);
@@ -151,7 +149,7 @@ public final class Lager {
 
     /**
      * This method is used to print all the Artikel from the array lager
-     * @return the Artikel from the array lager at the index
+     * @return a string representation of all the Artikel in the array lager
      */
     @Override    
     public String toString() {    
@@ -227,23 +225,32 @@ public final class Lager {
         return false;
     }
 
-    public final String ausgebenBestandsListe(){
-        TestUtils.checkIfLagerIsEmpty(lager);
-
-        double sum = 0;
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < lager.length; i++) {
-            if (lager[i] != null) {
-                output.append(lager[i].getArtikelNr()).append(" ")
-                    .append(lager[i].getBeschreibung()).append(" ")
-                    .append(lager[i].getPreis()).append(" ")
-                    .append(lager[i].getBestand()).append(" ")
-                    .append(lager[i].gesamtPreis()).append("\n");
-                sum += lager[i].gesamtPreis();  
-            }
-        }
-        output.append("-----------------------------------------\n")
-            .append("Gesamtwert: " + sum);
+    /**
+     * This method is used to generate a list of all the Artikel in the array lager
+     * including their details such as description, price, stock and total value.
+     * @return a string representation of the list of all the Artikel in the array lager
+     */
+    public final String ausgebenBestandsListe(){    
+        TestUtils.checkIfLagerIsEmpty(lager);    
+        double sum = 0;    
+        StringBuilder output = new StringBuilder();    
+        int artNrWidth = 4;    
+        int beschreibungWidth = 50;    
+        int preisWidth = 10;    
+        int bestandWidth = 10;    
+        int gesamtWidth = 10;    
+        int lineWidth = artNrWidth + beschreibungWidth + preisWidth + bestandWidth + gesamtWidth + 4;    
+        String line = new String(new char[lineWidth]).replace("\0", "-");    
+        output.append("ArtNr" + " " + "Beschreibung" + " " + "Preis" + " " + "Bestand" + " " + "Gesamt").append("\n");
+        output.append(line).append("\n");    
+        for (int i = 0; i < lager.length; i++) {    
+            if (lager[i] != null) {    
+                output.append(lager[i].getArtikelNr() + " " + lager[i].getBeschreibung() + " " + lager[i].getPreis() + " " + lager[i].getBestand() + " " + String.format("%.2f",lager[i].gesamtPreis())).append("\n");    
+                sum += lager[i].gesamtPreis();    
+            }    
+        }    
+        output.append(line).append("\n");    
+        output.append("Gesamtwert: " + String.format("%.2f", sum)).append("\n");    
         return output.toString();
     }
 }
