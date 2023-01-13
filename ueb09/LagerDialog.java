@@ -206,8 +206,7 @@ public class LagerDialog {
                 setVideo();    
                 break;    
             case ARTIKEL_EXIT_INT:    
-                System.out.println("Das Programm wird beendet");    
-                EingabeUtils.scanClose(scanner);    
+                System.out.println("Es wird zurück zum Hauptmenü gewechselt");
                 break;    
             default:    
                 System.out.println(userInput + " ist keine gültige Nummer !");    
