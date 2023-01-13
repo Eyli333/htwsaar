@@ -351,7 +351,7 @@ public class LagerDialog {
         System.out.print(">>> ");
         double preis = EingabeUtils.scanDouble(scanner);
 
-        Buch buch = new Buch(artikelNr, "Buch", bestand, preis, title, author, verlag);
+        Buch buch = new Buch(artikelNr, bestand, preis, title, author, verlag);
 
         lager.legeAnArtikel(buch);
     }
@@ -381,7 +381,7 @@ public class LagerDialog {
         System.out.print(">>> ");
         double preis = EingabeUtils.scanDouble(scanner);
 
-        Video video = new Video(artikelNr, "Video", bestand, preis, title, spieldauer, jahr);
+        Video video = new Video(artikelNr, bestand, preis, title, spieldauer, jahr);
 
         lager.legeAnArtikel(video);
     }
@@ -411,7 +411,7 @@ public class LagerDialog {
         System.out.print(">>> ");
         double preis = EingabeUtils.scanDouble(scanner);
 
-        CD cd = new CD(artikelNr, "CD", bestand, preis, interpret, title, anzahlTitel);
+        CD cd = new CD(artikelNr, bestand, preis, interpret, title, anzahlTitel);
 
         lager.legeAnArtikel(cd);
     }
