@@ -31,16 +31,9 @@ public class LagerDialog {
     private static final int GET_SIZE_OF_LAGER_INT = 12;
     private static final int LAGER_EXIT_INT = 13;
 
-    private static final int SET_ARTIKEL_WITH_BESTAND_INT = 1;
-    private static final int SET_ARTIKEL_WITHOUT_BESTAND_INT = 2;
-    private static final int SET_BUCH_INT = 3;
-    private static final int SET_VIDEO_INT = 4;
-    private static final int SET_CD_INT = 5;
-    private static final int ARTIKEL_EXIT_INT = 6;
-
     private static final String LAGER_CONSTRUCTOR_STRING = " : Ein neues Lager erstellen";
     private static final String LAGER_CONSTRUCTOR_DEFAULT_STRING = " : Ein neues Lager mit der vorgegebenen Maximalgroesse 10 erstellen";
-    private static final String CREATE_ARTIKEL_STRING = " : Ein neues Artikel erstellen";
+    private static final String CREATE_ARTIKEL_STRING = " : Artikel erstellen";
     private static final String REMOVE_ARTIKEL_STRING = " : Ein Artikel entfernen";
     private static final String BOOK_RECEIPT_STRING = " : Buche Zugang";
     private static final String BOOK_RELEASE_STRING = " : Buche Abgang";
@@ -51,6 +44,13 @@ public class LagerDialog {
     private static final String GET_NUMBER_OF_ARTIKEL_STRING = " : Anzahl der Artikel im Lager";
     private static final String GET_SIZE_OF_LAGER_STRING = " : Größe des Lagers";
     private static final String LAGER_EXIT_STRING = " : Das Programm beenden";
+
+    private static final int SET_ARTIKEL_WITH_BESTAND_INT = 1;
+    private static final int SET_ARTIKEL_WITHOUT_BESTAND_INT = 2;
+    private static final int SET_BUCH_INT = 3;
+    private static final int SET_VIDEO_INT = 4;
+    private static final int SET_CD_INT = 5;
+    private static final int ARTIKEL_EXIT_INT = 6;
 
     private static final String SET_BUCH_STRING = " : Ein neues Buch anlegen";
     private static final String SET_VIDEO_STRING = " : Ein neues Video anlegen";
@@ -97,22 +97,26 @@ public class LagerDialog {
      * This method is used to print the different choices
      */
     public void lagerMenuAusgabe() {
-        System.out.print("\n"+
-                LAGER_CONSTRUCTOR_INT + LAGER_CONSTRUCTOR_STRING + "\n" +
-                LAGER_CONSTRUCTOR_DEFAULT_INT + LAGER_CONSTRUCTOR_DEFAULT_STRING + "\n" +
-                CREATE_ARTIKEL_INT + CREATE_ARTIKEL_STRING + "\n" +
-                REMOVE_ARTIKEL_INT + REMOVE_ARTIKEL_STRING + "\n" +
-                BOOK_RECEIPT_INT + BOOK_RECEIPT_STRING + "\n" +
-                BOOK_RELEASE_INT + BOOK_RELEASE_STRING + "\n" +
-                CHANGE_PRICE_OF_ONE_ARTIKEL_INT + CHANGE_PRICE_OF_ONE_ARTIKEL_STRING + "\n" +
-                CHANGE_PRICE_OF_ALL_ARTIKEL_INT + CHANGE_PRICE_OF_ALL_ARTIKEL_STRING + "\n" +
-                GET_ARTIKEL_INT + GET_ARTIKEL_STRING + "\n" +
-                GET_INFORMATION_OF_LAGER_INT + GET_INFORMATION_OF_LAGER_STRING + "\n" +
-                GET_NUMBER_OF_ARTIKEL_INT + GET_NUMBER_OF_ARTIKEL_STRING + "\n" +
-                GET_SIZE_OF_LAGER_INT + GET_SIZE_OF_LAGER_STRING + "\n" +
-                LAGER_EXIT_INT + LAGER_EXIT_STRING + "\n"
-                + ">>> "
-                );
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\n")
+            .append(LAGER_CONSTRUCTOR_INT).append(LAGER_CONSTRUCTOR_STRING).append("\n")
+            .append(LAGER_CONSTRUCTOR_DEFAULT_INT).append(LAGER_CONSTRUCTOR_DEFAULT_STRING).append("\n")
+            .append(CREATE_ARTIKEL_INT).append(CREATE_ARTIKEL_STRING).append("\n")
+            .append(REMOVE_ARTIKEL_INT).append(REMOVE_ARTIKEL_STRING).append("\n")
+            .append(BOOK_RECEIPT_INT).append(BOOK_RECEIPT_STRING).append("\n")
+            .append(BOOK_RELEASE_INT).append(BOOK_RELEASE_STRING).append("\n")
+            .append(CHANGE_PRICE_OF_ONE_ARTIKEL_INT).append(CHANGE_PRICE_OF_ONE_ARTIKEL_STRING).append("\n")
+            .append(CHANGE_PRICE_OF_ALL_ARTIKEL_INT).append(CHANGE_PRICE_OF_ALL_ARTIKEL_STRING).append("\n")
+            .append(GET_ARTIKEL_INT).append(GET_ARTIKEL_STRING).append("\n")
+            .append(GET_INFORMATION_OF_LAGER_INT).append(GET_INFORMATION_OF_LAGER_STRING).append("\n")
+            .append(GET_NUMBER_OF_ARTIKEL_INT).append(GET_NUMBER_OF_ARTIKEL_STRING).append("\n")
+            .append(GET_SIZE_OF_LAGER_INT).append(GET_SIZE_OF_LAGER_STRING).append("\n")
+            .append(LAGER_EXIT_INT).append(LAGER_EXIT_STRING).append("\n")
+            .append(">>> ");
+
+        System.out.print(sb.toString());
+
     } 
 
     /**
@@ -177,15 +181,16 @@ public class LagerDialog {
     }
 
     public void artikelMenuAusgabe() {
-        System.out.print("\n"+
-                SET_ARTIKEL_WITH_BESTAND_INT + SET_ARTIKEL_WITH_BESTAND_STRING + "\n" +
-                SET_ARTIKEL_WITHOUT_BESTAND_INT + SET_ARTIKEL_WITHOUT_BESTAND_STRING + "\n" +
-                SET_BUCH_INT + SET_BUCH_STRING + "\n" +
-                SET_VIDEO_INT + SET_VIDEO_STRING + "\n" +
-                SET_CD_INT + SET_CD_STRING + "\n" +
-                ARTIKEL_EXIT_INT + ARTIKEL_EXIT_STRING + "\n"
-                + ">>> "
-                );
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n")
+            .append(SET_ARTIKEL_WITH_BESTAND_INT).append(SET_ARTIKEL_WITH_BESTAND_STRING).append("\n")
+            .append(SET_ARTIKEL_WITHOUT_BESTAND_INT).append(SET_ARTIKEL_WITHOUT_BESTAND_STRING).append("\n")
+            .append(SET_BUCH_INT).append(SET_BUCH_STRING).append("\n")
+            .append(SET_VIDEO_INT).append(SET_VIDEO_STRING).append("\n")
+            .append(SET_CD_INT).append(SET_CD_STRING).append("\n")
+            .append(ARTIKEL_EXIT_INT).append(ARTIKEL_EXIT_STRING).append("\n")
+            .append(">>> ");
+        System.out.print(sb.toString());
     }
 
     public void artikelEingabeBearbeitung(int userInput) {
@@ -250,7 +255,7 @@ public class LagerDialog {
             System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
         } else {
             int userInput = 0;
-            while (userInput == 0) {
+            while (userInput != ARTIKEL_EXIT_INT) {
                 try {
                     artikelMenuAusgabe();
                     userInput = eingabeLesen();
