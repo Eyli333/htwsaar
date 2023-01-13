@@ -60,14 +60,15 @@ public class LagerDialog {
     private static final String ARTIKEL_EXIT_STRING = " : Zurück zum Hauptmenü";
 
     /**
-     * The main Funktion start a new ArtikelDialog Objekt
+     * The main function starts a new LagerDialog object.
      */
     public static void main( String[] args) {
         new LagerDialog().start();
     }
 
-    /** 
-     * Main loop of the Programm
+    /**
+     * The start method is the main loop of the program. It initializes the lager to null and prompts the user for input to interact with the Lager and its Artikel. 
+     * The method also includes exception handling for illegal argument, input mismatch, and general exceptions.
      */
     public void start() {
 
@@ -94,7 +95,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to print the different choices
+     * This method is used to print the different choices for interacting with the Lager and its Artikel.
+     * It uses a StringBuilder to append the different menu options and their corresponding int and string values and prints them to the console.
      */
     public void lagerMenuAusgabe() {
         StringBuilder sb = new StringBuilder();
@@ -121,7 +123,7 @@ public class LagerDialog {
 
     /**
      * This method is used to read the user input and return it
-     * @return userInput as an Integer 
+     * @return userInput as an Integer
      */
     public int eingabeLesen() {
         int userInput = EingabeUtils.scanInt(scanner);
@@ -129,7 +131,7 @@ public class LagerDialog {
     }
 
     /**
-     * This method is use to execute the user choice 
+     * This method is used to execute the user choice.
      * @param userInput The input from the user
      */
     public void lagerEingabeBearbeitung(int userInput) {
@@ -180,6 +182,10 @@ public class LagerDialog {
         }
     }
 
+    /**
+     * This method is used to print the different choices for creating new Artikel objects.
+     * It uses a StringBuilder to append the different menu options and their corresponding int and string values and prints them to the console.
+     */
     public void artikelMenuAusgabe() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n")
@@ -193,6 +199,10 @@ public class LagerDialog {
         System.out.print(sb.toString());
     }
 
+    /**
+     * This method is used to execute the user's choice for creating new Artikel objects.
+     * @param userInput The input from the user.
+     */
     public void artikelEingabeBearbeitung(int userInput) {
         switch (userInput) {    
             case SET_ARTIKEL_WITH_BESTAND_INT:
@@ -220,7 +230,7 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to create a new Lager
+     * This method is used to create a new Lager.
      * It ask the user for the size of the Lager
      */
     public void lagerConstructor() {
@@ -276,8 +286,9 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to create a new Artikel with a bestand
-     * It ask the user for the ArtikelNr, art, preis and bestand of the Artikel
+     * This method is used to create a new Artikel with a bestand.
+     * It prompts the user for the ArtikelNr, art, preis, and bestand of the Artikel.
+     * @param scanner the Scanner object used to get user input
      */
     public void setArtikelWithBestand() {
         System.out.println("Geben Sie die ArtikelNr ein:");
@@ -301,8 +312,9 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to create a new Artikel with a bestand
-     * It ask the user for the ArtikelNr, art, preis and bestand of the Artikel
+     * This method is used to create a new Artikel without a bestand.
+     * It prompts the user for the ArtikelNr, art, and preis of the Artikel.
+     * @param scanner the Scanner object used to get user input
      */
     public void setArtikelWithoutBestand() {
         System.out.println("Geben Sie die ArtikelNr ein:");
@@ -325,7 +337,11 @@ public class LagerDialog {
         lager.legeAnArtikel(artikel);
     }
 
-
+    /**
+     * This method is used to create a new Buch object.
+     * It prompts the user for the ArtikelNr, title, author, verlag, bestand and preis of the Buch.
+     * @param scanner the Scanner object used to get user input
+     */
     public void setBuch() {
         System.out.println("Geben Sie die ArtikelNr ein:");
         System.out.print(">>> ");
@@ -355,7 +371,11 @@ public class LagerDialog {
 
         lager.legeAnArtikel(buch);
     }
-
+    /**
+     * This method is used to create a new Video object.
+     * It prompts the user for the ArtikelNr, title, spieldauer, jahr, bestand and preis of the Video.
+     * @param scanner the Scanner object used to get user input
+     */
     public void setVideo() {
         System.out.println("Geben Sie die ArtikelNr ein:");
         System.out.print(">>> ");
@@ -386,6 +406,11 @@ public class LagerDialog {
         lager.legeAnArtikel(video);
     }
 
+    /**
+     * This method is used to create a new CD object.
+     * It prompts the user for the ArtikelNr, interpret, title, anzahlTitel, bestand and preis of the CD.
+     * @param scanner the Scanner object used to get user input
+     */
     public void setCD(){
         System.out.println("Geben Sie die ArtikelNr ein:");
         System.out.print(">>> ");
@@ -417,8 +442,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to remove an Artikel from the Lager
-     * It ask the user for the ArtikelNr of the Artikel
+     * This method is used to remove an Artikel from the lager by its ArtikelNr.
+     * @param scanner the Scanner object used to get user input
      */
     public void removeArtikel() {
         if (lager == null) {
@@ -433,8 +458,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to add a bestand to an Artikel
-     * It ask the user for the ArtikelNr and the amount of the bestand that need to be modifed
+     * This method is used to add a certain amount of an Artikel to the lager by its ArtikelNr.
+     * @param scanner the Scanner object used to get user input
      */
     public void bookRelease() {
         if (lager == null) {
@@ -453,8 +478,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to remove a bestand from an Artikel
-     * It ask the user the amount of the bestand that need to be modifed
+     * This method is used to remove a certain amount of an Artikel from the lager by its ArtikelNr.
+     * @param scanner the Scanner object used to get user input
      */
     public void bookReceipt() {
         if (lager == null) {
@@ -473,8 +498,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to change the price of an Artikel
-     * It ask the user for the ArtikelNr and the percentage by which to change the price 
+     * This method is used to change the price of a certain Artikel in the lager by its ArtikelNr.
+     * @param scanner the Scanner object used to get user input
      */
     public void changePriceOfOneArtikel() {
         if (lager == null) { 
@@ -492,9 +517,9 @@ public class LagerDialog {
         }
     }
 
-    /** 
-     * This method is used to change the price of all Artikel
-     * It ask the user for the percentage by which to change the price 
+    /**
+     * This method is used to change the price of all Artikel in the lager by a certain percentage.
+     * @param scanner the Scanner object used to get user input
      */
     public void changePriceOfAllArtikel() {
         if (lager == null) {
@@ -509,8 +534,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to print the Artikel
-     * It ask the user for the index
+     * This method is used to get an Artikel from the lager by its index.
+     * @param scanner the Scanner object used to get user input
      */
     public void getArtikel() {
         if (lager == null) {
@@ -525,7 +550,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to print the Lager
+     * This method is used to get information of the lager.
+     * If there are no Artikel in the lager, it will print a message indicating that.
      */
     public void getInformationOfLager() {
         if (lager == null) {
@@ -540,7 +566,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to print the number of Artikel in the Lager
+     * This method is used to print the number of Artikel in the Lager.
+     * If there is no Lager, it will print a message indicating that.
      */
     public void getNumberOfArtikel() {
         if (lager == null) {
@@ -551,7 +578,8 @@ public class LagerDialog {
     }
 
     /**
-     * This method is used to print the size of the Lager
+     * This method is used to print the size of the Lager.
+     * If there is no Lager, it will print a message indicating that.
      */
     public void getSizeOfLager() {
         if (lager == null) {
