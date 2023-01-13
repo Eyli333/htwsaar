@@ -29,7 +29,7 @@ public final class Video extends Artikel {
      * @param spieldauer the playtime of the Video.
      * @param jahr the year of the Video.
      */
-    public Video(int artikelNr,String art, int bestand, double preis, String title, int spieldauer, int jahr) {
+    public Video(int artikelNr, int bestand, double preis, String title, int spieldauer, int jahr) {
         super(artikelNr, ARTIKEL_ART, bestand, preis);
         setTitle(title);
         setSpieldauer(spieldauer);

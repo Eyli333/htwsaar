@@ -18,7 +18,7 @@ public final class CD extends Artikel {
 
     private static final String ARTIKEL_ART = "Medien";
 
-    public CD(int artikelNr, String art, int bestand, double preis, String interpret, String title, int anzahlTitel) {
+    public CD(int artikelNr, int bestand, double preis, String interpret, String title, int anzahlTitel) {
         super(artikelNr, ARTIKEL_ART, bestand, preis);
         setInterpret(interpret);
         setTitel(title);

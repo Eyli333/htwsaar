@@ -1,22 +1,22 @@
 /**
- * <h1>Dialogue to Create Objects</h1>
- * Allows the user to create objects with a number, 
- * a type and a quantity. Then the user can interact 
- * with his items using methods with an interactif way.
+ * The LagerDialog class is a class that allows the user to interact with a Lager (warehouse) and its Artikel (articles) through a command line interface.
+ * It includes functionality to create and remove Artikel, book receipts and releases, change prices of Artikel, and retrieve information about the Lager and its Artikel. 
  * 
  * @author Victor Plage and David Glaser
  * @version 1.1.1
- * @since 2022-11-04
+ * @since 2022-01-12
  */
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LagerDialog {
+    //private fields for Artikel, Lager, and Scanner objects
     private Artikel artikel;
     private Lager lager;
     private static Scanner scanner = EingabeUtils.scanOpen();
 
+    //private fields for various menu options and their corresponding int and String values
     private static final int LAGER_CONSTRUCTOR_INT = 1;
     private static final int LAGER_CONSTRUCTOR_DEFAULT_INT = 2;
     private static final int CREATE_ARTIKEL_INT = 3;

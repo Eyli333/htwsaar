@@ -18,7 +18,7 @@ public final class Buch extends Artikel {
 
     private static final String ARTIKEL_ART = "Medien";
 
-    public Buch(int artikelNr,String art, int bestand, double preis, String title, String author, String verlag) {
+    public Buch(int artikelNr, int bestand, double preis, String title, String author, String verlag) {
         super(artikelNr, ARTIKEL_ART, bestand, preis);
         setTitle(title);
         setAuthor(author);
