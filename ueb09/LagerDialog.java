@@ -601,6 +601,10 @@ public class LagerDialog {
         }
     }
 
+    /**
+     * This method is used to get the free space in the warehouse.
+     * If there is no Lager, it will print a message indicating that.
+     */
     public void getFreeSpaceInLager() {
         if (lager == null) {
             System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");
@@ -609,6 +613,10 @@ public class LagerDialog {
         }
     }
 
+    /**
+     * This method is used to get the list of items in the warehouse.
+     * If there is no Lager, it will print a message indicating that.
+     */
     public final void getBestandListe() {
         if (lager == null) {
             System.out.println("Es gibt noch kein Lager. erstellen Sie erstmal eins.");

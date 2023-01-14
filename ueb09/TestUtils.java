@@ -3,8 +3,8 @@ public class TestUtils {
     private static final int MAX_ARTIKELNR = 9999;
 
     /**
-     * This method is used to check if the price is negative.
-     * @param preis The price to be checked.
+     * This method is used to validate that the price is non-negative.
+     * @param preis The price to be validated.
      * @throws IllegalArgumentException if the price is less than 0
      */
     public static void checkPreis(double preis){
@@ -13,9 +13,9 @@ public class TestUtils {
         }
     }   
 
-    /**
-     * This method is used to check if the input for the new art variable is valid.
-     * @param inputArt The new art to be checked
+     /**
+     * This method is used to validate that the input for the new art variable is not empty and does not contain leading or trailing whitespaces.
+     * @param inputArt The new art to be validated
      * @throws IllegalArgumentException if the input is empty or contains leading or trailing whitespaces
      */
     public static void checkIfEmpty(String inputArt) {
@@ -26,9 +26,9 @@ public class TestUtils {
         }
     }
 
-    /**
-     * This method is used to check if the input for the new stock variable is valid.
-     * @param inputBestand The new stock to be checked
+     /**
+     * This method is used to validate that the input for the new stock variable is non-negative.
+     * @param inputBestand The new stock to be validated
      * @throws IllegalArgumentException if the stock is less than 0
      */
     public static void checkBestand(int inputBestand) {
@@ -38,8 +38,8 @@ public class TestUtils {
     }
 
     /**
-     * This method is used to check if the input for the new article number variable is valid.
-     * @param inputArtikelNr The new article number to be checked
+     * This method is used to validate that the input for the new article number variable is a four-digit positive number.
+     * @param inputArtikelNr The new article number to be validated
      * @throws IllegalArgumentException if the article number is less than 1000 or greater than 9999
      */
     public static void checkArtikelNr(int inputArtikelNr) { 
@@ -48,8 +48,7 @@ public class TestUtils {
         }
     }
 
-
-    /**
+     /**
      * This method is used to check if the article number is already in use.
      * @param artikelNr The article number to be checked
      * @param artikel The array of articles to check the given article number against
@@ -63,7 +62,7 @@ public class TestUtils {
         }
     }
 
-    /**
+     /**
      * This method checks if a given article number is present in the given array of articles.
      * @param artikelNr The article number to check for in the array of articles
      * @param artikel The array of articles to check the given article number against
@@ -96,11 +95,7 @@ public class TestUtils {
         }
     }
 
-    /**
-     * This method is used to check if the inventory is empty.
-     * @param lager The inventory to be checked
-     * @throws IllegalArgumentException if the inventory is empty
-     */
+
     public static void checkIfLagerIsEmpty(Artikel[] lager) {
         int count = 0;
         for (int i = 0; i < lager.length; i++) {
@@ -140,11 +135,11 @@ public class TestUtils {
     }
 
     /**
-     * This method is used to check if the input of the user is lower than 1
-     * @param anzahl The input of the user
-     * @param number The lower limit of the input to be checked
-     * @param string The name of the variable that will be checked
-     * @throws IllegalArgumentException if the input is lower than the limit
+     * This method checks if a given value is greater than the specified minimum value.
+     * @param value The value to be checked
+     * @param minValue The minimum value to be compared against
+     * @param valueName The name of the value for error message
+     * @throws IllegalArgumentException if the value is less than the minimum value
      */
     public static void checkGreaterThan(int anzahl, int number, String string) {
         if (anzahl < number || anzahl == number) {
@@ -175,9 +170,9 @@ public class TestUtils {
     }
 
     /**
-     * This method is used to check if the year input is between 1900 and 2022
-     * @param jahr The year to be checked
-     * @throws IllegalArgumentException if the year is not between 1900 and 2022
+     * This method is used to check if the input of the user is greater than 100%
+     * @param prozent The input of the user
+     * @throws IllegalArgumentException if the input is greater than 100
      */
     public static void checkJahr(int jahr){
         if (jahr < 1900 || jahr > 2022){
@@ -185,12 +180,23 @@ public class TestUtils {
         }
     }
 
+    /**
+     * This method is used to check if the year input is between 1900 and current year
+     * @param jahr The year to be checked
+     * @throws IllegalArgumentException if the year is not between 1900 and current year                                                                                                                                                                                                                                                                                                                                                    
+     */
     public static void checkIfSame(int artikelNr1, int artikelNr2){
         if (artikelNr1 == artikelNr2){
             throw new IllegalArgumentException("Sie haben zweimal das gleiche Objekt eingegeben.");
         }
     }
 
+    /**
+     * This method is used to check if the two input article numbers are the same.
+     * @param artikelNr1 The first article number to be checked
+     * @param artikelNr2 The second article number to be checked
+     * @throws IllegalArgumentException if the two input article numbers are the same
+     */
     public static void checkType(Artikel artikel1, Artikel artikel2){
         if (artikel1.getArt() != artikel2.getArt()){
             throw new IllegalArgumentException("Sie haben zwei verschiedene Objekte eingegeben.");

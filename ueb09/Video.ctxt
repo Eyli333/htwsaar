@@ -2,7 +2,7 @@
 comment0.target=Video
 comment1.params=artikelNr\ bestand\ preis\ titel\ spieldauer\ jahr
 comment1.target=Video(int,\ int,\ double,\ java.lang.String,\ int,\ int)
-comment1.text=\n\ Creates\ a\ new\ Video\ with\ the\ given\ information.\n\n\ @param\ artikelNr\ the\ article\ number\ of\ the\ Video.\n\ @param\ art\ the\ type\ of\ the\ Video.\n\ @param\ bestand\ the\ stock\ of\ the\ Video.\n\ @param\ preis\ the\ price\ of\ the\ Video.\n\ @param\ titel\ the\ titel\ of\ the\ Video.\n\ @param\ spieldauer\ the\ playtime\ of\ the\ Video.\n\ @param\ jahr\ the\ year\ of\ the\ Video.\n
+comment1.text=\n\ Creates\ a\ new\ Video\ with\ the\ specified\ properties.\n\n\ @param\ artikelNr\ the\ article\ number\ of\ the\ Video.\n\ @param\ art\ the\ type\ of\ the\ Video.\n\ @param\ bestand\ the\ stock\ of\ the\ Video.\n\ @param\ preis\ the\ price\ of\ the\ Video.\n\ @param\ titel\ the\ titel\ of\ the\ Video.\n\ @param\ spieldauer\ the\ playtime\ of\ the\ Video.\n\ @param\ jahr\ the\ year\ of\ the\ Video.\n
 comment10.params=object
 comment10.target=boolean\ equals(java.lang.Object)
 comment10.text=\n\ Compares\ this\ object\ to\ the\ specified\ object\ to\ check\ for\ equality.\n\ @param\ object\ the\ object\ to\ compare\ to.\n\ @return\ true\ if\ the\ objects\ are\ equal,\ false\ otherwise.\n

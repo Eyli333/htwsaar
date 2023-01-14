@@ -19,7 +19,7 @@ public final class Video extends Artikel {
     private static final String ARTIKEL_ART = "Medien";
 
     /**
-     * Creates a new Video with the given information.
+     * Creates a new Video with the specified properties.
      *
      * @param artikelNr the article number of the Video.
      * @param art the type of the Video.
