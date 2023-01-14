@@ -180,9 +180,11 @@ public class CDTest {
      * Gets the hash code of the CD object and checks if the value is correct.
      */
     @Test
-    public void test_hashCode() {
-        CD cd1 = new CD(1111, 1, 2, "test", "titel", 1);
-        assertEquals(-1657497505, cd1.hashCode());
-    }
+    public void test_hashCod() {
+        CD cd1= new CD(1111, 1, 2, "test", "titel", 1);
+        Artikel artikel1 = new Artikel(1111, "Medien",1, 2);
+        int hash = artikel1.hashCode();
 
+        assertEquals(Objects.hash(hash, "test", "titel", 1), cd1.hashCode());
+    }
 }

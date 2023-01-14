@@ -167,4 +167,17 @@ public class BuchTest {
         assertNotEquals(buch1, buch7);
         assertNotEquals(buch1, buch8);
     }
+
+    /**
+     * Test for hashCode.
+     * Gets the hash code of the Buch object and checks if the value is correct.
+     */
+    @Test
+    public void test_hashCode() {
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
+        Artikel artikel1 = new Artikel(1111, "Medien",1, 2);
+        int hash = artikel1.hashCode();
+
+        assertEquals(Objects.hash(hash, "titel", "autor", "verlag"), buch1.hashCode());
+    }
 }

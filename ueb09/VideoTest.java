@@ -188,9 +188,11 @@ public class VideoTest {
      * Compares the hashcode of two Video objects and checks if they are equal.
      */
     @Test
-    public void test_hashCode(){
-        Video video1 = new Video(1111, 1, 2, "Titel 1", 3, 2020);
-        assertEquals(-234194038, video1.hashCode());
-    }
+    public void test_hashCode() {
+        Video video1= new Video(1111, 1, 2, "Titel 1", 2, 2020);
+        Artikel artikel1 = new Artikel(1111, "Medien",1, 2);
+        int hash = artikel1.hashCode();
 
+        assertEquals(Objects.hash(hash, "Titel 1", 2, 2020), video1.hashCode());
+    }
 }
