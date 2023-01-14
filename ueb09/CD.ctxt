@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=CD
+comment1.params=artikelNr\ bestand\ preis\ interpret\ title\ anzahlTitel
+comment1.target=CD(int,\ int,\ double,\ java.lang.String,\ java.lang.String,\ int)
+comment10.params=object
+comment10.target=boolean\ equals(java.lang.Object)
+comment11.params=
+comment11.target=int\ hashCode()
+comment2.params=interpret
+comment2.target=void\ setInterpret(java.lang.String)
+comment3.params=titel
+comment3.target=void\ setTitel(java.lang.String)
+comment4.params=anzahlTitel
+comment4.target=void\ setAnzahlTitel(int)
+comment5.params=
+comment5.target=java.lang.String\ getInterpret()
+comment6.params=
+comment6.target=java.lang.String\ getTitel()
+comment7.params=
+comment7.target=int\ getAnzahlTitel()
+comment8.params=
+comment8.target=java.lang.String\ getBeschreibung()
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=12
