@@ -57,15 +57,30 @@ public class LagerTest {
     public void testLegeArtikelAnWithValidArticle() {
         Lager lager = new Lager();
 
-        Artikel artikel = new Artikel(1000, "Test article", 0, 0);
+        Artikel artikel = new Artikel(1000, "Test article", 0, 0.0);
         lager.legeAnArtikel(artikel);
 
         assertTrue(lager.sucheArtikel(artikel.getArtikelNr()));
 
-        Artikel artikel2 = new Artikel(9999, "Test article 2", 0, 0);
+        Artikel artikel2 = new Artikel(9999, "Test article 2", 0, 0.0);
         lager.legeAnArtikel(artikel2);
 
         assertTrue(lager.sucheArtikel(artikel2.getArtikelNr()));
+
+        Buch buch1 = new Buch(1234, 0, 0.0, "author", "title", "verlag");
+        lager.legeAnArtikel(buch1);
+
+        assertTrue(lager.sucheArtikel(buch1.getArtikelNr()));
+
+        Video video1 = new Video(9876, 0, 0.0, "title", 60, 2020);
+        lager.legeAnArtikel(video1);
+
+        assertTrue(lager.sucheArtikel(video1.getArtikelNr()));
+
+        CD cd1 = new CD(1111, 0, 0.0, "interpret", "title", 1);
+        lager.legeAnArtikel(cd1);
+
+        assertTrue(lager.sucheArtikel(cd1.getArtikelNr()));
 
     }
 
@@ -218,13 +233,13 @@ public class LagerTest {
         lager.legeAnArtikel(artikel);
 
         lager.aenderePreisEinesArtikels(1000, 10);
-        assertEquals(11, artikel.getPreis(), 0.001);
+        assertEquals(11, artikel.getPreis());
 
         Artikel artikel2 = new Artikel(2000, "Test article", 0, 10);
         lager.legeAnArtikel(artikel2);
 
         lager.aenderePreisEinesArtikels(2000, 100);
-        assertEquals(20, artikel2.getPreis(), 0.001);
+        assertEquals(20, artikel2.getPreis());
 
     }
 
@@ -239,13 +254,13 @@ public class LagerTest {
         lager.legeAnArtikel(artikel);
 
         lager.aenderePreisEinesArtikels(1000, -10);
-        assertEquals(9, artikel.getPreis(), 0.001);
+        assertEquals(9, artikel.getPreis());
 
         Artikel artikel2 = new Artikel(2000, "Test article", 0, 10);
         lager.legeAnArtikel(artikel2);
 
         lager.aenderePreisEinesArtikels(2000, -100);
-        assertEquals(0, artikel2.getPreis(), 0.001);
+        assertEquals(0, artikel2.getPreis());
 
     }
 

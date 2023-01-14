@@ -6,18 +6,29 @@ import java.util.Objects;
 public class BuchTest {
 
     /**
+     * Test of get methods, of class Buch.
+     */
+    @Test
+    public void testGet() {
+        Buch buch = new Buch(1111, 0, 0.0, "Java ist auch eine Insel", "Christian Ullenboom", "Rheinwerk");
+        assertEquals("Java ist auch eine Insel", buch.getTitel());
+        assertEquals("Christian Ullenboom", buch.getAutor());
+        assertEquals("Rheinwerk", buch.getVerlag());
+    }
+
+    /**
      * Constructor test for Buch class without error.
      * Creates a new Buch object and checks if the values are set correctly.
      */
     @Test
     public void test_Constructor_Ohne_Fehler() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
         assertEquals(1111, buch1.getArtikelNr());
         assertEquals(1, buch1.getBestand());
-        assertEquals(2, buch1.getPreis(), 0.001);
+        assertEquals(2, buch1.getPreis());
         assertEquals("titel", buch1.getTitel());
-        assertEquals("author", buch1.getAuthor());
+        assertEquals("autor", buch1.getAutor());
         assertEquals("verlag", buch1.getVerlag());
     }
 
@@ -27,7 +38,7 @@ public class BuchTest {
      */
     @Test
     public void test_SetTitel_Ohne_Fehler() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
         buch1.setTitel("test2");
         assertEquals("test2", buch1.getTitel());
@@ -42,7 +53,7 @@ public class BuchTest {
      */
     @Test
     public void test_SetTitel_Mit_Fehler() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
         assertThrows(IllegalArgumentException.class, () -> {
             buch1.setTitel("");
@@ -50,30 +61,30 @@ public class BuchTest {
     }
 
     /**
-     * Test for setAuthor without error.
-     * Sets the author of the Buch object and checks if the value is set correctly.
+     * Test for setAutor without error.
+     * Sets the autor of the Buch object and checks if the value is set correctly.
      */
     @Test
-    public void test_SetAuthor_Ohne_Fehler() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+    public void test_SetAutor_Ohne_Fehler() {
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
-        buch1.setAuthor("author2");
-        assertEquals("author2", buch1.getAuthor());
+        buch1.setAutor("autor2");
+        assertEquals("autor2", buch1.getAutor());
 
-        buch1.setAuthor("4");
-        assertEquals("4", buch1.getAuthor());
+        buch1.setAutor("4");
+        assertEquals("4", buch1.getAutor());
     }
 
     /**
-     * Test for setAuthor with error.
-     * Tries to set an empty author for the Buch object and checks if the IllegalArgumentException is thrown.
+     * Test for setAutor with error.
+     * Tries to set an empty autor for the Buch object and checks if the IllegalArgumentException is thrown.
      */
     @Test
-    public void test_SetAuthor_Mit_Fehler() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+    public void test_SetAutor_Mit_Fehler() {
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
         assertThrows(IllegalArgumentException.class, () -> {
-            buch1.setAuthor("");
+            buch1.setAutor("");
         });
     }
 
@@ -83,7 +94,7 @@ public class BuchTest {
      */
     @Test
     public void test_SetVerlag_Ohne_Fehler() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
         buch1.setVerlag("verlag2");
         assertEquals("verlag2", buch1.getVerlag());
@@ -98,7 +109,7 @@ public class BuchTest {
      */
     @Test
     public void test_SetVerlag_Mit_Fehler() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
         assertThrows(IllegalArgumentException.class, () -> {
             buch1.setVerlag("");
@@ -111,9 +122,9 @@ public class BuchTest {
      */
     @Test
     public void test_getBeschreibung() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
 
-        assertEquals("author: titel", buch1.getBeschreibung());
+        assertEquals("autor: titel", buch1.getBeschreibung());
     }
 
     /**
@@ -122,11 +133,11 @@ public class BuchTest {
      */
     @Test
     public void test_toString() {
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
-        assertEquals("\nArtikel: 1111, Art: Medien, Bestand: 1, Preis: 2.0, Buch titel: titel, author: author, verlag: verlag", buch1.toString());
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
+        assertEquals("\nArtikel: 1111, Art: Medien, Bestand: 1, Preis: 2.0, Buch titel: titel, autor: autor, verlag: verlag", buch1.toString());
 
-        Buch buch2 = new Buch(2222, 2, 3, "titel1", "author1", "verlag1");
-        assertEquals("\nArtikel: 2222, Art: Medien, Bestand: 2, Preis: 3.0, Buch titel: titel1, author: author1, verlag: verlag1", buch2.toString());
+        Buch buch2 = new Buch(2222, 2, 3, "titel1", "autor1", "verlag1");
+        assertEquals("\nArtikel: 2222, Art: Medien, Bestand: 2, Preis: 3.0, Buch titel: titel1, autor: autor1, verlag: verlag1", buch2.toString());
     }
 
     /**
@@ -136,14 +147,14 @@ public class BuchTest {
     @Test
     public void test_equals() {
 
-        Buch buch1 = new Buch(1111, 1, 2, "titel", "author", "verlag");
-        Buch buch2 = new Buch(1111, 1, 2, "titel", "author", "verlag");
-        Buch buch3 = new Buch(1111, 1, 2, "titel1", "author", "verlag");
-        Buch buch4 = new Buch(1111, 1, 2, "titel", "author1", "verlag");
-        Buch buch5 = new Buch(1111, 1, 2, "titel", "author", "verlag1");
-        Buch buch6 = new Buch(1111, 2, 2, "titel", "author", "verlag");
-        Buch buch7 = new Buch(1234, 1, 2, "titel", "author", "verlag");
-        Buch buch8 = new Buch(1111, 1, 3, "titel", "author", "verlag");
+        Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
+        Buch buch2 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
+        Buch buch3 = new Buch(1111, 1, 2, "titel1", "autor", "verlag");
+        Buch buch4 = new Buch(1111, 1, 2, "titel", "autor1", "verlag");
+        Buch buch5 = new Buch(1111, 1, 2, "titel", "autor", "verlag1");
+        Buch buch6 = new Buch(1111, 2, 2, "titel", "autor", "verlag");
+        Buch buch7 = new Buch(1234, 1, 2, "titel", "autor", "verlag");
+        Buch buch8 = new Buch(1111, 1, 3, "titel", "autor", "verlag");
 
         // Test for equality
         assertEquals(buch1, buch2);
@@ -156,5 +167,4 @@ public class BuchTest {
         assertNotEquals(buch1, buch7);
         assertNotEquals(buch1, buch8);
     }
-
 }

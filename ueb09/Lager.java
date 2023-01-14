@@ -10,11 +10,12 @@
 public final class Lager {
     private Artikel[] lager;
     private static final int STANDARD_GROESSE = 10;
-    private static final int ART_NR_WIDTH = 4;    
-    private static final int BESCHREIBUNG_WIDTH = 50;
-    private static final int PREIS_WIDTH = 10;
-    private static final int BESTAND_WIDTH = 10;
-    private static final int GESAMT_WIDTH = 10;
+    private static final int ART_NR_WIDTH = 5;    
+    private static final int BESCHREIBUNG_WIDTH = 42;
+    private static final int PREIS_WIDTH = 6;
+    private static final int BESTAND_WIDTH = 11;
+    private static final int GESAMT_WIDTH = 9;
+    private static final int GESAMTWERT_WIDTH = 11;
 
     /**
      * Constructor that creates a Lager object with a given maximum number of articles that can be stored in the array.
@@ -240,17 +241,18 @@ public final class Lager {
         StringBuilder output = new StringBuilder();    
            
         int lineWidth = ART_NR_WIDTH + BESCHREIBUNG_WIDTH + PREIS_WIDTH + BESTAND_WIDTH + GESAMT_WIDTH + 4;
+        int lastLineWidth = BESCHREIBUNG_WIDTH + PREIS_WIDTH + BESTAND_WIDTH - 4;
         String line = new String(new char[lineWidth]).replace("\0", "-");    
-        output.append("ArtNr" + " " + "Beschreibung" + " " + "Preis" + " " + "Bestand" + " " + "Gesamt").append("\n");
+        output.append(String.format("%-"+ ART_NR_WIDTH +"s %-"+ BESCHREIBUNG_WIDTH +"s %-"+ PREIS_WIDTH +"s %-"+ BESTAND_WIDTH +"s %-"+ GESAMT_WIDTH +"s", "ArtNr", "Beschreibung", "Preis", "Bestand", "Gesamt")).append("\n");
         output.append(line).append("\n");    
         for (int i = 0; i < lager.length; i++) {    
             if (lager[i] != null) {    
-                output.append(lager[i].getArtikelNr() + " " + lager[i].getBeschreibung() + " " + lager[i].getPreis() + " " + lager[i].getBestand() + " " + String.format("%.2f",lager[i].gesamtPreis())).append("\n");    
+                output.append(String.format("%-"+ ART_NR_WIDTH +"d %-"+ BESCHREIBUNG_WIDTH +"s %-"+ PREIS_WIDTH +".2f %-"+ BESTAND_WIDTH +"d %-"+ GESAMT_WIDTH +".2f", lager[i].getArtikelNr(), lager[i].getBeschreibung(), lager[i].getPreis(), lager[i].getBestand(), lager[i].gesamtPreis())).append("\n");
                 sum += lager[i].gesamtPreis();    
             }    
         }    
         output.append(line).append("\n");    
-        output.append("Gesamtwert: " + String.format("%.2f", sum)).append("\n");    
+        output.append(String.format("%"+ GESAMTWERT_WIDTH +"s %-" + lastLineWidth + "s %-"+ GESAMT_WIDTH +".2f", "Gesamtwert:", " ", sum )).append("\n");
         return output.toString();
     }
 }

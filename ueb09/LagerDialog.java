@@ -345,7 +345,7 @@ public class LagerDialog {
 
     /**
      * This method is used to create a new Buch object.
-     * It prompts the user for the ArtikelNr, title, author, verlag, bestand and preis of the Buch.
+     * It prompts the user for the ArtikelNr, title, autor, verlag, bestand and preis of the Buch.
      * @param scanner the Scanner object used to get user input
      */
     public void setBuch() {
@@ -359,7 +359,7 @@ public class LagerDialog {
 
         System.out.println("Geben Sie den Autor ein:");
         System.out.print(">>> ");
-        String author = EingabeUtils.scanString(scanner);
+        String autor = EingabeUtils.scanString(scanner);
 
         System.out.println("Geben Sie den Verlag ein:");
         System.out.print(">>> ");
@@ -373,7 +373,7 @@ public class LagerDialog {
         System.out.print(">>> ");
         double preis = EingabeUtils.scanDouble(scanner);
 
-        Buch buch = new Buch(artikelNr, bestand, preis, title, author, verlag);
+        Buch buch = new Buch(artikelNr, bestand, preis, title, autor, verlag);
 
         lager.legeAnArtikel(buch);
     }

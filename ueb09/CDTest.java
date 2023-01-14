@@ -6,6 +6,17 @@ import java.util.Objects;
 public class CDTest {
 
     /**
+     * Test of get methods, of class CD.
+     */
+    @Test
+    public void testGet(){
+        CD cd = new CD(1111, 0, 0.0, "Eminem","The Slim Shady LP", 20);
+        assertEquals("Eminem", cd.getInterpret());
+        assertEquals("The Slim Shady LP", cd.getTitel());
+        assertEquals(20, cd.getAnzahlTitel());
+    }
+
+    /**
      * Constructor test for CD class without error.
      * Creates a new CD object and checks if the values are set correctly.
      */
@@ -15,7 +26,7 @@ public class CDTest {
 
         assertEquals(1111, cd1.getArtikelNr());
         assertEquals(1, cd1.getBestand());
-        assertEquals(2, cd1.getPreis(), 0.001);
+        assertEquals(2, cd1.getPreis());
         assertEquals("test", cd1.getInterpret());
         assertEquals("titel", cd1.getTitel());
         assertEquals(1, cd1.getAnzahlTitel());
@@ -162,6 +173,16 @@ public class CDTest {
         assertNotEquals(cd1, cd6);
         assertNotEquals(cd1, cd7);
         assertNotEquals(cd1, cd8);
+    }
+
+    /**
+     * Test for hashCode.
+     * Gets the hash code of the CD object and checks if the value is correct.
+     */
+    @Test
+    public void test_hashCode() {
+        CD cd1 = new CD(1111, 1, 2, "test", "titel", 1);
+        assertEquals(-1657497505, cd1.hashCode());
     }
 
 }

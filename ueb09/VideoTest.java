@@ -6,6 +6,17 @@ import java.util.Objects;
 public class VideoTest {
 
     /**
+     * Test of get methods, of class Video.
+     */
+    @Test
+    public void testGet(){
+        Video video = new Video(1111, 0, 0.0, "Interstellar", 169, 2014);
+        assertEquals("Interstellar", video.getTitel());
+        assertEquals(169, video.getSpieldauer());
+        assertEquals(2014, video.getJahr());
+    }
+
+    /**
      * Constructor test for Video class without error.
      * Creates a new Video object and checks if the values are set correctly.
      */
@@ -15,7 +26,7 @@ public class VideoTest {
 
         assertEquals(1111, v1.getArtikelNr());
         assertEquals(1, v1.getBestand());
-        assertEquals(2, v1.getPreis(), 0.001);
+        assertEquals(2, v1.getPreis());
         assertEquals("test", v1.getTitel());
         assertEquals(3, v1.getSpieldauer());
         assertEquals(2000, v1.getJahr());
@@ -169,6 +180,17 @@ public class VideoTest {
         assertNotEquals(video1, video6);
         assertNotEquals(video1, video7);
         assertNotEquals(video1, video8);
+    }
+
+
+    /**
+     * Test for hashCode.
+     * Compares the hashcode of two Video objects and checks if they are equal.
+     */
+    @Test
+    public void test_hashCode(){
+        Video video1 = new Video(1111, 1, 2, "Titel 1", 3, 2020);
+        assertEquals(-234194038, video1.hashCode());
     }
 
 }
