@@ -176,8 +176,7 @@ public class BuchTest {
     public void test_hashCode() {
         Buch buch1 = new Buch(1111, 1, 2, "titel", "autor", "verlag");
         Artikel artikel1 = new Artikel(1111, "Medien",1, 2);
-        int hash = artikel1.hashCode();
 
-        assertEquals(Objects.hash(hash, "titel", "autor", "verlag"), buch1.hashCode());
+        assertEquals(Objects.hash(artikel1.hashCode(), "titel", "autor", "verlag"), buch1.hashCode());
     }
 }

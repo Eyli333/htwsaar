@@ -191,8 +191,7 @@ public class VideoTest {
     public void test_hashCode() {
         Video video1= new Video(1111, 1, 2, "Titel 1", 2, 2020);
         Artikel artikel1 = new Artikel(1111, "Medien",1, 2);
-        int hash = artikel1.hashCode();
 
-        assertEquals(Objects.hash(hash, "Titel 1", 2, 2020), video1.hashCode());
+        assertEquals(Objects.hash(artikel1.hashCode(), "Titel 1", 2, 2020), video1.hashCode());
     }
 }

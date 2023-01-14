@@ -183,8 +183,7 @@ public class CDTest {
     public void test_hashCod() {
         CD cd1= new CD(1111, 1, 2, "test", "titel", 1);
         Artikel artikel1 = new Artikel(1111, "Medien",1, 2);
-        int hash = artikel1.hashCode();
 
-        assertEquals(Objects.hash(hash, "test", "titel", 1), cd1.hashCode());
+        assertEquals(Objects.hash(artikel1.hashCode(), "test", "titel", 1), cd1.hashCode());
     }
 }
