@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LagerTest {
@@ -119,7 +118,7 @@ public class LagerTest {
         lager.legeAnArtikel(artikel2);
         lager.entferneArtikel(artikel.getArtikelNr());
 
-    assertFalse(lager.sucheArtikel(artikel.getArtikelNr()));
+        assertFalse(lager.sucheArtikel(artikel.getArtikelNr()));
     }
 
     /**
@@ -168,6 +167,44 @@ public class LagerTest {
         lager.legeAnArtikel(artikel);
 
         assertThrows(IllegalArgumentException.class, () -> lager.bucheZugang(2000, 10));
+        
+    }
+
+    /**
+     * Test the bucheAbgang method with an invalid article number
+     */
+    @Test
+    public void testBucheAbgangWithInValidArticleNumberAndQuantity() {
+        Lager lager = new Lager();
+
+        Artikel artikel = new Artikel(1000, "Test article", 0, 0);
+        lager.legeAnArtikel(artikel);
+
+        assertThrows(IllegalArgumentException.class, () -> lager.bucheAbgang(2000, 10));
+
+        assertThrows(IllegalArgumentException.class, () -> lager.bucheAbgang(1000, 1));
+    }
+
+    /**
+     * Test the bucheZugang method with a valid article number and quantity
+     */
+    @Test
+    public void testBucheAbgang() {
+        Lager lager = new Lager();
+
+        Artikel artikel = new Artikel(1000, "TestArtikel", 1, 2);
+        lager.legeAnArtikel(artikel);
+
+        lager.bucheAbgang(1000, 1);
+
+        assertEquals(0, artikel.getBestand());
+
+        Artikel artikel2 = new Artikel(2000, "TestArtikel", 100, 2);
+        lager.legeAnArtikel(artikel2);
+
+        lager.bucheAbgang(2000, 99);
+
+        assertEquals(1, artikel2.getBestand());
     }
 
     /**
@@ -235,5 +272,54 @@ public class LagerTest {
         lager.legeAnArtikel(artikel);
 
         assertThrows(IllegalArgumentException.class, () -> lager.aenderePreisEinesArtikels(1000, -101));
+    }
+
+    @Test
+    public void test_getArtikel_Ohne_Fehler() {
+        Lager lager = new Lager();
+
+        Artikel artikel = new Artikel(1000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel);
+
+        Artikel artikel2 = new Artikel(2000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel2);
+
+        assertEquals(artikel, lager.getArtikel(0));
+        assertEquals(artikel2, lager.getArtikel(1));
+    }
+
+    @Test
+    public void test_getArtikel_Mit_Fehler() {
+        Lager lager = new Lager();
+
+        Artikel artikel = new Artikel(1000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel);
+
+        Artikel artikel2 = new Artikel(2000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel2);
+
+        assertThrows(IllegalArgumentException.class, () -> lager.getArtikel(2));
+    }
+    
+    @Test
+    public void test_getArtikelAnzahl() {
+        Lager lager = new Lager();
+
+        Artikel artikel = new Artikel(1000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel);
+
+        Artikel artikel2 = new Artikel(2000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel2);
+
+        assertEquals(2, lager.getArtikelAnzahl());
+    }
+
+    @Test
+    public void test_getLagerGroesse() {
+        Lager lager = new Lager();
+        assertEquals(10, lager.getLagerGroesse());
+
+        Lager lager2 = new Lager(20);
+        assertEquals(20, lager2.getLagerGroesse());
     }
 }

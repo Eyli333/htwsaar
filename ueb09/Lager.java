@@ -10,7 +10,11 @@
 public final class Lager {
     private Artikel[] lager;
     private static final int STANDARD_GROESSE = 10;
-
+    private static final int ART_NR_WIDTH = 4;    
+    private static final int BESCHREIBUNG_WIDTH = 50;
+    private static final int PREIS_WIDTH = 10;
+    private static final int BESTAND_WIDTH = 10;
+    private static final int GESAMT_WIDTH = 10;
 
     /**
      * Constructor that creates a Lager object with a given maximum number of articles that can be stored in the array.
@@ -167,7 +171,7 @@ public final class Lager {
      * @return the quantity of Artikel in the array lager
      */
     public final int getArtikelAnzahl(){
-        TestUtils.checkIfLagerIsEmpty(lager); //jsp
+        TestUtils.checkIfLagerIsEmpty(lager);
 
         int count = 0;
         for (int i = 0; i < lager.length; i++) {
@@ -234,12 +238,8 @@ public final class Lager {
         TestUtils.checkIfLagerIsEmpty(lager);    
         double sum = 0;    
         StringBuilder output = new StringBuilder();    
-        int artNrWidth = 4;    
-        int beschreibungWidth = 50;    
-        int preisWidth = 10;    
-        int bestandWidth = 10;    
-        int gesamtWidth = 10;    
-        int lineWidth = artNrWidth + beschreibungWidth + preisWidth + bestandWidth + gesamtWidth + 4;    
+           
+        int lineWidth = ART_NR_WIDTH + BESCHREIBUNG_WIDTH + PREIS_WIDTH + BESTAND_WIDTH + GESAMT_WIDTH + 4;
         String line = new String(new char[lineWidth]).replace("\0", "-");    
         output.append("ArtNr" + " " + "Beschreibung" + " " + "Preis" + " " + "Bestand" + " " + "Gesamt").append("\n");
         output.append(line).append("\n");    
