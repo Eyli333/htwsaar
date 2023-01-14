@@ -12,22 +12,22 @@
 import java.util.Objects;
 
 public final class Buch extends Artikel {
-    private String title;
+    private String titel;
     private String author;
     private String verlag;
 
     private static final String ARTIKEL_ART = "Medien";
 
-    public Buch(int artikelNr, int bestand, double preis, String title, String author, String verlag) {
+    public Buch(int artikelNr, int bestand, double preis, String titel, String author, String verlag) {
         super(artikelNr, ARTIKEL_ART, bestand, preis);
-        setTitle(title);
+        setTitel(titel);
         setAuthor(author);
         setVerlag(verlag);
     }
 
-    public final void setTitle(String title) {
-        TestUtils.checkIfEmpty(title);
-        this.title = title;
+    public final void setTitel(String titel) {
+        TestUtils.checkIfEmpty(titel);
+        this.titel = titel;
     }
 
     public final void setAuthor(String author) {
@@ -40,8 +40,8 @@ public final class Buch extends Artikel {
         this.verlag = verlag;
     }
 
-    public final String getTitle() {
-        return title;
+    public final String getTitel() {
+        return titel;
     }
 
     public final String getAuthor() {
@@ -54,12 +54,12 @@ public final class Buch extends Artikel {
 
     @Override
     public final String getBeschreibung() {
-        return author + ": " + title;
+        return author + ": " + titel;
     }
 
     @Override
     public final String toString() {
-        return super.toString() + " Buch title: " + title + ", author: " + author + ", verlag: " + verlag;
+        return super.toString() + ", Buch titel: " + titel + ", author: " + author + ", verlag: " + verlag;
     }
 
     @Override
@@ -76,14 +76,14 @@ public final class Buch extends Artikel {
         
         Buch buch = (Buch) object;
         
-        return Objects.equals(title, buch.title) &&
+        return Objects.equals(titel, buch.titel) &&
             Objects.equals(author, buch.author) &&
             Objects.equals(verlag, buch.verlag);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), title, author, verlag);
+        return Objects.hash(super.hashCode(), titel, author, verlag);
     }
 }
 

@@ -17,7 +17,7 @@ public final class Lager {
      * @param maxArtikel The maximum number of articles that can be stored in the array.
      */
     public Lager(int maxArtikel) {
-        TestUtils.checkGreaterThan(maxArtikel, 1, "lager");
+        TestUtils.checkGreaterThan(maxArtikel, 0, "lager");
 
         lager = new Artikel[maxArtikel];
         for (int i = 0; i < lager.length; i++) {

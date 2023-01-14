@@ -59,7 +59,7 @@ public final class CD extends Artikel {
 
     @Override
     public final String toString(){
-        return super.toString() + " CD interpret: " + interpret + ", titel: " + titel + ", anzahlTitel: " + anzahlTitel;
+        return super.toString() + ", CD interpret: " + interpret + ", titel: " + titel + ", anzahlTitel: " + anzahlTitel;
     }
 
     @Override

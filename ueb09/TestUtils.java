@@ -147,7 +147,7 @@ public class TestUtils {
      * @throws IllegalArgumentException if the input is lower than the limit
      */
     public static void checkGreaterThan(int anzahl, int number, String string) {
-        if (anzahl < number) {
+        if (anzahl < number || anzahl == number) {
             if(string.equals("lager")){
                 throw new IllegalArgumentException("Das Lager muss mindestens ein Artikel enthalten können.");
             }

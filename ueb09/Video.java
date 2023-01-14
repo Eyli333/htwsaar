@@ -31,7 +31,7 @@ public final class Video extends Artikel {
      */
     public Video(int artikelNr, int bestand, double preis, String titel, int spieldauer, int jahr) {
         super(artikelNr, ARTIKEL_ART, bestand, preis);
-        setTitle(titel);
+        setTitel(titel);
         setSpieldauer(spieldauer);
         setJahr(jahr);
     }
@@ -40,7 +40,7 @@ public final class Video extends Artikel {
      * Sets the titel of this Video.
      * @param titel the titel to set.
      */
-    public final void setTitle(String titel) {
+    public final void setTitel(String titel) {
         TestUtils.checkIfEmpty(titel);
         this.titel = titel;
     }
@@ -50,7 +50,7 @@ public final class Video extends Artikel {
      * @param spieldauer the playtime to set.
      */
     public final void setSpieldauer(int spieldauer) {
-        TestUtils.checkGreaterThan(spieldauer, 1, "spieldauer");
+        TestUtils.checkGreaterThan(spieldauer, 0, "spieldauer");
         this.spieldauer = spieldauer;
     }
 
@@ -67,7 +67,7 @@ public final class Video extends Artikel {
      * Sets the year of this Video.
      * @param jahr the year to set.
      */
-    public final String getTitle() {
+    public final String getTitel() {
         return titel;
     }
 
@@ -102,7 +102,7 @@ public final class Video extends Artikel {
      */
     @Override
     public final String toString() {
-        return super.toString() + " Video titel: " + titel + ", spieldauer: " + spieldauer + ", jahr: " + jahr;
+        return super.toString() + ", Video titel: " + titel + ", spieldauer: " + spieldauer + ", jahr: " + jahr;
     }
 
     /**
