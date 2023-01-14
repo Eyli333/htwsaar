@@ -191,6 +191,13 @@ public final class Lager {
         return lager.length;
     }
 
+    public final int getFreierPlatzImLager(){
+        int count = getArtikelAnzahl();
+        int size = getLagerGroesse();
+
+        return size - count;
+    }
+
     /**
      * This method sort the Null in the array to the end 
      */

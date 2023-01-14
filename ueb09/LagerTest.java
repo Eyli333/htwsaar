@@ -337,4 +337,31 @@ public class LagerTest {
         Lager lager2 = new Lager(20);
         assertEquals(20, lager2.getLagerGroesse());
     }
+
+    @Test
+    public void test_getFreierPlatzILager() {
+        Lager lager = new Lager();
+
+        Artikel artikel = new Artikel(1000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel);
+
+        Artikel artikel2 = new Artikel(2000, "Test article", 0, 1);
+        lager.legeAnArtikel(artikel2);
+
+        assertEquals(8, lager.getFreierPlatzImLager());
+
+
+        Lager lager2 = new Lager(20);
+        
+        Artikel artikel3 = new Artikel(3000, "Test article", 0, 1);
+        lager2.legeAnArtikel(artikel3);
+
+        Artikel artikel4 = new Artikel(4000, "Test article", 0, 1);
+        lager2.legeAnArtikel(artikel4);
+
+        Artikel artikel5 = new Artikel(5000, "Test article", 0, 1);
+        lager2.legeAnArtikel(artikel5);
+
+        assertEquals(17, lager2.getFreierPlatzImLager());
+    }
 }
