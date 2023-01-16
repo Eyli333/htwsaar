@@ -62,7 +62,7 @@ public final class Lager {
         TestUtils.checkIfNotInLager(artikelNr, lager);
 
         for (int i = 0; i < lager.length; i++) {
-            if (lager[i].getArtikelNr() == artikelNr) {
+            if (lager[i] != null && lager[i].getArtikelNr() == artikelNr) {
                 lager[i] = null;
                 break;
             }
@@ -202,9 +202,12 @@ public final class Lager {
      * This method sort the Null in the array to the end 
      */
     public final void sortLager() {
-        for (int i = 0; i < lager.length; i++) {
+
+        int lagerLaenge = getLagerGroesse();
+
+        for (int i = 0; i < lagerLaenge; i++) {
             if (lager[i] == null) {
-                for (int j = i; j < lager.length; j++) {
+                for (int j = i; j < lagerLaenge; j++) {
                     if (lager[j] != null) {
                         lager[i] = lager[j];
                         lager[j] = null;
