@@ -104,8 +104,7 @@ public class TestUtils {
             }
         }
         if (count == 0){
-            throw new IllegalArgumentException("Das Lager ist leer, wenn Sie an dem Lager aederungen vornehmen wollen," + "\n"
-                    + "muessen Sie erst ein Artikel hinzufuegen.");
+            throw new IllegalArgumentException("Das Lager ist leer. Sie muessen erstmal Artikel hinzufuegen.");
         }
     }
 

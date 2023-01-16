@@ -114,7 +114,7 @@ public final class CD extends Artikel {
         if (this == object){
             return true;
         }
-        if (object == null || getClass() != object.getClass()){ 
+        if (object == null || !(object instanceof CD)){
             return false;
         }
         if (!super.equals(object)){ 

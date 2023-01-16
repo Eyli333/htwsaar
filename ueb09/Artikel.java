@@ -179,7 +179,7 @@ public class Artikel {
         if (this == obj){
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()){ 
+        if (obj == null || !(obj instanceof Artikel)) {
             return false;
         }
         Artikel artikel = (Artikel) obj;

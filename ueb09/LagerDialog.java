@@ -337,15 +337,11 @@ public class LagerDialog {
         System.out.print(">>> ");
         String art = EingabeUtils.scanString(scanner);
 
-        System.out.println("Geben Sie den Bestand ein:");
-        System.out.print(">>> ");
-        int bestand = EingabeUtils.scanInt(scanner);
-
         System.out.println("Geben Sie den Preis ein:");
         System.out.print(">>> ");
         double preis = EingabeUtils.scanDouble(scanner);
 
-        artikel = new Artikel(artikelNr, art, bestand, preis);
+        artikel = new Artikel(artikelNr, art, preis);
         lager.legeAnArtikel(artikel);
     }
 

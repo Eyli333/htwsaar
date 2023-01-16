@@ -12,9 +12,9 @@ public final class Lager {
     private static final int STANDARD_GROESSE = 10;
     private static final int ART_NR_WIDTH = 5;    
     private static final int BESCHREIBUNG_WIDTH = 42;
-    private static final int PREIS_WIDTH = 6;
+    private static final int PREIS_WIDTH = 10;
     private static final int BESTAND_WIDTH = 11;
-    private static final int GESAMT_WIDTH = 9;
+    private static final int GESAMT_WIDTH = 16;
     private static final int GESAMTWERT_WIDTH = 11;
 
     /**
